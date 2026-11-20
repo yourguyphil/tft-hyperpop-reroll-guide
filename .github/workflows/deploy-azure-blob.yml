@@ -1,0 +1,37 @@
+name: Deploy to Azure Blob static website
+
+# Uploads the site to the $web container of an Azure Storage account on every push to main.
+# Setup: Repo → Settings → Secrets and variables → Actions → add AZURE_STORAGE_CONNECTION_STRING
+# (Storage account → Security + networking → Access keys → Connection string).
+# The job is skipped if the secret isn't set.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check secret
+        id: check
+        run: |
+          if [ -z "$AZURE_STORAGE_CONNECTION_STRING" ]; then
+            echo "AZURE_STORAGE_CONNECTION_STRING not set, skipping deploy."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload site to $web
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          az storage blob upload-batch \
+            --destination '$web' \
+            --source . \
+            --overwrite \
+            --exclude-pattern "deploy/*" --exclude-pattern "tools/*" --exclude-pattern "print/*" --exclude-pattern ".git/*" --exclude-pattern ".github/*" \
+            --exclude-pattern "*.md" --exclude-pattern ".gitignore"

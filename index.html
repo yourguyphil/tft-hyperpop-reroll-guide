@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hyperpop Reroll Guide · TFT Set 19</title>
+<meta name="description" content="Force Hyperpop Reroll every game: a visual playbook for TFT Set 19 Prismatic Tour. 1-cost reroll, 3-star Ziggs + Kobuko, Seraphine for Tear items.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b0f17">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Hyperpop">
+<meta property="og:title" content="Hyperpop Reroll Guide">
+<meta property="og:image" content="assets/icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f17; --bg2:#111827; --panel:#151d2b; --panel2:#1b2536; --line:#26324a;
+  --text:#e6ecf5; --muted:#93a1b8; --dim:#64738c;
+  --teal:#3ff0c8; --teal2:#0fae8f; --tealbg:rgba(63,240,200,.11);
+  --red:#ff5fd8; --red2:#d1259f; --redbg:rgba(255,95,216,.10);
+  --gold:#f5c451; --tank:#7aa2ff; --tankbg:rgba(122,162,255,.12);
+  --c1:#9aa4b2; --c2:#27c46b; --c3:#2f8cff; --c4:#c04bff; --c5:#ffb020; --c7:#ff4f6d;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 Inter,system-ui,Segoe UI,Roboto,sans-serif;
+  background-image:radial-gradient(1200px 600px at 15% -10%,rgba(63,240,200,.13),transparent 60%),
+                   radial-gradient(1000px 600px at 95% 0%,rgba(255,95,216,.14),transparent 60%);}
+img{display:block;max-width:100%}
+a{color:var(--teal)}
+h1,h2,h3{font-family:Cinzel,Georgia,serif;letter-spacing:.02em;margin:0}
+h2{font-size:clamp(24px,3.2vw,34px)}
+h3{font-size:19px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:56px 0 24px}
+.kicker{font:700 12px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.lead{color:var(--muted);max-width:760px;margin:10px 0 24px}
+.panel{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.grid{display:grid;gap:16px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);white-space:nowrap}
+.pill img{width:16px;height:16px}
+.p-teal{color:var(--teal);border-color:rgba(46,230,214,.4);background:var(--tealbg)}
+.unit .plans .pill{background:#0b0f17;font-size:12px;padding:3px 8px}
+.p-red{color:var(--red);border-color:rgba(255,90,60,.4);background:var(--redbg)}
+.p-tank{color:var(--tank);border-color:rgba(122,162,255,.4);background:var(--tankbg)}
+.p-gold{color:var(--gold);border-color:rgba(245,196,81,.4);background:rgba(245,196,81,.08)}
+.muted{color:var(--muted)} .dim{color:var(--dim)}
+.small{font-size:13px}
+
+/* nav */
+nav.top{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:18px;height:56px;overflow-x:auto}
+nav.top .brand{display:flex;align-items:center;gap:8px;font:800 15px Cinzel;color:var(--text);text-decoration:none;white-space:nowrap}
+nav.top .brand img{width:26px;height:26px}
+nav.top .wrap>*{flex-shrink:0}
+nav.top .brand img{max-width:none}
+nav.top a.l{color:var(--muted);text-decoration:none;font-weight:600;font-size:13px;white-space:nowrap}
+nav.top a.l:hover{color:var(--text)}
+
+/* hero */
+.hero{padding:56px 20px 20px;position:relative}
+.hero h1{font-size:clamp(36px,6vw,68px);line-height:1.02;font-weight:800}
+.hero h1 .t{background:linear-gradient(90deg,var(--teal),#c6ff7a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .r{background:linear-gradient(90deg,var(--red),#ffc2e1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:18px;color:var(--muted);max-width:720px;margin:16px 0 26px}
+.hero-art{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.hero-art img{width:84px;height:84px;border-radius:14px;border:2px solid var(--line);object-fit:cover;transition:transform .2s}
+.hero-art img:hover{transform:translateY(-4px) scale(1.04)}
+
+/* fork */
+.fork{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch}
+.fork .q{align-self:center;text-align:center;padding:16px;border-radius:50%;width:150px;height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  background:radial-gradient(circle,#1e2a3f,#0f1622);border:2px solid var(--line);box-shadow:0 0 40px rgba(46,230,214,.12),0 0 40px rgba(255,90,60,.12) inset}
+.fork .q b{font:800 15px Cinzel}
+.path{border-radius:var(--radius);padding:22px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.path.teal{background:linear-gradient(160deg,rgba(46,230,214,.16),rgba(15,22,34,.95) 55%);border-color:rgba(46,230,214,.45)}
+.path.red{background:linear-gradient(200deg,rgba(255,90,60,.18),rgba(15,22,34,.95) 55%);border-color:rgba(255,90,60,.45)}
+.path .bgart{position:absolute;right:-30px;top:-30px;width:210px;height:210px;opacity:.20;border-radius:50%;object-fit:cover;filter:saturate(1.2)}
+.path h3{font-size:24px;margin-bottom:4px;position:relative}
+.path .if{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;position:relative}
+.path.teal .if{color:var(--teal)} .path.red .if{color:var(--red)}
+.comps{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0;position:relative}
+.ic{width:44px;height:44px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:#0b111b}
+.ic.sm{width:30px;height:30px;border-radius:7px}
+.ic.xs{width:22px;height:22px;border-radius:5px}
+.path ul{margin:8px 0 0;padding-left:18px;position:relative} .path li{margin:4px 0}
+.rule{margin-top:16px;padding:14px 16px;border-radius:12px;background:var(--panel2);border:1px dashed var(--line);display:flex;gap:12px;align-items:flex-start}
+.rule .n{font:800 22px Cinzel;color:var(--gold);line-height:1}
+
+/* trait track */
+.track{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.bp{border-radius:14px;padding:16px;background:var(--panel2);border:1px solid var(--line);position:relative}
+.bp .num{font:800 34px Cinzel;color:var(--gold);line-height:1}
+.bp.hot{border-color:rgba(245,196,81,.6);box-shadow:0 0 0 1px rgba(245,196,81,.25),0 10px 30px rgba(245,196,81,.08)}
+.bp .tag{position:absolute;top:12px;right:12px}
+
+/* unit cards */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.fbtn{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--muted);padding:7px 13px;border-radius:999px;font:600 13px Inter}
+.fbtn.on{color:var(--text);border-color:var(--teal);background:var(--tealbg)}
+.units{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.unit{border-radius:var(--radius);overflow:hidden;background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.unit:hover{transform:translateY(-3px)}
+.unit .art{position:relative;aspect-ratio:16/10;overflow:hidden}
+.unit .art img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.unit .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(11,15,23,.95))}
+.unit .cost{position:absolute;top:10px;left:10px;z-index:2;font:800 13px Inter;padding:3px 9px;border-radius:8px;color:#0b0f17}
+.unit .nm{position:absolute;left:14px;bottom:10px;z-index:2;font:800 22px Cinzel;text-shadow:0 2px 10px #000}
+.unit .plans{position:absolute;top:10px;right:10px;z-index:2;display:flex;gap:5px}
+.unit .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.traits{display:flex;gap:6px;flex-wrap:wrap}
+.buff{font-size:13px;padding:8px 10px;border-radius:10px;background:var(--panel2);border-left:4px solid var(--gold)}
+.buff b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.role{font-size:13px;color:var(--muted)}
+.unit .items{display:flex;gap:6px;align-items:center;margin-top:auto;padding-top:4px}
+.k1{border-color:var(--c1)} .k2{border-color:var(--c2)} .k3{border-color:var(--c3)} .k4{border-color:var(--c4)} .k5{border-color:var(--c5)}
+.b1{background:var(--c1)} .b2{background:var(--c2)} .b3{background:var(--c3)} .b4{background:var(--c4)} .b5{background:var(--c5)}
+
+/* plans */
+.plan-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.plan-head .big{width:96px;height:96px;border-radius:20px;object-fit:cover;border:3px solid}
+.plan.teal .big{border-color:var(--teal)} .plan.red .big{border-color:var(--red)}
+.plan.teal h2{color:var(--teal)} .plan.red h2{color:var(--red)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.stage{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:14px;position:relative}
+.stage .st{font:800 12px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.stage h4{margin:4px 0 8px;font:700 16px Inter}
+.stage ul{margin:0;padding-left:18px;font-size:14.5px;color:#dbe3ef} .stage li{margin:8px 0}
+.stage .row{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}
+.plan.teal .stage{border-top:3px solid var(--teal)} .plan.red .stage{border-top:3px solid var(--red)}
+
+.two{display:grid;grid-template-columns:1.15fr 1fr;gap:18px}
+.carry{display:flex;gap:14px;align-items:center;padding:12px;border-radius:14px;background:var(--panel2);border:1px solid var(--line);margin-bottom:10px}
+.carry .por{width:64px;height:64px;border-radius:12px;object-fit:cover;border:2px solid}
+.carry .who{min-width:110px}
+.carry .who b{display:block;font:800 16px Cinzel}
+.recipes{display:flex;gap:10px;flex-wrap:wrap}
+.rec{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:var(--muted);text-align:center;width:72px}
+.rec .eq{display:flex;align-items:center;gap:2px}
+.rec .eq span{font-weight:800;color:var(--dim);font-size:11px}
+.rec > img.ic{width:46px;height:46px}
+.rec .eq .ic{width:22px;height:22px;border-radius:5px}
+.alt{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* hex board */
+.board{display:flex;flex-direction:column;gap:0;padding:14px 6px 10px;overflow:hidden;background:radial-gradient(ellipse at top,#1a2538,#0e1520);border-radius:14px;border:1px solid var(--line)}
+.board .lbl{font:700 11px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center;margin:0 0 20px}
+.hrow{display:flex;justify-content:center;gap:6px;margin-top:-10px}
+.hrow:first-of-type{margin-top:0}
+.hrow{padding-right:31px}.hrow.odd{padding-right:0;padding-left:31px}
+.hex{width:56px;height:64px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:#1d2940;position:relative;display:flex;align-items:center;justify-content:center}
+.hex.u{background:var(--c1)}
+.hex.u img{width:52px;height:60px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);object-fit:cover}
+.cell{position:relative;width:56px}
+.cell .stars{position:absolute;top:-6px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:11px;letter-spacing:-1px;text-shadow:0 1px 3px #000;z-index:3;white-space:nowrap}
+.cell .its{position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);display:flex;gap:1px;z-index:3}
+.cell .its img{width:15px;height:15px;border-radius:3px;border:1px solid #000}
+.cell .tip{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:#000;padding:3px 7px;border-radius:6px;font-size:11px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;z-index:9}
+.cell:hover .tip{opacity:1}
+.board{position:relative}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--muted);justify-content:center}
+
+/* item grid */
+.igrid{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px;max-width:820px}
+.igrid .h,.igrid .c{display:flex;align-items:center;justify-content:center;border-radius:10px;aspect-ratio:1;position:relative}
+.igrid .h{background:var(--panel2);border:1px solid var(--line);cursor:pointer}
+.igrid .h.on{border-color:var(--gold);box-shadow:0 0 0 2px rgba(245,196,81,.35)}
+.igrid .h img{width:72%;height:72%;border-radius:8px}
+.igrid .c{background:#0f1622;border:1px solid var(--line);transition:opacity .15s,transform .15s}
+.igrid .c img{width:86%;height:86%;border-radius:8px}
+.igrid .c.dim{opacity:.13}
+.igrid .c.P{border-color:rgba(46,230,214,.75);box-shadow:inset 0 0 0 1px rgba(46,230,214,.35)}
+.igrid .c.B{border-color:rgba(255,90,60,.75);box-shadow:inset 0 0 0 1px rgba(255,90,60,.35)}
+.igrid .c.T{border-color:rgba(122,162,255,.75)}
+.igrid .c.PB{border-image:linear-gradient(135deg,var(--teal),var(--red)) 1}
+.igrid .c:hover{transform:scale(1.08);z-index:4}
+.igrid .c .dot{position:absolute;top:3px;right:3px;width:8px;height:8px;border-radius:50%}
+.iinfo{min-height:120px}
+.ilayout{display:grid;grid-template-columns:minmax(0,820px) 1fr;gap:20px;align-items:start}
+
+/* advisor */
+.adv{display:grid;grid-template-columns:1fr 1.1fr;gap:18px}
+.bench{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cbtn{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;user-select:none}
+.cbtn img{width:46px;height:46px;border-radius:9px}
+.cbtn .ctl{display:flex;align-items:center;gap:8px}
+.cbtn button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);background:#0f1622;color:var(--text);font:700 15px Inter;cursor:pointer}
+.cbtn .cnt{font:800 16px Inter;min-width:14px;text-align:center}
+.cbtn.has{border-color:var(--gold)}
+.cbtn .nm{font-size:11px;color:var(--muted);text-align:center;line-height:1.2}
+.verdict{border-radius:14px;padding:18px;border:1px solid var(--line);background:var(--panel2);margin-bottom:12px;display:flex;gap:14px;align-items:center}
+.verdict img{width:72px;height:72px;border-radius:14px;object-fit:cover}
+.verdict.teal{border-color:var(--teal);background:var(--tealbg)}
+.verdict.red{border-color:var(--red);background:var(--redbg)}
+.verdict h3{font-size:22px}
+.build{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:#0f1622;border:1px solid var(--line);margin-bottom:6px;font-size:13.5px}
+.build .eq{display:flex;align-items:center;gap:3px;color:var(--dim);font-weight:800}
+.build .who{margin-left:auto}
+
+/* drills */
+.drills{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{perspective:1000px;height:330px;cursor:pointer}
+.card .in{position:relative;width:100%;height:100%;transition:transform .5s;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
+.card.flip .in{transform:rotateY(180deg)}
+.card .f,.card .b{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.card .f img{width:100%;height:100%;object-fit:cover}
+.card .f .q{position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.9));font:700 15px Inter}
+.card .b{transform:rotateY(180deg);background:var(--panel);padding:20px;display:flex;flex-direction:column;gap:10px}
+.btnrow{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 14px;border-radius:10px;font:700 13px Inter}
+.btn.pri{background:linear-gradient(90deg,var(--teal2),#0b7c88);border-color:transparent}
+.rq{display:flex;align-items:center;gap:16px}
+.rq .target{width:96px;height:96px;border-radius:16px;border:2px solid var(--gold)}
+.rq .slots{display:flex;gap:8px;align-items:center;font:800 20px Inter;color:var(--dim)}
+.rq .slot{width:56px;height:56px;border-radius:12px;border:2px dashed var(--line);display:flex;align-items:center;justify-content:center}
+.rq .slot img{width:52px;height:52px;border-radius:10px}
+.pick{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:14px}
+.pick button{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:5px;cursor:pointer}
+.pick button img{width:100%;border-radius:7px}
+.fb{min-height:24px;font-weight:700;margin-top:10px}
+.ok{color:#4ade80} .bad{color:#f87171}
+.score{font:800 13px Inter;color:var(--muted)}
+
+/* misc */
+.callout{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:rgba(245,196,81,.07);border:1px solid rgba(245,196,81,.35);margin:14px 0}
+.callout .i{font-size:20px}
+.aug{display:flex;flex-wrap:wrap;gap:8px}
+footer{border-top:1px solid var(--line);margin-top:50px;padding:28px 0 50px;color:var(--dim);font-size:12.5px}
+footer a{color:var(--muted)}
+/* simple layout */
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.choice.main{box-shadow:0 0 0 1px rgba(63,240,200,.3),0 14px 40px rgba(63,240,200,.12)}
+
+.choice{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:20px;text-decoration:none;color:var(--text);border:2px solid var(--line);transition:transform .15s}
+.choice:hover{transform:translateY(-3px)}
+.choice.teal{background:linear-gradient(120deg,rgba(63,240,200,.18),rgba(15,22,34,.9) 70%);border-color:rgba(63,240,200,.55)}
+.choice.red{background:linear-gradient(120deg,rgba(255,95,216,.18),rgba(15,22,34,.9) 70%);border-color:rgba(255,95,216,.55)}
+.choice .trig{display:grid;grid-template-columns:repeat(2,auto);gap:4px}
+.choice .trig .ic{width:34px;height:34px}
+.choice .trig .ic.big{width:72px;height:72px;border-radius:14px}
+.choice .ar{font:800 30px Inter;color:var(--dim)}
+.choice .por{width:110px;height:110px;border-radius:18px;object-fit:cover;border:3px solid}
+.choice.teal .por{border-color:var(--teal)} .choice.red .por{border-color:var(--red)}
+.choice .if{font:800 12px Inter;letter-spacing:.16em;text-transform:uppercase}
+.choice.teal .if{color:var(--teal)} .choice.red .if{color:var(--red)}
+.choice .nm{font:800 30px Cinzel;line-height:1.1;margin:4px 0}
+.choice .sm{color:var(--muted);font-size:14px}
+ul.bul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+ul.bul li{display:flex;align-items:center;gap:14px;font-size:16px;padding:14px 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+ul.bul li .ics{display:flex;gap:5px;flex-shrink:0}
+ul.bul li .ic{width:34px;height:34px}
+ul.bul.two-col{grid-template-columns:1fr 1fr}
+ul.bul.tight li{padding:10px 14px;font-size:14.5px}
+.uic{width:34px;height:34px;border-radius:8px;border:2px solid}
+.tag-n{font:800 22px Cinzel;color:var(--gold);min-width:34px;text-align:center}
+.unit .art img.shop{position:absolute;right:10px;bottom:10px;z-index:2;width:46px;height:46px;border-radius:10px;border:2px solid}
+@media (max-width:900px){.choose,ul.bul.two-col{grid-template-columns:1fr}.choice .por{width:84px;height:84px}}
+
+/* augments */
+.augs{columns:2;column-gap:16px}
+.ag{break-inside:avoid;margin-bottom:18px}
+.ag h3{font:800 15px Inter;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.ag ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ag li{display:flex;align-items:center;gap:12px;padding:10px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:12px}
+.ag li img{width:42px;height:42px;border-radius:10px;flex-shrink:0;background:#0b111b}
+.ag li .t{flex:1;min-width:0}
+.ag li b{display:block;font-size:14.5px}
+.ag li span.d{font-size:13px;color:var(--muted)}
+.ag li .tags{display:flex;gap:4px;flex-shrink:0}
+.ag li .pill{font-size:10.5px;padding:2px 7px}
+.ag.star li{border-color:rgba(245,196,81,.5);background:rgba(245,196,81,.07)}
+@media (max-width:900px){.augs{columns:1}}
+
+/* item ranking */
+.rankbar{display:flex;align-items:center;gap:10px;margin:0 0 12px;flex-wrap:wrap}
+.rankbar .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.rankbar .seg button{background:transparent;border:0;color:var(--muted);font:700 13px Inter;padding:7px 13px;cursor:pointer}
+.rankbar .seg button.on[data-r=A]{background:var(--tealbg);color:var(--teal)}
+.rankbar .seg button.on[data-r=B]{background:var(--redbg);color:var(--red)}
+.rankbar .seg button.on[data-r=all]{background:var(--panel2);color:var(--text)}
+.igrid .c.unranked{opacity:.32}
+.igrid .c .rk{position:absolute;top:-6px;left:-6px;z-index:3;min-width:22px;height:22px;padding:0 5px;border-radius:11px;background:#0b0f17;border:2px solid var(--muted);color:var(--text);font:800 11.5px/18px Inter;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.6)}
+.igrid .c .rk.star{background:var(--gold);border-color:#fff3c4;color:#1a1300;min-width:30px}
+.igrid .c.top{box-shadow:0 0 0 2px var(--gold),0 0 18px rgba(245,196,81,.35)!important;opacity:1}
+.ranklist{margin-top:14px}
+.ranklist h3{font:800 14px Inter;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.ranklist ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ranklist li{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:10px;background:var(--panel2);border:1px solid var(--line);font-size:13px;cursor:pointer}
+.ranklist li.star{border-color:rgba(245,196,81,.55);background:rgba(245,196,81,.07)}
+.ranklist li .n{font:800 13px Inter;min-width:26px;text-align:center;color:var(--muted)}
+.ranklist li.star .n{color:var(--gold)}
+.ranklist li img{width:26px;height:26px;border-radius:6px}
+.ranklist li .rcp{margin-left:auto;font-size:11.5px;color:var(--dim);white-space:nowrap}
+.ranklist li .who{width:22px;height:22px;border-radius:6px;border:2px solid}
+@media (max-width:700px){.igrid .c .rk{min-width:17px;height:17px;font-size:9.5px;line-height:13px;top:-4px;left:-4px;padding:0 3px}.igrid .c .rk.star{min-width:24px}}
+
+/* floating section menu */
+#fab{position:fixed;right:18px;bottom:calc(var(--dockH,46px) + 16px);z-index:80;width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;
+  background:linear-gradient(135deg,#0fae8f,#d1259f);box-shadow:0 10px 30px rgba(0,0,0,.55),0 0 0 2px rgba(255,255,255,.08) inset;display:flex;align-items:center;justify-content:center;transition:transform .2s,bottom .2s}
+#fab:hover{transform:scale(1.06)}
+#fab span,#fab span::before,#fab span::after{display:block;width:24px;height:2.5px;border-radius:2px;background:#fff;position:relative;transition:transform .25s,background .2s}
+#fab span::before,#fab span::after{content:"";position:absolute;left:0}
+#fab span::before{top:-8px} #fab span::after{top:8px}
+body.menu-open #fab span{background:transparent}
+body.menu-open #fab span::before{transform:translateY(8px) rotate(45deg)}
+body.menu-open #fab span::after{transform:translateY(-8px) rotate(-45deg)}
+#menuBg{position:fixed;inset:0;z-index:70;background:rgba(5,8,13,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .2s}
+#menu{position:fixed;right:18px;bottom:88px;z-index:75;width:min(330px,calc(100vw - 36px));max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);overflow:auto;
+  background:rgba(17,24,39,.97);border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);
+  opacity:0;transform:translateY(12px) scale(.97);transform-origin:bottom right;pointer-events:none;transition:opacity .18s,transform .18s}
+body.menu-open #menuBg{opacity:1;pointer-events:auto}
+body.menu-open #menu{opacity:1;transform:none;pointer-events:auto}
+body.menu-open #fab{bottom:calc(16px + env(safe-area-inset-bottom))}
+#menu .mh{font:800 11px Inter;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);padding:6px 10px 8px}
+#menu a{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:12px;color:var(--text);text-decoration:none;font-weight:600;font-size:15px}
+#menu a:hover,#menu a:focus-visible{background:var(--panel2);outline:none}
+#menu a.cur{background:var(--panel2);box-shadow:inset 3px 0 0 var(--gold)}
+#menu .mi{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;background:#0b111b;border:2px solid var(--line);flex-shrink:0;overflow:hidden}
+#menu .mi img{width:100%;height:100%;object-fit:cover}
+#menu a small{margin-left:auto;color:var(--dim);font-size:11px;font-weight:700}
+#menu .sep{height:1px;background:var(--line);margin:6px 8px}
+#menu button.qrt{width:100%;display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:12px;border:0;background:transparent;color:var(--text);font:600 15px Inter;cursor:pointer;text-align:left}
+#menu button.qrt:hover{background:var(--panel2)}
+@media (max-width:700px){#fab{right:14px;width:54px;height:54px;bottom:calc(var(--dockH,46px) + 12px)}#menu{right:14px;bottom:calc(80px + env(safe-area-inset-bottom))}#menu a{padding:8px 10px}}
+@media print{#fab,#menu,#menuBg{display:none}}
+
+/* quick-ref dock */
+body{padding-bottom:var(--dockH,46px)}
+#qr{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(10,14,22,.97);backdrop-filter:blur(10px);border-top:2px solid var(--line);box-shadow:0 -12px 40px rgba(0,0,0,.5)}
+#qr .bar{display:flex;align-items:center;gap:10px;padding:7px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+#qr .bar b{font:800 14px Cinzel;letter-spacing:.04em;display:flex;align-items:center;gap:6px}
+#qr .bar b img{width:20px;height:20px}
+#qr .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+#qr .seg .sh{display:none}
+@media (max-width:700px){#qr .seg .sh{display:inline}}
+#qr .seg button{background:transparent;border:0;color:var(--muted);font:700 12px Inter;padding:5px 11px;cursor:pointer}
+#qr .seg button.on[data-p=all]{background:var(--panel2);color:var(--text)}
+#qr .seg button.on[data-p=A]{background:var(--tealbg);color:var(--teal)}
+#qr .seg button.on[data-p=B]{background:var(--redbg);color:var(--red)}
+#qr .costs{display:flex;gap:4px;margin-left:auto;font:800 11px Inter;align-items:center}
+#qr .costs span{padding:2px 7px;border-radius:6px;color:#0b0f17}
+#qr .tog{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:8px;font:700 12px Inter;padding:5px 10px;cursor:pointer}
+#qr .body{display:grid;grid-template-columns:1.05fr 1.05fr 1.05fr .9fr;gap:12px;padding:10px 16px 12px;max-height:44vh;overflow:auto}
+#qr.closed .body{display:none}
+.qg{border-radius:12px;padding:8px 10px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--line);transition:opacity .2s}
+.qg.off{opacity:.25}
+.qg h5{margin:0 0 6px;font:800 11px Inter;letter-spacing:.14em;text-transform:uppercase}
+.qu{padding:6px 0;border-top:1px solid rgba(255,255,255,.06)}
+.qu:first-of-type{border-top:0}
+.qu .hd{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.qu .hd img{width:30px;height:30px;border-radius:7px;border:2px solid}
+.qu .hd .n{font:800 14px Inter}
+.cc{font:800 11px Inter;padding:1px 7px;border-radius:6px;color:#0b0f17}
+.qu .hd .why{font-size:11.5px;color:var(--dim);margin-left:auto;text-align:right}
+.ql{display:flex;align-items:center;gap:5px;font-size:12.5px;padding:2px 0 2px 2px;white-space:nowrap}
+.ql img{width:20px;height:20px;border-radius:4px}
+.ql .o{color:var(--dim);font-weight:800}
+.ql .res{font-weight:700}
+.ql.bk{opacity:.7}
+.ql.bk::before{content:"alt";font:800 9px Inter;color:var(--dim);text-transform:uppercase;width:18px}
+.qfill{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.qfill div{display:flex;align-items:center;gap:6px;font-size:12px}
+.qfill img{width:26px;height:26px;border-radius:6px;border:2px solid}
+.qfill .cc{font-size:10px;padding:0 5px}
+@media (max-width:1100px){#qr .body{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){#qr .body{grid-template-columns:1fr}#qr .costs{display:none}}
+@media (max-width:900px){
+  .fork{grid-template-columns:1fr}.fork .q{margin:0 auto;width:120px;height:120px}
+  .track,.timeline{grid-template-columns:1fr 1fr}
+  .two,.adv,.drills,.ilayout{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .hrow{padding-right:21px}.hrow.odd{padding-left:21px}
+  .track,.timeline{grid-template-columns:1fr}
+  .bench{grid-template-columns:repeat(2,1fr)}
+  .hex,.cell{width:42px}.hex{height:48px}.hex.u img{width:38px;height:44px}
+}
+/* ---------- mobile ---------- */
+html,body{overflow-x:hidden;overflow-x:clip}
+.grid>*,.two>*,.adv>*,.drills>*,.ilayout>*,.fork>*,.choose>*,.track>*,.timeline>*{min-width:0}
+body{-webkit-tap-highlight-color:transparent}
+#qr{padding-bottom:env(safe-area-inset-bottom)}
+nav.top{padding-top:env(safe-area-inset-top)}
+@media (max-width:700px){
+  body{font-size:14.5px}
+  .wrap{padding:0 14px}
+  section{padding:34px 0 12px}
+  h2{font-size:24px}
+  nav.top .wrap{gap:14px;height:50px}
+  nav.top .brand span{display:none}
+  .hero{padding:26px 14px 6px}
+  .hero h1{font-size:36px}
+  .choose{gap:12px;margin-top:18px}
+  .choice{gap:10px;padding:12px 14px;border-radius:16px}
+  .choice .trig .ic{width:24px;height:24px}
+  .choice .trig .ic.big{width:44px;height:44px;border-radius:10px}
+  .choice .ar{font-size:18px}
+  .choice .por{width:68px;height:68px;border-radius:14px}
+  .choice .nm{font-size:22px}
+  .choice .sm{font-size:12.5px}
+  ul.bul{gap:8px}
+  ul.bul li{font-size:14px;padding:11px 12px;gap:10px;flex-wrap:wrap}
+  ul.bul li .ic,.uic{width:28px;height:28px}
+  .track{grid-template-columns:1fr 1fr;gap:8px}
+  .bp{padding:12px}.bp .num{font-size:26px}.bp h3{font-size:15px}
+  .timeline{grid-template-columns:1fr;gap:10px}
+  .plan-head .big{width:64px;height:64px;border-radius:14px}
+  .plan-head{gap:12px}
+  .panel{padding:14px}
+  .carry{gap:10px;padding:10px;align-items:flex-start}
+  .carry .por{width:44px;height:44px}
+  .rec{width:62px}.rec > img.ic{width:40px;height:40px}
+  /* units: compact 2-up */
+  .units{grid-template-columns:1fr 1fr;gap:10px}
+  .unit .art{aspect-ratio:1}
+  .unit .nm{font-size:16px;left:10px;bottom:8px}
+  .unit .art img.shop{width:30px;height:30px;right:6px;bottom:6px;border-radius:7px}
+  .unit .cost{font-size:11px;padding:2px 6px;top:6px;left:6px}
+  .unit .plans{top:6px;right:6px}
+  .unit .plans .pill{font-size:10px;padding:2px 6px}
+  .unit .body{padding:9px;gap:6px}
+  .unit .role{display:none}
+  .unit .traits .pill{font-size:10.5px;padding:2px 6px}
+  .buff{font-size:11.5px;padding:6px 8px}
+  .unit .items .ic{width:26px;height:26px}
+  .filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+  .fbtn{white-space:nowrap}
+  /* board */
+  .hex,.cell{width:40px}.hex{height:46px}.hex.u img{width:36px;height:42px}
+  .hrow{gap:4px;margin-top:-8px;padding-right:22px}.hrow.odd{padding-left:22px;padding-right:0}
+  .cell .its img{width:12px;height:12px}
+  /* items */
+  .igrid{gap:3px}.igrid .h,.igrid .c{border-radius:6px}
+  .iinfo{position:static}
+  .bench{grid-template-columns:repeat(4,1fr);gap:6px}
+  .cbtn{padding:8px 2px}.cbtn img{width:34px;height:34px}.cbtn .nm{display:none}
+  .cbtn button{width:24px;height:24px}
+  .cbtn .ctl{gap:4px}
+  .card{height:300px}
+  .pick{grid-template-columns:repeat(4,1fr)}
+  .rq .target{width:72px;height:72px}
+  /* quick-ref dock: swipeable groups */
+  #qr .bar{padding:6px 10px;gap:8px;flex-wrap:nowrap}
+  #qr .bar b span{display:none}
+  #qr .seg button{padding:5px 9px}
+  #qr .seg .lg{display:none}
+  #qr .tog{margin-left:auto}
+  #qr .body{display:flex;overflow-x:auto;overflow-y:auto;scroll-snap-type:x mandatory;gap:10px;padding:8px 10px 10px;max-height:31vh;-webkit-overflow-scrolling:touch}
+  .qg{flex:0 0 88%;scroll-snap-align:start;overflow-y:auto}
+  .ql{font-size:12px;gap:4px}
+  .ql img{width:18px;height:18px}
+  .qu .hd .why{font-size:10.5px}
+  #qr .dots{display:flex}
+}
+#qr .dots{display:none;justify-content:center;gap:5px;padding:0 0 6px}
+#qr .dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+#qr .dots i.on{background:var(--text)}
+#qr.closed .dots{display:none!important}
+@media (display-mode:standalone){nav.top{padding-top:max(env(safe-area-inset-top),0px)}}
+@media print{nav.top,.drills,#advisor{display:none}body{background:#fff;color:#000}}
+
+/* ---------- Malzahar site additions ---------- */
+.b7{background:var(--c7)}
+.statrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.pbe{margin-top:16px;padding:10px 14px;border-radius:12px;background:rgba(245,196,81,.07);border:1px solid rgba(245,196,81,.35);font-size:14px;max-width:760px}
+.note-s{margin:4px 0 6px;padding:9px 13px;border-radius:10px;background:var(--panel2);border:1px dashed var(--line);font-size:13px;color:var(--muted)}
+.choice .por.wide{width:190px;height:110px;object-fit:cover;object-position:center 30%}
+.choice .trig.row{display:flex;gap:5px;margin-top:8px}
+.choice .trig.row .ic{width:34px;height:34px}
+.pill img.tr{width:14px;height:14px}
+img.tr{object-fit:contain}
+.uic.tr{background:#0b111b;padding:4px}
+.unit .art img{object-position:center 25%}
+#qr .bar b img.tr{width:18px;height:18px}
+#menu .mi img.tr{object-fit:contain}
+@media (max-width:700px){.choice .por.wide{width:110px;height:72px}.choice .trig.row .ic{width:26px;height:26px}}
+
+/* ---------- Hyperpop additions ---------- */
+ol.unlock{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+ol.unlock li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:var(--panel);border:1px solid var(--line);font-size:14.5px}
+ol.unlock li .un{font:800 20px Cinzel;color:var(--gold);min-width:22px;text-align:center}
+ol.unlock li .uic{width:44px;height:44px;flex-shrink:0}
+#qr .body{grid-template-columns:1fr 1.15fr .95fr .9fr 1fr}
+.plan.red .stage{border-top-color:var(--red)}
+@media (max-width:900px){ol.unlock{grid-template-columns:1fr}}
+@media (max-width:1100px){#qr .body{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <a class="brand" href="#top"><img src="assets/icons/favicon-48.png" alt="" style="border-radius:7px"><span>Hyperpop Reroll Guide</span></a>
+  <a class="l" href="#fork">Rules</a>
+  <a class="l" href="#unlocks">Unlocks</a>
+  <a class="l" href="#trait">Traits</a>
+  <a class="l" href="#units">Units</a>
+  <a class="l" href="#plan">Game Plan</a>
+  <a class="l" href="#advisor">Item Advisor</a>
+  <a class="l" href="#items">Item Cheat Sheet</a>
+  <a class="l" href="#backup">Plan B · Renata</a>
+  <a class="l" href="#drills">Drills</a>
+  <a class="l" href="#augments">Augments</a>
+</div></nav>
+
+<header class="hero wrap" id="top">
+  <div class="kicker">TFT Set 19 · Prismatic Tour · PBE</div>
+  <h1><span class="t">Hyperpop</span> Reroll <span class="r">Guide</span></h1>
+  <div class="statrow">
+    <span class="pill p-gold">S tier · both sites</span>
+    <span class="pill">83.9% top 4</span>
+    <span class="pill">Avg place 2.53</span>
+    <span class="pill">41% win rate</span>
+    <span class="pill">EASY · 1-cost reroll</span>
+    <span class="dim small">PBE Diamond+ · tft.ninja · Nov 19</span>
+  </div>
+  <div class="choose">
+    <a class="choice teal main" href="#plan">
+      <img class="por wide" src="assets/units/ziggs.webp" alt="Ziggs">
+      <div><div class="if">No Tear → carry · 3★ · 1-cost</div><div class="nm">Ziggs</div>
+        <div class="trig row"><img class="ic" src="assets/items/guinsoosrageblade.png" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" alt=""><img class="ic" src="assets/items/hextechgunblade.png" alt=""></div></div>
+    </a>
+    <a class="choice red" href="#plan">
+      <img class="por wide" src="assets/units/seraphine.webp" alt="Seraphine">
+      <div><div class="if">Tear → carry · 3★ · 2-cost</div><div class="nm">Seraphine</div>
+        <div class="trig row"><img class="ic" src="assets/items/voidstaff.png" alt=""><img class="ic" src="assets/items/spearofshojin.png" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" alt=""></div></div>
+    </a>
+  </div>
+  <div class="pbe">⚠️ Set 19 is on the <b>PBE</b> (live around <b>Dec 2</b>, patch 19.1). Numbers and items can still change.</div>
+</header>
+
+<!-- ================= RULES ================= -->
+<section id="fork" style="padding-top:30px"><div class="wrap">
+  <div class="kicker">Rules</div>
+  <ul class="bul two-col">
+    <li><span class="ics" id="r1"></span><span><b>1-cost reroll.</b> Slow-roll above 50g at <b>Lvl 5</b> → 3★ Ziggs + 3★ Kobuko</span></li>
+    <li><span class="ics" id="r2"></span><span><b>Items pick the carry:</b> non-Tear → <b>Ziggs</b> · Tear → <b>Seraphine</b>, then Teemo</span></li>
+    <li><span class="ics" id="r3"></span><span><b>Unlock early:</b> 2★ Ziggs + an item → Kobuko · 4 rerolls before the stage 2 carousel → Seraphine</span></li>
+    <li><span class="ics" id="r4"></span><span><b>Someone else collecting Ziggs?</b> Go <a href="#backup">Plan B · Renata Guards</a></span></li>
+  </ul>
+</div></section>
+
+<!-- ================= UNLOCKS ================= -->
+<section id="unlocks"><div class="wrap">
+  <h2 style="margin-bottom:6px">🔓 Unlock path</h2>
+  <div class="note-s">Most of this comp starts locked. Each unlock is a quest; once done, the unit shows up in your next shop and stays in your pool.</div>
+  <ol class="unlock" id="unlockList"></ol>
+</div></section>
+
+<!-- ================= TRAITS ================= -->
+<section id="trait"><div class="wrap">
+  <h2 style="margin-bottom:18px"><img class="tr" src="assets/traits/hyperpop.svg" alt="" style="width:32px;height:32px;display:inline;vertical-align:-6px;margin-right:8px">Hyperpop <span class="dim" style="font-size:.6em">2 · 3 · 4 · 5</span></h2>
+  <div class="track">
+    <div class="bp"><div class="num">2</div><h3 style="margin:6px 0 4px">HP + AS</h3><div class="small muted">Hyperpop units gain Health + Attack Speed. Hype starts</div></div>
+    <div class="bp"><div class="num">3</div><h3 style="margin:6px 0 4px">Hype ×</h3><div class="small muted">More stats + Hype multiplier</div></div>
+    <div class="bp"><div class="num">4</div><h3 style="margin:6px 0 4px">Bigger ×</h3><div class="small muted">More stats, more Hype</div></div>
+    <div class="bp hot"><span class="tag pill p-gold">TARGET</span><div class="num">5</div><h3 style="margin:6px 0 4px">Max Hype</h3><div class="small muted">Biggest multiplier · Teemo is the 5th</div></div>
+  </div>
+  <ul class="bul tight two-col" style="margin-top:14px">
+    <li><span>🎤 <b>Hype:</b> after each player combat, Hyperpop units make <b>4 / 6 / 12 / 40 Hype</b> (1★/2★/3★/4★) + 1 per takedown</span></li>
+    <li><span>🎁 Every new <b>Hype Level</b> gives special rewards. <b>3★ units = way more Hype</b></span></li>
+  </ul>
+  <div class="kicker" style="margin-top:26px">Other traits on the board</div>
+  <ul class="bul tight two-col" id="otherTraits"></ul>
+</div></section>
+
+<!-- ================= UNITS ================= -->
+<section id="units"><div class="wrap">
+  <h2>Meet the Units</h2>
+  <div class="filters" id="unitFilters" style="margin-top:14px">
+    <button class="fbtn on" data-f="all">All</button>
+    <button class="fbtn" data-f="core">Final board</button>
+    <button class="fbtn" data-f="early">Early game</button>
+    <button class="fbtn" data-f="hyperpop">Hyperpop</button>
+    <button class="fbtn" data-f="backup">Plan B · Renata</button>
+  </div>
+  <div class="grid units" id="unitGrid"></div>
+</div></section>
+
+<!-- ================= GAME PLAN ================= -->
+<section id="plan" class="plan teal"><div class="wrap">
+  <div class="plan-head">
+    <img class="big" src="assets/units-sq/ziggs.png" alt="Ziggs">
+    <div>
+      <div class="kicker">Plan A · every game · 1-cost reroll · Lvl 5 slow roll</div>
+      <h2>Game Plan</h2>
+      <div class="muted"><span class="pill p-teal">3★ Ziggs</span> <span class="pill p-tank">3★ Kobuko</span> <span class="pill p-red">3★ Seraphine</span> <span class="pill p-gold">Teemo</span></div>
+    </div>
+  </div>
+  <div class="note-s">📝 Lvl 5 slow roll is from Mobalytics; the stage-by-stage timings around it are my plan (TFT Academy's tips are still "coming soon").</div>
+
+  <div class="timeline" id="tl"></div>
+
+  <div class="two">
+    <div class="panel">
+      <h3 style="margin-bottom:12px">Who holds what</h3>
+      <div id="carries"></div>
+    </div>
+    <div class="panel">
+      <h3 style="margin-bottom:10px">Final board · Level 8 <span class="small dim">(suggested layout)</span></h3>
+      <div id="board8"></div>
+      <ul class="bul tight" style="margin-top:12px" id="board8notes"></ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- ================= ADVISOR ================= -->
+<section id="advisor"><div class="wrap">
+  <h2>Item Advisor</h2>
+  <ul class="bul tight" style="margin:14px 0 18px;max-width:640px"><li>➕ Add your components → see what to build and who holds it</li></ul>
+  <div class="adv">
+    <div class="panel">
+      <div class="bench" id="bench"></div>
+      <div class="btnrow"><button class="btn" id="resetBench">Clear</button>
+        <label class="small muted" style="display:flex;align-items:center;gap:6px;margin-left:auto"><input type="checkbox" id="contested"> Someone else is collecting Ziggs</label></div>
+    </div>
+    <div><div id="verdict"></div><div id="builds"></div></div>
+  </div>
+</div></section>
+
+<!-- ================= ITEM CHEAT SHEET ================= -->
+<section id="items"><div class="wrap">
+  <h2>Item Cheat Sheet</h2>
+  <ul class="bul tight two-col" style="margin:14px 0 18px">
+    <li>👆 Click a component to highlight its items</li>
+    <li><span><b style="color:var(--gold)">★1–5</b> must-build · <b>6–10</b> good · faded = skip</span></li>
+    <li><span class="pill p-teal">Ziggs · no Tear</span><span class="pill p-red">Seraphine / Teemo · Tear</span><span class="pill p-tank">Kobuko</span></li>
+    <li><span>Three units want <b>Jeweled Gauntlet</b>: Ziggs first, then Seraphine</span></li>
+  </ul>
+  <div class="ilayout">
+    <div class="igrid" id="igrid"></div>
+    <div>
+      <div class="panel iinfo" id="iinfo"></div>
+      <div class="panel ranklist" id="rankList"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ================= PLAN B ================= -->
+<section id="backup" class="plan red"><div class="wrap">
+  <div class="plan-head">
+    <img class="big" src="assets/units-sq/renataglasc.png" alt="Renata Glasc">
+    <div>
+      <div class="kicker">Plan B · only if Ziggs is contested · 2-cost reroll · EASY</div>
+      <h2>Renata Guards</h2>
+      <div class="muted"><span class="pill p-red">3★ Renata</span> <span class="pill p-tank">3★ Nasus</span> <span class="pill">3★ Jax</span> <span class="pill">71.5% top 4 · Consistent</span></div>
+    </div>
+  </div>
+  <ul class="bul tight two-col" id="backupRules"></ul>
+  <div class="two" style="margin-top:16px">
+    <div class="panel"><h3 style="margin-bottom:12px">Who holds what</h3><div id="carriesB"></div></div>
+    <div class="panel"><h3 style="margin-bottom:10px">Final board <span class="small dim">(suggested layout)</span></h3><div id="boardR"></div></div>
+  </div>
+</div></section>
+
+<!-- ================= DRILLS ================= -->
+<section id="drills"><div class="wrap">
+  <h2>Drills</h2>
+  <div class="drills" style="margin-top:16px">
+    <div class="panel">
+      <h3 style="margin-bottom:12px">Who's that unit?</h3>
+      <div class="card" id="flash"><div class="in">
+        <div class="f"><img id="flashImg" src="assets/units/ziggs.webp" alt="Mystery unit"><div class="q">Tap to reveal: name, cost, role</div></div>
+        <div class="b" id="flashBack"></div>
+      </div></div>
+      <div class="btnrow"><button class="btn pri" id="flashNext">Next unit →</button><span class="score" id="flashCount" style="align-self:center"></span></div>
+    </div>
+    <div class="panel">
+      <h3 style="margin-bottom:12px">Build it: pick the two components</h3>
+      <div class="rq">
+        <img class="target" id="rqImg" src="assets/items/guinsoosrageblade.png" alt="Item">
+        <div>
+          <div style="font:800 18px Cinzel" id="rqName"></div>
+          <div class="small muted" id="rqUse"></div>
+          <div class="slots" style="margin-top:10px"><div class="slot" id="s1"></div>+<div class="slot" id="s2"></div></div>
+        </div>
+      </div>
+      <div class="pick" id="pick"></div>
+      <div class="fb" id="rqFb"></div>
+      <div class="btnrow"><button class="btn pri" id="rqNext">Next item →</button><label class="small muted" style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="rqOnly" checked> This comp's items only</label><span class="score" id="rqScore" style="align-self:center;margin-left:auto"></span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ================= AUGMENTS ================= -->
+<section id="augments"><div class="wrap">
+  <h2 style="margin-bottom:14px">Augments <span class="dim" style="font-size:.55em">· stats + safe scaling</span></h2>
+  <ul class="bul tight two-col" style="margin-bottom:18px">
+    <li><span>✅ All confirmed in the <b>Set 19</b> augment list (tft.ninja)</span></li>
+    <li><span>🎲 <b>Reroll help</b> is worth the most early: you're hunting 3★ 1-costs</span></li>
+    <li><span>💪 Pick <b>stats over gimmicks</b> later</span></li>
+    <li><span>📝 Picks are my judgment; Set 19 guides haven't published augments yet</span></li>
+  </ul>
+  <div class="augs" id="augGrid"></div>
+</div></section>
+
+<div id="menuBg"></div>
+<nav id="menu" aria-label="Sections" aria-hidden="true">
+  <div class="mh">Jump to</div>
+  <a href="#top" data-s="top"><span class="mi"><img src="assets/icons/favicon-48.png" alt=""></span>Top</a>
+  <a href="#fork" data-s="fork"><span class="mi">📋</span>Rules</a>
+  <a href="#unlocks" data-s="unlocks"><span class="mi">🔓</span>Unlock path</a>
+  <a href="#trait" data-s="trait"><span class="mi"><img class="tr" src="assets/traits/hyperpop.svg" alt="" style="padding:5px"></span>Traits</a>
+  <a href="#units" data-s="units"><span class="mi" style="border-color:var(--c2)"><img src="assets/units-sq/seraphine.png" alt=""></span>Units</a>
+  <a href="#plan" data-s="plan"><span class="mi" style="border-color:var(--teal)"><img src="assets/units-sq/ziggs.png" alt=""></span><span>Plan A · <b style="color:var(--teal)">Hyperpop</b></span></a>
+  <div class="sep"></div>
+  <a href="#advisor" data-s="advisor"><span class="mi"><img src="assets/items/sparringgloves.png" alt=""></span>Item Advisor</a>
+  <a href="#items" data-s="items"><span class="mi"><img src="assets/items/guinsoosrageblade.png" alt=""></span>Item Cheat Sheet</a>
+  <a href="#backup" data-s="backup"><span class="mi" style="border-color:var(--red)"><img src="assets/units-sq/renataglasc.png" alt=""></span><span>Plan B · <b style="color:var(--red)">Renata</b></span></a>
+  <a href="#drills" data-s="drills"><span class="mi">🧠</span>Drills</a>
+  <a href="#augments" data-s="augments"><span class="mi"><img src="assets/augments/tons-of-stats-ii.png" alt=""></span>Augments</a>
+  <a href="hyperpop-reroll-guide.pdf" target="_blank" rel="noopener" class="pdf"><span class="mi">📄</span>Printable PDF</a>
+  <div class="sep"></div>
+  <button class="qrt" id="menuQr"><span class="mi">📌</span><span id="menuQrLbl">Hide Quick Ref</span></button>
+</nav>
+<button id="fab" aria-label="Open section menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+
+<aside id="qr">
+  <div class="bar">
+    <b><img class="tr" src="assets/traits/hyperpop.svg" alt=""><span>Quick Ref</span></b>
+    <div class="costs"><i style="color:var(--dim);font-style:normal;margin-right:2px">cost:</i><span class="b1">1g</span><span class="b2">2g</span><span class="b3">3g</span><span class="b4">4g</span><span class="b5">5g</span></div>
+    <button class="tog" id="qrTog">▾ Hide</button>
+  </div>
+  <div class="body" id="qrBody"></div>
+  <div class="dots" id="qrDots"></div>
+</aside>
+
+<footer><div class="wrap">
+  <p><b>Sources:</b> comp, tier and items from <a href="https://tftacademy.com/tierlist/comps/set-19-hyperpop-reroll">TFT Academy · Hyperpop Reroll</a> and <a href="https://tft.ninja/comps?e=pbe">tft.ninja PBE comps</a> (Ziggs Reroll, Diamond+). Unit, trait, ability and augment text from <a href="https://tft.ninja/sets/19/units">tft.ninja</a> (Riot Dev Drop, Nov 15 2026). Leveling from <a href="https://mobalytics.gg/tft/set19/comps-guide/hyper-pop-3M8yhC5RAV9atbxt8QeSlEeGvgi">Mobalytics · Hyperpop</a>; unlock counts from <a href="https://mobalytics.gg/tft/set19/unlocks">Mobalytics unlocks</a> and <a href="https://tftflow.com/how-to-unlock-every-champion-set19">tftflow</a>. Backup: <a href="https://tftacademy.com/tierlist/comps/set-19-renata-guards">TFT Academy · Renata Guards</a>. Art: TFT Academy, tft.ninja, CommunityDragon. Snapshot: Nov 19 2026, Set 19 PBE.</p>
+  <p>Hyperpop Reroll Guide isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, Teamfight Tactics and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+</div></footer>
+
+<script>
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+/* ---------------- DATA ---------------- */
+const C = {
+  sword:{s:"Sword",n:"B.F. Sword",f:"bfsword"}, bow:{s:"Bow",n:"Recurve Bow",f:"recurvebow"}, rod:{s:"Rod",n:"Needlessly Large Rod",f:"needlesslylargerod"},
+  tear:{s:"Tear",n:"Tear of the Goddess",f:"tearofthegoddess"}, vest:{s:"Vest",n:"Chain Vest",f:"chainvest"}, cloak:{s:"Cloak",n:"Negatron Cloak",f:"negatroncloak"},
+  belt:{s:"Belt",n:"Giant's Belt",f:"giantsbelt"}, gloves:{s:"Gloves",n:"Sparring Gloves",f:"sparringgloves"}
+};
+const CK = Object.keys(C);
+const ci = k => `assets/items/${C[k].f}.png`;
+// tags: Z = Ziggs (no Tear), S = Seraphine/Teemo (Tear), T = Kobuko tank, ZS = both carries
+const I = {
+  deathblade:["Deathblade","deathblade","sword","sword","","Big flat Attack Damage."],
+  giantslayer:["Giant Slayer","madredsbloodrazor","sword","bow","","Bonus damage vs tanks."],
+  gunblade:["Hextech Gunblade","hextechgunblade","sword","rod","Z","Heals the lowest ally from damage dealt. Ziggs #3 (tft.ninja)."],
+  shojin:["Spear of Shojin","spearofshojin","sword","tear","S","Attacks give bonus Mana. Seraphine / Teemo core."],
+  eon:["Edge of Night","guardianangel","sword","vest","","At low HP: untargetable, cleanse, heal."],
+  bt:["Bloodthirster","bloodthirster","sword","cloak","","Omnivamp + shield at low HP."],
+  sterak:["Sterak's Gage","steraksgage","sword","belt","","AD + HP, big shield at 60% HP."],
+  ie:["Infinity Edge","infinityedge","sword","gloves","","AD + crit."],
+  redbuff:["Red Buff","rapidfirecannon","bow","bow","","Attacks Burn + Wound."],
+  guinsoo:["Guinsoo's Rageblade","guinsoosrageblade","bow","rod","Z","Stacking Attack Speed. Ziggs' attacks deal bonus magic damage, so faster attacks = more damage. Ziggs #1."],
+  voidstaff:["Void Staff","voidstaff","bow","tear","S","Shreds Magic Resist. Seraphine / Teemo core."],
+  titans:["Titan's Resolve","titansresolve","bow","vest","","Stacks AD/AP when hitting or hit."],
+  kraken:["Kraken's Fury","krakenslayer","bow","cloak","","Stacking AD, then attack speed."],
+  nashor:["Nashor's Tooth","leviathan","bow","belt","","Attacks give bonus Mana."],
+  lw:["Last Whisper","lastwhisper","bow","gloves","","Sunders Armor."],
+  rabadon:["Rabadon's Deathcap","rabadonsdeathcap","rod","rod","","Huge AP."],
+  archangel:["Archangel's Staff","archangelsstaff","rod","tear","S","AP that grows every few seconds. Tear-carry option."],
+  crownguard:["Crownguard","crownguard","rod","vest","","Shield at combat start, then AP."],
+  ionic:["Ionic Spark","ionicspark","rod","cloak","","Shreds MR nearby; zaps enemy casters."],
+  morello:["Morellonomicon","morellonomicon","rod","belt","S","Burn + Wound. Seraphine backup (TFT Academy build)."],
+  jg:["Jeweled Gauntlet","jeweledgauntlet","rod","gloves","ZS","AP + crit, abilities can crit. Wanted by Ziggs, Seraphine and Teemo."],
+  bluebuff:["Blue Buff","bluebuff","tear","tear","S","More AD and AP from all sources. Tear-carry option."],
+  vow:["Protector's Vow","frozenheart","tear","vest","","Mana + shield at low HP."],
+  helm:["Adaptive Helm","adaptivehelm","tear","cloak","","More Mana from all sources."],
+  visage:["Spirit Visage","spiritvisagerr","tear","belt","T","Regenerates missing HP. Kobuko core."],
+  hoj:["Hand of Justice","unstableconcoction","tear","gloves","","AD + AP + Omnivamp."],
+  bramble:["Bramble Vest","bramblevest","vest","vest","T","Less damage from attacks. Kobuko backup."],
+  gargoyle:["Gargoyle Stoneplate","gargoylestoneplate","vest","cloak","T","Armor + MR per enemy targeting it. Kobuko core."],
+  sunfire:["Sunfire Cape","redbuff","vest","belt","T","Max HP + periodic Burn/Wound. Tank option."],
+  steadfast:["Steadfast Heart","nightharvester","vest","gloves","","Durability, more while healthy."],
+  dclaw:["Dragon's Claw","dragonsclaw","cloak","cloak","T","Max HP + periodic healing. Kobuko backup."],
+  evenshroud:["Evenshroud","spectralgauntlet","cloak","belt","","Sunders nearby enemies; early resists."],
+  qss:["Quicksilver","quicksilver","cloak","gloves","","CC immunity + stacking AS."],
+  warmog:["Warmog's Armor","warmogsarmor","belt","belt","T","Tons of max HP. Kobuko core (his passive scales with Health)."],
+  flail:["Striker's Flail","powergauntlet","belt","gloves","Z","Crits give stacking Damage Amp. Ziggs option (TFT Academy build)."],
+  thief:["Thief's Gloves","thiefsgloves","gloves","gloves","","2 random items every round."]
+};
+const itemImg = k => `assets/items/${I[k][1]}.png`;
+const recipe = {}; for (const k in I){ const [,, a,b] = I[k]; recipe[[a,b].sort().join("+")] = k; }
+
+const T = {Hyperpop:"hyperpop",Indie:"indie",Arcanist:"arcanist",Swiftstriker:"swiftstriker",Frontman:"frontman",Choreographer:"choreographer",Hitmaker:"hitmaker",
+  "Hype Man":"hypeman",Rock:"rock",Classical:"classical",Bodyguard:"bodyguard",Synthwave:"synthwave",Heartsteel:"heartsteel","Ionic Spark":"ionicspark",EDM:"edm",
+  "K/DA":"kda","Beach Pop":"beachpop",Manager:"manager"};
+const U = [
+  {k:"ziggs",n:"Ziggs",c:1,t:["Hyperpop","Arcanist","Swiftstriker"],tags:"core hyperpop early",star:3,
+   ab:["GlitterBOM3S","0/50","Attacks deal bonus magic damage. Throws a bomb at the target that hits adjacent enemies."],role:"Main carry when you have no Tear. In the shop from turn one.",items:["guinsoo","jg","gunblade"]},
+  {k:"kobuko",n:"Kobuko",c:1,t:["Hyperpop","Frontman"],tags:"core hyperpop",star:3,unlock:"Ziggs 2★ holding an item",
+   ab:["Pump It Up!","40/90","Strongest Kobuko gains Health from Hyperpop Hype. Cast: Amp Up, healing every second."],role:"Main tank. Gets tankier as you gain Hype.",items:["gargoyle","warmog","visage"]},
+  {k:"seraphine",n:"Seraphine",c:2,t:["Indie"],tags:"core",star:3,unlock:"Reroll 4 times before the stage 2 carousel",
+   ab:["Livestream of Note","0/50","Stream of notes at the target. Rising Star: bonus notes at nearby enemies. Superstar: notes at every enemy."],role:"Tear carry. Indie: free random champion after each combat; upgrades when you 3★ units.",items:["voidstaff","shojin","jg"]},
+  {k:"lulu",n:"Lulu",c:2,t:["Hyperpop","Choreographer"],tags:"core hyperpop",star:2,unlock:"Hyperpop units cast enough times with the trait active",
+   ab:["Hype Girl","0/50","Alternates: Whimsy (ally Attack Speed + magic on-hit) and Wild Growth (ally Health, burns adjacent enemies)."],role:"Support. Buffs Ziggs. Choreographer: back-row allies get Damage Amp.",items:[]},
+  {k:"tristana",n:"Tristana",c:2,t:["Hyperpop","Hitmaker"],tags:"core hyperpop",star:2,unlock:"Get enough kills with Hyperpop active",
+   ab:["Head Banger","0/55","Throws bombs at nearby enemies, then detonates them for physical damage."],role:"Hyperpop body + extra damage.",items:[]},
+  {k:"teemo",n:"Teemo",c:5,t:["Hyperpop","Hype Man"],tags:"core hyperpop",star:1,unlock:"Collect enough Hyperpop Hype",
+   ab:["Going Viral","0/100","Attacks apply Viral; infected enemies become exploding zombies. Cast: mushroom spreads Viral in 3 hexes."],role:"5th Hyperpop + 2nd Tear carry. Hype Man stores extra Hype.",items:["jg","shojin","voidstaff"]},
+  {k:"swain",n:"Swain",c:3,t:["Rock","Arcanist","Frontman"],tags:"core",star:2,
+   ab:["A Cruel Devil's Thesis","70/120","Demon Form: max Health + damage to adjacent enemies each second. Later casts heal and hit harder."],role:"Second tank. Arcanist with Ziggs, Frontman with Kobuko.",items:[]},
+  {k:"shyvana",n:"Shyvana",c:4,t:["Ionic Spark","Frontman"],tags:"core",star:2,
+   ab:["Dragon Force","30/100","Below a Health threshold turns into a dragon: Health, Attack Speed, area damage. Cast: shield."],role:"Level 8 tank (tft.ninja board). Frontman with Kobuko + Swain.",items:[]},
+  {k:"elise",n:"Elise",c:1,t:["Ionic Spark","Frontman"],tags:"early",star:1,ab:null,role:"1-cost Frontman for stage 2.",items:[]},
+  {k:"sett",n:"Sett",c:1,t:["Heartsteel","Frontman"],tags:"early",star:1,ab:null,role:"1-cost Frontman for stage 2.",items:[]},
+  {k:"renekton",n:"Renekton",c:2,t:["Beach Pop","Frontman"],tags:"early",star:1,ab:["Crocodile Rock","60/110","Grows (max Health), then spins for physical damage."],role:"2-cost Frontman for stage 2–3.",items:[]},
+  {k:"zoe",n:"Zoe",c:1,t:["Beach Pop","Arcanist"],tags:"early",star:1,ab:["Paddle Ball","15/90","Ball that ricochets on kills."],role:"Arcanist with Ziggs early.",items:[]},
+  {k:"renataglasc",n:"Renata Glasc",c:2,t:["Classical","Choreographer"],tags:"backup",star:3,unlock:"Items on a Classical or Choreographer unit",
+   ab:["Hostile Measures","0/45","Musical bar applies Toxin (magic DoT), spreads to nearby enemies and Captivates them."],role:"Plan B carry.",items:["shojin","archangel","gunblade"]},
+  {k:"nasus",n:"Nasus",c:2,t:["Classical","Bodyguard"],tags:"backup",star:3,unlock:"Items on a Classical unit",
+   ab:["Patron of the Arts","25/75","Hex field: heals him and allies inside, damages and Captivates enemies."],role:"Plan B main tank.",items:["sunfire","visage","warmog"]},
+  {k:"jax",n:"Jax",c:2,t:["EDM","Bodyguard","Swiftstriker"],tags:"backup",star:3,
+   ab:["Instant Crush","0/30","Bash + heal, then Attack Speed for the rest of combat."],role:"Plan B second carry.",items:["titans","bt","shojin"]},
+  {k:"leona",n:"Leona",c:4,t:["K/DA","Bodyguard","Manager"],tags:"backup",star:2,ab:["Coordinated Light Show","40/100","Shield + light beams that shred MR."],role:"Plan B tank.",items:[]},
+  {k:"tibbers",n:"Tibbers",c:3,t:["Ionic Spark","Bodyguard"],tags:"backup",star:2,unlock:"Annie at the required star level holding items",ab:["Girl's Best Friend","40/100","Enrages at low HP: Health, AD, Attack Speed."],role:"Plan B tank.",items:[]},
+  {k:"ksante",n:"K'Sante",c:3,t:["Heartsteel","Bodyguard"],tags:"backup",star:2,ab:["In Your House!","70/140","Shield, charge + stun, then taunt."],role:"Plan B tank.",items:[]},
+  {k:"garen",n:"Garen",c:4,t:["Synthwave","Choreographer"],tags:"backup",star:2,ab:["Sword of Truth","30/100","Heal, then a wave that weakens enemies."],role:"Plan B frontline.",items:[]},
+  {k:"lillia",n:"Lillia",c:1,t:["K/DA","Bodyguard"],tags:"backup",star:2,ab:["We Love You K/DA","40/100","Heal + strike that weakens nearby enemies."],role:"Plan B Bodyguard.",items:[]}
+];
+const UK = Object.fromEntries(U.map(u=>[u.k,u]));
+const sq = k => `assets/units-sq/${k}.png`, sp = k => `assets/units/${k}.webp`;
+
+/* ---------------- helpers ---------------- */
+const $ = s => document.querySelector(s);
+const el = (tag, cls, html) => { const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+const traitPill = t => `<span class="pill">${T[t]?`<img class="tr" src="assets/traits/${T[t]}.svg" alt="">`:''}${t}</span>`;
+const itemIc = (k, cls="ic sm") => `<img class="${cls}" src="${itemImg(k)}" alt="${I[k][0]}" title="${I[k][0]}  (${C[I[k][2]].n} + ${C[I[k][3]].n})">`;
+const compIc = (k, cls="ic sm") => `<img class="${cls}" src="${ci(k)}" alt="${C[k].n}" title="${C[k].n}">`;
+const unitIc = (k, size=30) => `<img src="${sq(k)}" alt="${UK[k].n}" title="${UK[k].n}" style="width:${size}px;height:${size}px;border-radius:7px;border:2px solid var(--c${UK[k].c})">`;
+const uic = k => `<img class="uic" src="${sq(k)}" alt="" title="${UK[k].n}" style="border-color:var(--c${UK[k].c})">`;
+const icI = k => `<img class="uic" src="${itemImg(k)}" alt="" title="${I[k][0]}" style="border-color:transparent">`;
+const icC = k => `<img class="uic" src="${ci(k)}" alt="" title="${C[k].n}" style="border-color:transparent">`;
+const recHTML = k => `<div class="rec"><div class="eq">${compIc(I[k][2],"ic xs")}<span>+</span>${compIc(I[k][3],"ic xs")}</div><img class="ic" src="${itemImg(k)}" alt=""><div>${I[k][0]}</div></div>`;
+const eqText = k => `${C[I[k][2]].s} + ${C[I[k][3]].s} = <b>${I[k][0]}</b>`;
+const qLine = (k,bk) => `<div class="ql${bk?' bk':''}"><img src="${ci(I[k][2])}" alt="">${C[I[k][2]].s}<span class="o">+</span><img src="${ci(I[k][3])}" alt="">${C[I[k][3]].s}<span class="o">=</span><img src="${itemImg(k)}" alt=""><span class="res">${I[k][0]}</span></div>`;
+const costChip = c => `<span class="cc b${c}">${c}g</span>`;
+
+/* ---------------- rules / unlocks / traits ---------------- */
+$("#r1").innerHTML = uic("ziggs")+uic("kobuko");
+$("#r2").innerHTML = icC("tear")+uic("seraphine")+uic("ziggs");
+$("#r3").innerHTML = uic("kobuko")+uic("seraphine");
+$("#r4").innerHTML = uic("renataglasc");
+const UNLOCKS = [
+  ["kobuko","Stage 1–2","<b>Kobuko:</b> get <b>Ziggs to 2★</b> and give him <b>one item</b>","Turns on Hyperpop 2 right away"],
+  ["seraphine","Before 2-4","<b>Seraphine:</b> <b>reroll 4 times</b> before the stage 2 carousel","Costs 8g, worth it every game"],
+  ["lulu","Stage 2–3","<b>Lulu:</b> your Hyperpop units <b>cast enough times</b> with the trait active","Happens naturally with Ziggs + Kobuko"],
+  ["tristana","Stage 2–3","<b>Tristana:</b> get <b>enough kills</b> with Hyperpop active","Needs Hyperpop 2 on the board"],
+  ["teemo","Stage 4–5","<b>Teemo:</b> collect <b>enough Hyperpop Hype</b>","3★ units make the most Hype"],
+  ["renataglasc","Plan B","<b>Renata (backup):</b> items on a <b>Classical or Choreographer</b> unit","Lulu is a Choreographer, so her items count"]
+];
+$("#unlockList").innerHTML = UNLOCKS.map(([k,when,what,tip],i)=>`<li><span class="un">${i+1}</span>${uic(k)}<div><div class="small" style="color:var(--gold);font-weight:800;letter-spacing:.08em;text-transform:uppercase">${when}</div><div>${what}</div><div class="small muted">${tip}</div></div></li>`).join("");
+$("#otherTraits").innerHTML = [
+  ["indie","<b>Indie</b> (Seraphine): random free champion after each combat. 3★ any unit → Rising Star, then Superstar"],
+  ["hypeman","<b>Hype Man</b> (Teemo): Hyperpop units dealing or taking enough damage store extra Hype"],
+  ["frontman","<b>Frontman 2</b> (Kobuko, Swain, Shyvana): team Health, more after the first cast"],
+  ["arcanist","<b>Arcanist 2</b> (Ziggs + Swain): team AP, Arcanists more"],
+  ["choreographer","<b>Choreographer</b> (Lulu): front 2 rows get Shields, everyone else gets Damage Amp"],
+  ["swiftstriker","<b>Swiftstriker</b> (Ziggs): team Attack Speed, stacking for Ziggs"]
+].map(([ic,t])=>`<li><span class="ics"><img class="uic tr" src="assets/traits/${ic}.svg" alt="" style="padding:4px"></span><span>${t}</span></li>`).join("");
+
+/* ---------------- unit cards ---------------- */
+function renderUnits(f="all"){
+  const g=$("#unitGrid"); g.innerHTML="";
+  U.filter(u=> f==="all" ? !u.tags.includes("backup") : u.tags.includes(f)).forEach(u=>{
+    const card=el("div","unit"); card.style.borderColor=`var(--c${u.c})`;
+    card.innerHTML=`
+      <div class="art"><img src="${sp(u.k)}" alt="${u.n}" loading="lazy">
+        <span class="cost b${u.c}">${u.c}-cost · ${u.c}g</span>
+        <div class="plans">${u.tags.includes("core")||u.tags.includes("backup")?`<span class="pill ${u.tags.includes("backup")?'p-red':'p-teal'}">${"★".repeat(u.star)}</span>`:''}${u.tags.includes("early")&&!u.tags.includes("core")?'<span class="pill">Early</span>':''}${u.tags.includes("backup")?'<span class="pill p-red">B</span>':''}</div>
+        <div class="nm">${u.n}</div><img class="shop" src="${sq(u.k)}" alt="" title="Shop icon" style="border-color:var(--c${u.c})"></div>
+      <div class="body">
+        <div class="traits">${u.t.map(traitPill).join("")}</div>
+        <div class="role">${u.role}</div>
+        ${u.ab?`<div class="buff" style="border-left-color:var(--teal)"><b style="color:var(--teal)">${u.ab[0]} <span class="dim">· Mana ${u.ab[1]}</span></b>${u.ab[2]}</div>`:''}
+        ${u.unlock?`<div class="buff" style="border-left-color:var(--gold)"><b style="color:var(--gold)">🔓 Unlock</b>${u.unlock}</div>`:''}
+        ${u.items.length?`<div class="items"><span class="small muted">BIS:</span>${u.items.map(k=>itemIc(k)).join("")}</div>`:''}
+      </div>`;
+    g.appendChild(card);
+  });
+}
+document.querySelectorAll("#unitFilters .fbtn").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#unitFilters .fbtn").forEach(x=>x.classList.remove("on")); b.classList.add("on"); renderUnits(b.dataset.f);
+});
+renderUnits();
+
+/* ---------------- timeline ---------------- */
+const TL = [
+  {st:"Stage 1–2",h:"Unlock + streak",u:["ziggs","kobuko","seraphine","elise","sett"],li:[
+    "Buy <b>every Ziggs</b>. 2★ him + 1 item → <b>Kobuko</b>",
+    "<b>Reroll 4×</b> before the 2-4 carousel → <b>Seraphine</b>",
+    "Fill with Frontmen (Elise, Sett, Renekton)",
+    "Slam items: Guinsoo's / Gargoyle first"]},
+  {st:"Stage 3",h:"Lvl 5 · slow roll",u:["ziggs","kobuko","seraphine","lulu"],li:[
+    "Lvl 5 by <b>3-1</b>, roll only <b>above 50g</b>",
+    "3★ <b>Ziggs</b> + <b>Kobuko</b> first, then Seraphine",
+    "Lulu + Tristana unlock as Hyperpop casts and kills",
+    "Seraphine's free units feed your rerolls"]},
+  {st:"Stage 4",h:"Level up · fill",u:["lulu","tristana","swain","shyvana"],li:[
+    "3★s done → <b>Lvl 6–7</b>, add Lulu, Tristana, Swain",
+    "Keep rolling to 3★ Seraphine (Indie upgrades)",
+    "Tear items → Seraphine, the rest → Ziggs",
+    "Lvl 8 when stable: Shyvana + Teemo slot"]},
+  {st:"Stage 5",h:"Teemo · max Hype",u:["teemo","ziggs","seraphine"],li:[
+    "<b>Teemo</b> unlocks from Hype → 5th Hyperpop",
+    "Give Teemo spare Tear items (JG / Shojin / Void)",
+    "Lvl 8 board, roll for upgrades",
+    "Every new Hype Level = rewards"]}
+];
+$("#tl").innerHTML = TL.map(s=>`<div class="stage"><div class="st">${s.st}</div><h4>${s.h}</h4><ul>${s.li.map(l=>`<li>${l}</li>`).join("")}</ul><div class="row">${s.u.map(k=>unitIc(k,34)).join("")}</div></div>`).join("");
+
+/* ---------------- carries ---------------- */
+const carryHTML = list => list.map(c=>{const u=UK[c.u];return `
+  <div class="carry"><img class="por" src="${sq(c.u)}" alt="${u.n}" style="border-color:var(--c${u.c})">
+    <div style="flex:1"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><b style="font:800 17px Cinzel">${u.n}</b>${costChip(u.c)}<span class="pill ${c.cls}">${c.tag}</span></div>
+    <div class="recipes" style="margin-top:8px">${c.items.map(recHTML).join("")}</div>
+    ${c.bk?`<div class="alt">Backup: ${eqText(c.bk)}</div>`:""}</div></div>`}).join("");
+$("#carries").innerHTML = carryHTML([
+  {u:"ziggs",tag:"No-Tear carry · 3★",cls:"p-teal",items:["guinsoo","jg","gunblade"],bk:"flail"},
+  {u:"seraphine",tag:"Tear carry · 3★",cls:"p-red",items:["voidstaff","shojin","jg"],bk:"morello"},
+  {u:"kobuko",tag:"Tank · 3★",cls:"p-tank",items:["gargoyle","warmog","visage"],bk:"bramble"},
+  {u:"teemo",tag:"Late · spare Tear items",cls:"p-red",items:["jg","shojin","voidstaff"],bk:null}
+]);
+$("#carriesB").innerHTML = carryHTML([
+  {u:"renataglasc",tag:"Carry · 3★",cls:"p-red",items:["shojin","archangel","gunblade"],bk:null},
+  {u:"nasus",tag:"Tank · 3★",cls:"p-tank",items:["sunfire","visage","warmog"],bk:null},
+  {u:"jax",tag:"Second carry · 3★",cls:"p-red",items:["titans","bt","shojin"],bk:null}
+]);
+
+/* ---------------- boards ---------------- */
+const BOARDS = {
+  b8:[[0,2,"shyvana",2,[]],[0,3,"kobuko",3,["gargoyle","warmog","visage"]],[0,4,"swain",2,[]],
+      [2,1,"tristana",2,[]],[2,3,"lulu",2,[]],
+      [3,0,"seraphine",3,["voidstaff","shojin","jg"]],[3,3,"teemo",1,[]],[3,6,"ziggs",3,["guinsoo","jg","gunblade"]]],
+  bR:[[0,1,"lillia",2,[]],[0,2,"leona",2,[]],[0,3,"nasus",3,["sunfire","visage","warmog"]],[0,4,"ksante",2,[]],[0,5,"tibbers",2,[]],
+      [1,2,"garen",2,[]],[1,4,"jax",3,["titans","bt","shojin"]],[3,6,"renataglasc",3,["shojin","archangel","gunblade"]]]
+};
+function renderBoard(id, cells){
+  const map={}; cells.forEach(c=>map[c[0]+"-"+c[1]]=c);
+  let h=`<div class="board"><div class="lbl">▲ enemy side · front line</div>`;
+  for(let r=0;r<4;r++){
+    h+=`<div class="hrow ${r%2?'odd':''}">`;
+    for(let c=0;c<7;c++){
+      const x=map[r+"-"+c];
+      if(!x){h+=`<div class="cell"><div class="hex"></div></div>`;continue;}
+      const u=UK[x[2]];
+      h+=`<div class="cell"><span class="tip">${u.n}${x[4].length?" · "+x[4].map(k=>I[k][0]).join(", "):""}</span><div class="stars">${"★".repeat(x[3])}</div>
+        <div class="hex u" style="background:var(--c${u.c})"><img src="${sq(u.k)}" alt="${u.n}"></div>
+        <div class="its">${x[4].map(k=>`<img src="${itemImg(k)}" alt="">`).join("")}</div></div>`;
+    }
+    h+=`</div>`;
+  }
+  h+=`<div class="lbl" style="margin-top:12px">▼ back line · your bench side</div></div>`;
+  $(id).innerHTML=h;
+}
+renderBoard("#board8",BOARDS.b8); renderBoard("#boardR",BOARDS.bR);
+$("#board8notes").innerHTML = `
+  <li><span class="ics">${uic("ziggs")}${uic("seraphine")}</span><span><b>Carries in opposite corners</b>, so one AoE can't hit both</span></li>
+  <li><span class="ics">${uic("lulu")}</span><span>Lulu in row 3 next to Ziggs. Back rows get Choreographer Damage Amp</span></li>
+  <li><span class="ics">${uic("kobuko")}${uic("swain")}</span><span>Kobuko + Swain front and center</span></li>`;
+$("#backupRules").innerHTML = `
+  <li><span class="ics">${uic("renataglasc")}${uic("nasus")}${uic("jax")}</span><span><b>2-cost reroll</b>: 3★ Renata, Nasus, Jax</span></li>
+  <li><span class="ics">${icC("tear")}${icC("sword")}</span><span>Uses your Tear + Sword items: <b>Shojin</b> on Renata and Jax</span></li>
+  <li><span class="ics">${uic("lulu")}</span><span>Unlock Renata: items on a <b>Classical/Choreographer</b> unit (Lulu, Garen, Viego, Katarina)</span></li>
+  <li><span class="ics">${uic("kobuko")}</span><span>Tank items (Gargoyle/Warmog/Visage) move to <b>Nasus</b></span></li>`;
+
+/* ---------------- item ranking ---------------- */
+const RANK = [["guinsoo","ziggs"],["jg","ziggs"],["gargoyle","kobuko"],["voidstaff","seraphine"],["shojin","seraphine"],
+              ["warmog","kobuko"],["gunblade","ziggs"],["visage","kobuko"],["flail","ziggs"],["morello","seraphine"]];
+const STAR = 5;
+const rankOf = k => { const i=RANK.findIndex(x=>x[0]===k); return i<0?0:i+1; };
+function renderRankList(){
+  $("#rankList").innerHTML=`<h3><span style="color:var(--teal)">Build priority</span></h3><ol>`+
+    RANK.map(([k,who],i)=>{const u=UK[who];return `<li class="${i<STAR?'star':''}" data-k="${k}"><span class="n">${i<STAR?'★':''}${i+1}</span><img src="${itemImg(k)}" alt=""><b>${I[k][0]}</b><img class="who" src="${sq(who)}" alt="${u.n}" title="${u.n}" style="border-color:var(--c${u.c})"><span class="rcp">${C[I[k][2]].s} + ${C[I[k][3]].s}</span></li>`}).join("")+`</ol>`;
+  $("#rankList").querySelectorAll("li").forEach(li=>li.onclick=()=>showItem(li.dataset.k));
+}
+
+/* ---------------- item grid ---------------- */
+let sel=null;
+const tagCls = t => t==="Z"?"P":t==="S"?"B":t==="T"?"T":t==="ZS"?"PB":"";
+function renderGrid(){
+  const g=$("#igrid"); g.innerHTML="";
+  g.appendChild(el("div",""));
+  CK.forEach(k=>{const h=el("div","h"+(sel===k?" on":""),`<img src="${ci(k)}" alt="${C[k].n}" title="${C[k].n}">`);h.onclick=()=>{sel=sel===k?null:k;renderGrid();};g.appendChild(h);});
+  CK.forEach(r=>{
+    const h=el("div","h"+(sel===r?" on":""),`<img src="${ci(r)}" alt="${C[r].n}" title="${C[r].n}">`);h.onclick=()=>{sel=sel===r?null:r;renderGrid();};g.appendChild(h);
+    CK.forEach(c=>{
+      const k=recipe[[r,c].sort().join("+")]; const tag=I[k][4]; const rk=rankOf(k);
+      const d=el("div","c "+tagCls(tag)+(sel&&r!==sel&&c!==sel?" dim":"")+(!rk&&!tag?" unranked":"")+(rk&&rk<=STAR?" top":""),`<img src="${itemImg(k)}" alt="${I[k][0]}">`);
+      if(rk) d.insertAdjacentHTML("beforeend",`<span class="rk ${rk<=STAR?'star':''}">${rk<=STAR?'★':''}${rk}</span>`);
+      d.onmouseenter=d.onclick=()=>showItem(k);
+      g.appendChild(d);
+    });
+  });
+}
+const tagLabel = t => ({Z:'<span class="pill p-teal">Ziggs · no Tear</span>',S:'<span class="pill p-red">Seraphine / Teemo · Tear</span>',T:'<span class="pill p-tank">Kobuko · tank</span>',ZS:'<span class="pill p-teal">Ziggs</span> <span class="pill p-red">Seraphine / Teemo</span>'}[t]||'<span class="pill">Not core for this comp</span>');
+function showItem(k){
+  const [n,,a,b,t,d]=I[k];
+  $("#iinfo").innerHTML=`<div style="display:flex;gap:14px;align-items:center"><img src="${itemImg(k)}" style="width:72px;height:72px;border-radius:14px;border:2px solid var(--gold)" alt="">
+   <div><div style="font:800 20px Cinzel">${n}</div><div style="display:flex;align-items:center;gap:6px;margin-top:6px">${compIc(a)}<b class="dim">+</b>${compIc(b)}<span class="small muted">${C[a].n} + ${C[b].n}</span></div></div></div>
+   <p class="small" style="margin:12px 0 8px">${d}</p>${tagLabel(t)}${rankOf(k)?` <span class="pill p-gold">${rankOf(k)<=STAR?'★ ':''}#${rankOf(k)}</span>`:''}`;
+}
+renderGrid(); renderRankList(); showItem("guinsoo");
+
+/* ---------------- advisor ---------------- */
+const bench = Object.fromEntries(CK.map(k=>[k,0]));
+const PRIO = {
+  A:[["guinsoo","ziggs"],["jg","ziggs"],["gargoyle","kobuko"],["voidstaff","seraphine"],["shojin","seraphine"],["warmog","kobuko"],["gunblade","ziggs"],
+     ["visage","kobuko"],["jg","seraphine"],["flail","ziggs"],["morello","seraphine"],["shojin","teemo"],["voidstaff","teemo"],["jg","teemo"],["bluebuff","seraphine"],
+     ["archangel","seraphine"],["bramble","kobuko"],["dclaw","kobuko"],["sunfire","swain"],["evenshroud","swain"],["thief","lulu"]],
+  B:[["shojin","renataglasc"],["archangel","renataglasc"],["gunblade","renataglasc"],["sunfire","nasus"],["visage","nasus"],["warmog","nasus"],
+     ["titans","jax"],["bt","jax"],["shojin","jax"],["gargoyle","leona"],["bramble","leona"],["dclaw","leona"],["jg","renataglasc"],["bluebuff","renataglasc"],["voidstaff","renataglasc"]]
+};
+const HINT = {
+  A:{bow:"Pair with a Rod (Guinsoo's) or a Tear (Void Staff)",rod:"Pair with a Bow (Guinsoo's), Gloves (JG) or a Sword (Gunblade)",gloves:"Pair with a Rod (JG) or a Belt (Striker's Flail)",
+     tear:"Pair with a Bow (Void Staff) or a Sword (Shojin) for Seraphine",sword:"Pair with a Tear (Shojin) or a Rod (Gunblade)",vest:"Pair with a Cloak (Gargoyle) for Kobuko",
+     cloak:"Pair with a Vest (Gargoyle) for Kobuko",belt:"Pair with a Belt (Warmog's) or a Tear (Spirit Visage)"},
+  B:{tear:"Pair with a Sword (Shojin) or a Rod (Archangel's)",sword:"Pair with a Tear (Shojin), a Rod (Gunblade) or a Cloak (Bloodthirster)",rod:"Pair with a Tear (Archangel's) or a Sword (Gunblade)",
+     bow:"Pair with a Vest (Titan's) for Jax",vest:"Pair with a Belt (Sunfire) or a Bow (Titan's)",belt:"Pair with a Vest (Sunfire), a Tear (Visage) or a Belt (Warmog's)",
+     cloak:"Pair with a Sword (Bloodthirster) or a Vest (Gargoyle)",gloves:"Pair with a Rod (JG) for Renata"}
+};
+function renderBench(){
+  $("#bench").innerHTML = CK.map(k=>`<div class="cbtn ${bench[k]?'has':''}"><img src="${ci(k)}" alt=""><div class="nm">${C[k].n}</div>
+    <div class="ctl"><button data-k="${k}" data-d="-1">−</button><span class="cnt">${bench[k]}</span><button data-k="${k}" data-d="1">+</button></div></div>`).join("");
+  $("#bench").querySelectorAll("button").forEach(b=>b.onclick=()=>{const k=b.dataset.k;bench[k]=Math.max(0,Math.min(9,bench[k]+ +b.dataset.d));renderBench();advise();});
+}
+function advise(){
+  const total=CK.reduce((s,k)=>s+bench[k],0);
+  const plan=$("#contested").checked?"B":"A";
+  const tears=bench.tear;
+  const why = plan==="B" ? "Ziggs is contested, so go <b>Renata Guards</b>. Tear + Sword items become Spear of Shojin for Renata and Jax."
+    : tears ? `<b>${tears} Tear${tears>1?'s':''}</b> → Seraphine items. Everything else → Ziggs and Kobuko.` : "No Tear → all damage items go to <b>Ziggs</b>.";
+  $("#verdict").innerHTML=`<div class="verdict ${plan==='A'?'teal':'red'}"><img src="${sp(plan==='A'?(tears?'seraphine':'ziggs'):'renataglasc')}" alt=""><div><div class="kicker" style="margin:0">${plan==='A'?'Plan A · Hyperpop':'Plan B · Renata Guards'}</div><h3>${plan==='A'?(tears?'Ziggs + Seraphine':'Ziggs carry'):'Renata Guards'}</h3><div class="small">${why}</div></div></div>`;
+  if(!total){ $("#builds").innerHTML=`<div class="small muted">Use + / − on the left.</div>`; return; }
+  const pool={...bench}; const out=[];
+  for(const [k,who] of PRIO[plan]){ const [ , ,a,b]=I[k]; if(a===b? pool[a]>=2 : (pool[a]>=1&&pool[b]>=1)){ pool[a]--; pool[b]--; out.push([k,who]); } }
+  const left=CK.flatMap(k=>Array(pool[k]).fill(k));
+  let h=`<div class="small muted" style="margin:4px 0 8px">${out.length?'Build these, in this order:':'Nothing complete yet. Hold your components.'}</div>`;
+  h+=out.map(([k,who])=>`<div class="build"><div class="eq">${compIc(I[k][2],"ic xs")}+${compIc(I[k][3],"ic xs")}=</div><img class="ic sm" src="${itemImg(k)}" alt=""><b>${I[k][0]}</b>${plan==='A'&&rankOf(k)&&rankOf(k)<=STAR?'<span class="pill p-gold" style="font-size:10px">★</span>':''}<span class="who small muted" style="display:flex;align-items:center;gap:6px">→ ${UK[who].n} ${unitIc(who,26)}</span></div>`).join("");
+  if(left.length) h+=`<div class="small muted" style="margin:12px 0 6px">Leftovers and what to pair them with:</div>`+[...new Set(left)].map(k=>`<div class="build">${compIc(k,"ic sm")}<b>${C[k].n}${pool[k]>1?' ×'+pool[k]:''}</b><span class="small muted">${HINT[plan][k]}</span></div>`).join("");
+  $("#builds").innerHTML=h;
+}
+$("#resetBench").onclick=()=>{CK.forEach(k=>bench[k]=0);renderBench();advise();};
+$("#contested").onchange=advise;
+renderBench(); advise();
+
+/* ---------------- augments ---------------- */
+const AUG = [
+  {h:"★ Hyperpop + reroll", cls:"star", list:[
+    ["reroll.exe","../traits/hyperpop.svg","Hyperpop augment: free rerolls every stage (more with Hype) + a 2★ Ziggs. Instant Kobuko unlock"],
+    ["Heroic Grab Bag","heroic-grab-bag-ii","2 Duplicators (copy a 3-cost or cheaper) + gold → faster 3★ Ziggs / Kobuko"],
+    ["Early Learnings","earlylearning_ii","Team AD + AP that grows every fight. <b>1-costs gain double</b> (Ziggs, Kobuko)"],
+    ["Rolling For Days","rolling-for-days-i","Free rerolls"],
+    ["Patience Is A Virtue","patienceisavirtue_i","Rerolls now + a free reroll each round you don't buy"]]},
+  {h:"💪 Flat stats · always good", list:[
+    ["Tons of Stats!","tons-of-stats-ii","Health, AD, AP, Armor, MR, Attack Speed and Mana"],
+    ["Giant and Mighty","giantandmighty_iii","Team gains Health and max Health"],
+    ["Bodyguard Training","bodyguardstraining_ii","Armor + MR that grows per player level"]]},
+  {h:"⏱ Safe scaling", list:[
+    ["Ascension","ascension2","Team Damage Amp once combat runs a while"],
+    ["Baron's Lair","thebaronslair_iii","Free tank item (Kobuko) + AD/AP ramp after a delay"],
+    ["Cry Me A River","crymeariver_ii","Free Tear (→ Seraphine) + team Mana Regen that grows"]]}
+];
+$("#augGrid").innerHTML = AUG.map(g=>`<div class="ag ${g.cls||''}"><h3>${g.h}</h3><ul>${g.list.map(([n,ic,d])=>`
+  <li><img class="${ic.includes('traits')?'tr':''}" src="assets/augments/${ic.includes('.svg')?ic:ic+'.png'}" alt="" loading="lazy" ${ic.includes('traits')?'style="padding:7px;background:#2a1a3a"':''}><div class="t"><b>${n}</b><span class="d">${d}</span></div>
+  <div class="tags"><span class="pill">Set 19 ✓</span></div></li>`).join("")}</ul></div>`).join("");
+
+/* ---------------- quick-ref dock ---------------- */
+const QR = [
+  {h:"No Tear → Ziggs",col:"var(--teal)",units:[["ziggs","3★ · corner",["guinsoo","jg","gunblade"],"flail"]]},
+  {h:"Tear → Seraphine · Teemo",col:"var(--red)",units:[["seraphine","3★ · other corner",["voidstaff","shojin","jg"],"morello"],["teemo","late · spare Tear items",["jg","shojin","voidstaff"],null]]},
+  {h:"Tank",col:"var(--tank)",units:[["kobuko","3★ · 2★ Ziggs + item unlocks",["gargoyle","warmog","visage"],"bramble"]]},
+  {h:"No items",col:"var(--muted)",fill:["lulu","tristana","swain","shyvana","elise","sett","renekton","zoe"]},
+  {h:"Plan B · Renata (contested)",col:"var(--gold)",units:[["renataglasc","3★",["shojin","archangel","gunblade"],null],["nasus","3★ tank",["sunfire","visage","warmog"],null]]}
+];
+function renderQR(){
+  $("#qrBody").innerHTML = QR.map(g=>{
+    let inner;
+    if(g.fill) inner=`<div class="qfill">${g.fill.map(k=>{const u=UK[k];return `<div><img src="${sq(k)}" alt="" style="border-color:var(--c${u.c})"><span>${u.n}</span>${costChip(u.c)}</div>`}).join("")}</div>`;
+    else inner=g.units.map(([k,why,its,bk])=>{const u=UK[k];return `<div class="qu"><div class="hd"><img src="${sq(k)}" alt="" style="border-color:var(--c${u.c})"><span class="n">${u.n}</span>${costChip(u.c)}<span class="why">${why}</span></div>${its.map(i=>qLine(i)).join("")}${bk?qLine(bk,true):""}</div>`}).join("");
+    return `<div class="qg" style="border-top-color:${g.col}"><h5 style="color:${g.col}">${g.h}</h5>${inner}</div>`;
+  }).join("");
+  $("#qrDots").innerHTML = QR.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join("");
+  setDockPad();
+}
+$("#qrBody").addEventListener("scroll",()=>{ const b=$("#qrBody"); const w=b.children[0]?b.children[0].offsetWidth+10:1; const i=Math.round(b.scrollLeft/w); [...$("#qrDots").children].forEach((d,j)=>d.classList.toggle("on",j===i)); },{passive:true});
+function setDockPad(){ document.body.style.setProperty("--dockH", $("#qr").offsetHeight+"px"); }
+function setClosed(c){ $("#qr").classList.toggle("closed",c); $("#qrTog").textContent=c?"▴ Show":"▾ Hide"; store.set("qrClosed",c?"1":""); setDockPad(); }
+$("#qrTog").onclick=()=>setClosed(!$("#qr").classList.contains("closed"));
+window.addEventListener("resize",setDockPad);
+renderQR(); setClosed(!!store.get("qrClosed"));
+
+/* ---------------- floating menu ---------------- */
+function setMenu(open){
+  document.body.classList.toggle("menu-open",open);
+  $("#fab").setAttribute("aria-expanded",open); $("#menu").setAttribute("aria-hidden",!open);
+  $("#fab").setAttribute("aria-label",open?"Close section menu":"Open section menu");
+  if(open){ $("#menuQrLbl").textContent=$("#qr").classList.contains("closed")?"Show Quick Ref":"Hide Quick Ref"; }
+}
+$("#fab").onclick=()=>setMenu(!document.body.classList.contains("menu-open"));
+$("#menuBg").onclick=()=>setMenu(false);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") setMenu(false); });
+document.querySelectorAll("#menu a[data-s]").forEach(a=>a.addEventListener("click",e=>{
+  e.preventDefault(); setMenu(false);
+  const t=document.getElementById(a.dataset.s);
+  if(t){ const y=a.dataset.s==="top"?0:t.getBoundingClientRect().top+scrollY-64; scrollTo({top:y,behavior:"smooth"}); history.replaceState(null,"","#"+a.dataset.s); }
+}));
+document.querySelectorAll('a[href="#backup"]').forEach(a=>{ if(!a.dataset.s) a.addEventListener("click",e=>{ e.preventDefault(); const t=$("#backup"); scrollTo({top:t.getBoundingClientRect().top+scrollY-64,behavior:"smooth"}); }); });
+$("#menuQr").onclick=()=>{ setClosed(!$("#qr").classList.contains("closed")); setMenu(false); };
+const io=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ document.querySelectorAll("#menu a[data-s]").forEach(a=>a.classList.toggle("cur",a.dataset.s===en.target.id)); } }); },{rootMargin:"-45% 0px -50% 0px"});
+[...document.querySelectorAll("#menu a[data-s]")].forEach(a=>{ const el=document.getElementById(a.dataset.s); if(el) io.observe(el); });
+
+/* ---------------- drills ---------------- */
+let deck=[], fi=0;
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+function flashNext(){
+  if(!deck.length||fi>=deck.length){deck=shuffle(U.map(u=>u.k));fi=0;}
+  const u=UK[deck[fi++]]; $("#flash").classList.remove("flip");
+  setTimeout(()=>{
+    $("#flashImg").src=sp(u.k);
+    $("#flashBack").innerHTML=`<div style="display:flex;gap:12px;align-items:center"><img src="${sq(u.k)}" style="width:64px;height:64px;border-radius:12px;border:3px solid var(--c${u.c})" alt="">
+      <div><div style="font:800 24px Cinzel">${u.n}</div>${costChip(u.c)} ${u.tags.includes("backup")?'<span class="pill p-red">Plan B</span>':u.tags.includes("core")?'<span class="pill p-teal">Final board</span>':'<span class="pill">Early game</span>'}</div></div>
+      <div class="traits">${u.t.map(traitPill).join("")}</div><div class="small">${u.role}</div>
+      ${u.unlock?`<div class="buff" style="border-left-color:var(--gold)"><b style="color:var(--gold)">🔓 Unlock</b>${u.unlock}</div>`:''}
+      ${u.items.length?`<div class="items" style="display:flex;gap:6px;align-items:center"><span class="small muted">BIS:</span>${u.items.map(k=>itemIc(k)).join("")}</div>`:''}`;
+    $("#flashCount").textContent=`${fi} / ${deck.length}`;
+  },180);
+}
+$("#flash").onclick=()=>$("#flash").classList.toggle("flip");
+$("#flashNext").onclick=flashNext; flashNext();
+
+let rqItem=null, rqPicked=[], rqRight=0, rqTotal=0;
+$("#pick").innerHTML=CK.map(k=>`<button data-k="${k}" title="${C[k].n}"><img src="${ci(k)}" alt="${C[k].n}"></button>`).join("");
+function rqNext(){
+  const keys=Object.keys(I).filter(k=>!$("#rqOnly").checked||I[k][4]);
+  let k; do{k=keys[Math.floor(Math.random()*keys.length)];}while(k===rqItem&&keys.length>1);
+  rqItem=k; rqPicked=[];
+  $("#rqImg").src=itemImg(k); $("#rqName").textContent=I[k][0];
+  $("#rqUse").innerHTML=tagLabel(I[k][4]); $("#s1").innerHTML=""; $("#s2").innerHTML=""; $("#rqFb").textContent="";
+}
+$("#pick").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  if(rqPicked.length>=2) return;
+  rqPicked.push(b.dataset.k); $("#s"+rqPicked.length).innerHTML=`<img src="${ci(b.dataset.k)}" alt="">`;
+  if(rqPicked.length===2){
+    rqTotal++;
+    const ok=[...rqPicked].sort().join("+")===[I[rqItem][2],I[rqItem][3]].sort().join("+");
+    if(ok){rqRight++;$("#rqFb").innerHTML=`<span class="ok">✔ Correct!</span>`;setTimeout(rqNext,900);}
+    else $("#rqFb").innerHTML=`<span class="bad">✘ It's ${C[I[rqItem][2]].n} + ${C[I[rqItem][3]].n}</span>`;
+    $("#rqScore").textContent=`${rqRight} / ${rqTotal}`;
+  }
+});
+$("#rqNext").onclick=rqNext; $("#rqOnly").onchange=rqNext; rqNext();
+
+/* ---------------- PWA ---------------- */
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+</script>
+</body>
+</html>
