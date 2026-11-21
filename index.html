@@ -150,6 +150,8 @@ nav.top a.l:hover{color:var(--text)}
 .rec > img.ic{width:46px;height:46px}
 .rec .eq .ic{width:22px;height:22px;border-radius:5px}
 .alt{font-size:13px;color:var(--muted);margin-top:4px}
+.bkrec{position:relative;padding:12px 6px 4px;border:1px dashed var(--line);border-radius:10px;opacity:.85}
+.bkrec .bkl{position:absolute;top:-8px;left:50%;transform:translateX(-50%);padding:0 6px;background:var(--panel2);font:800 9.5px Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
 
 /* hex board */
 .board{display:flex;flex-direction:column;gap:0;padding:14px 6px 10px;overflow:hidden;background:radial-gradient(ellipse at top,#1a2538,#0e1520);border-radius:14px;border:1px solid var(--line)}
@@ -545,7 +547,6 @@ ol.unlock li .uic{width:44px;height:44px;flex-shrink:0}
     <span class="pill">Avg place 2.53</span>
     <span class="pill">41% win rate</span>
     <span class="pill">EASY · 1-cost reroll</span>
-    <span class="dim small">PBE Diamond+ · tft.ninja · Nov 19</span>
   </div>
   <div class="choose">
     <a class="choice teal main" href="#plan">
@@ -559,7 +560,6 @@ ol.unlock li .uic{width:44px;height:44px;flex-shrink:0}
         <div class="trig row"><img class="ic" src="assets/items/voidstaff.png" data-item="voidstaff" alt=""><img class="ic" src="assets/items/spearofshojin.png" data-item="shojin" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" data-item="jg" alt=""></div></div>
     </a>
   </div>
-  <div class="pbe">⚠️ Set 19 is on the <b>PBE</b> (live around <b>Dec 2</b>, patch 19.1). Numbers and items can still change.</div>
 </header>
 
 <!-- ================= RULES ================= -->
@@ -620,7 +620,6 @@ ol.unlock li .uic{width:44px;height:44px;flex-shrink:0}
       <div class="muted"><span class="pill p-teal">3★ Ziggs</span> <span class="pill p-tank">3★ Kobuko</span> <span class="pill p-red">3★ Seraphine</span> <span class="pill p-gold">Teemo</span></div>
     </div>
   </div>
-  <div class="note-s">📝 Lvl 5 slow roll is from Mobalytics; the stage-by-stage timings around it are my plan (TFT Academy's tips are still "coming soon").</div>
 
   <div class="timeline" id="tl"></div>
 
@@ -947,8 +946,7 @@ $("#tl").innerHTML = TL.map(s=>`<div class="stage"><div class="st">${s.st}</div>
 const carryHTML = list => list.map(c=>{const u=UK[c.u];return `
   <div class="carry"><img class="por" src="${sq(c.u)}" alt="${u.n}" style="border-color:var(--c${u.c})">
     <div style="flex:1"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><b style="font:800 17px Cinzel">${u.n}</b>${costChip(u.c)}<span class="pill ${c.cls}">${c.tag}</span></div>
-    <div class="recipes" style="margin-top:8px">${c.items.map(recHTML).join("")}</div>
-    ${c.bk?`<div class="alt">Backup: ${eqText(c.bk)}</div>`:""}</div></div>`}).join("");
+    <div class="recipes" style="margin-top:8px">${c.items.map(recHTML).join("")}${c.bk?`<div class="bkrec"><span class="bkl">Backup</span>${recHTML(c.bk)}</div>`:""}</div></div></div>`}).join("");
 $("#carries").innerHTML = carryHTML([
   {u:"ziggs",tag:"No-Tear carry · 3★",cls:"p-teal",items:["guinsoo","jg","gunblade"],bk:"flail"},
   {u:"seraphine",tag:"Tear carry · 3★",cls:"p-red",items:["voidstaff","shojin","jg"],bk:"morello"},
