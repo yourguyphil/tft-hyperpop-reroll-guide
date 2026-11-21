@@ -205,6 +205,23 @@ nav.top a.l:hover{color:var(--text)}
 .build{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:#0f1622;border:1px solid var(--line);margin-bottom:6px;font-size:13.5px}
 .build .eq{display:flex;align-items:center;gap:3px;color:var(--dim);font-weight:800}
 .build .who{margin-left:auto}
+.left{margin-bottom:10px}
+.left .lh{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:13.5px}
+.build.opt{margin-left:18px;padding:6px 10px}
+@media (max-width:600px){.build .who .nm{display:none}.build.opt{margin-left:8px}}
+.build .need{display:inline-flex;align-items:center;gap:5px;padding:2px 8px 2px 3px;border-radius:999px;border:1px dashed var(--gold);color:var(--gold);font-size:12.5px}
+[data-item],[data-comp]{cursor:help}
+.itip{position:fixed;z-index:300;max-width:290px;padding:12px 13px;border-radius:12px;background:#0d1420;border:1px solid var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.6);font-size:13px;line-height:1.45;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
+.itip.on{opacity:1;transform:none}
+.itip .th{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.itip .th img{width:40px;height:40px;border-radius:9px;border:1px solid rgba(255,255,255,.15)}
+.itip .th b{font-size:14.5px;display:block}
+.itip .rc{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:12px}
+.itip .rc img{width:18px;height:18px;border-radius:4px}
+.itip .who{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center;color:var(--muted);font-size:12px}
+.itip .who img{width:22px;height:22px;border-radius:6px;border:2px solid}
+.itip .bi{display:flex;align-items:center;gap:6px;margin-top:5px}
+.itip .bi img{width:22px;height:22px;border-radius:5px}
 
 /* drills */
 .drills{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -526,12 +543,12 @@ ol.unlock li .uic{width:44px;height:44px;flex-shrink:0}
     <a class="choice teal main" href="#plan">
       <img class="por wide" src="assets/units/ziggs.webp" alt="Ziggs">
       <div><div class="if">No Tear → carry · 3★ · 1-cost</div><div class="nm">Ziggs</div>
-        <div class="trig row"><img class="ic" src="assets/items/guinsoosrageblade.png" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" alt=""><img class="ic" src="assets/items/hextechgunblade.png" alt=""></div></div>
+        <div class="trig row"><img class="ic" src="assets/items/guinsoosrageblade.png" data-item="guinsoo" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" data-item="jg" alt=""><img class="ic" src="assets/items/hextechgunblade.png" data-item="gunblade" alt=""></div></div>
     </a>
     <a class="choice red" href="#plan">
       <img class="por wide" src="assets/units/seraphine.webp" alt="Seraphine">
       <div><div class="if">Tear → carry · 3★ · 2-cost</div><div class="nm">Seraphine</div>
-        <div class="trig row"><img class="ic" src="assets/items/voidstaff.png" alt=""><img class="ic" src="assets/items/spearofshojin.png" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" alt=""></div></div>
+        <div class="trig row"><img class="ic" src="assets/items/voidstaff.png" data-item="voidstaff" alt=""><img class="ic" src="assets/items/spearofshojin.png" data-item="shojin" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" data-item="jg" alt=""></div></div>
     </a>
   </div>
   <div class="pbe">⚠️ Set 19 is on the <b>PBE</b> (live around <b>Dec 2</b>, patch 19.1). Numbers and items can still change.</div>
@@ -834,15 +851,15 @@ const sq = k => `assets/units-sq/${k}.png`, sp = k => `assets/units/${k}.webp`;
 const $ = s => document.querySelector(s);
 const el = (tag, cls, html) => { const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
 const traitPill = t => `<span class="pill">${T[t]?`<img class="tr" src="assets/traits/${T[t]}.svg" alt="">`:''}${t}</span>`;
-const itemIc = (k, cls="ic sm") => `<img class="${cls}" src="${itemImg(k)}" alt="${I[k][0]}" title="${I[k][0]}  (${C[I[k][2]].n} + ${C[I[k][3]].n})">`;
-const compIc = (k, cls="ic sm") => `<img class="${cls}" src="${ci(k)}" alt="${C[k].n}" title="${C[k].n}">`;
+const itemIc = (k, cls="ic sm") => `<img class="${cls}" src="${itemImg(k)}" data-item="${k}" alt="${I[k][0]}">`;
+const compIc = (k, cls="ic sm") => `<img class="${cls}" src="${ci(k)}" data-comp="${k}" alt="${C[k].n}">`;
 const unitIc = (k, size=30) => `<img src="${sq(k)}" alt="${UK[k].n}" title="${UK[k].n}" style="width:${size}px;height:${size}px;border-radius:7px;border:2px solid var(--c${UK[k].c})">`;
 const uic = k => `<img class="uic" src="${sq(k)}" alt="" title="${UK[k].n}" style="border-color:var(--c${UK[k].c})">`;
-const icI = k => `<img class="uic" src="${itemImg(k)}" alt="" title="${I[k][0]}" style="border-color:transparent">`;
-const icC = k => `<img class="uic" src="${ci(k)}" alt="" title="${C[k].n}" style="border-color:transparent">`;
-const recHTML = k => `<div class="rec"><div class="eq">${compIc(I[k][2],"ic xs")}<span>+</span>${compIc(I[k][3],"ic xs")}</div><img class="ic" src="${itemImg(k)}" alt=""><div>${I[k][0]}</div></div>`;
+const icI = k => `<img class="uic" src="${itemImg(k)}" data-item="${k}" alt="" style="border-color:transparent">`;
+const icC = k => `<img class="uic" src="${ci(k)}" data-comp="${k}" alt="" style="border-color:transparent">`;
+const recHTML = k => `<div class="rec"><div class="eq">${compIc(I[k][2],"ic xs")}<span>+</span>${compIc(I[k][3],"ic xs")}</div><img class="ic" src="${itemImg(k)}" data-item="${k}" alt=""><div>${I[k][0]}</div></div>`;
 const eqText = k => `${C[I[k][2]].s} + ${C[I[k][3]].s} = <b>${I[k][0]}</b>`;
-const qLine = (k,bk) => `<div class="ql${bk?' bk':''}"><img src="${ci(I[k][2])}" alt="">${C[I[k][2]].s}<span class="o">+</span><img src="${ci(I[k][3])}" alt="">${C[I[k][3]].s}<span class="o">=</span><img src="${itemImg(k)}" alt=""><span class="res">${I[k][0]}</span></div>`;
+const qLine = (k,bk) => `<div class="ql${bk?' bk':''}"><img src="${ci(I[k][2])}" data-comp="${I[k][2]}" alt="">${C[I[k][2]].s}<span class="o">+</span><img src="${ci(I[k][3])}" data-comp="${I[k][3]}" alt="">${C[I[k][3]].s}<span class="o">=</span><img src="${itemImg(k)}" data-item="${k}" alt=""><span class="res">${I[k][0]}</span></div>`;
 const costChip = c => `<span class="cc b${c}">${c}g</span>`;
 
 /* ---------------- rules / unlocks / traits ---------------- */
@@ -955,7 +972,7 @@ function renderBoard(id, cells){
       const u=UK[x[2]];
       h+=`<div class="cell"><span class="tip">${u.n}${x[4].length?" · "+x[4].map(k=>I[k][0]).join(", "):""}</span><div class="stars">${"★".repeat(x[3])}</div>
         <div class="hex u" style="background:var(--c${u.c})"><img src="${sq(u.k)}" alt="${u.n}"></div>
-        <div class="its">${x[4].map(k=>`<img src="${itemImg(k)}" alt="">`).join("")}</div></div>`;
+        <div class="its">${x[4].map(k=>`<img src="${itemImg(k)}" data-item="${k}" alt="">`).join("")}</div></div>`;
     }
     h+=`</div>`;
   }
@@ -980,7 +997,7 @@ const STAR = 5;
 const rankOf = k => { const i=RANK.findIndex(x=>x[0]===k); return i<0?0:i+1; };
 function renderRankList(){
   $("#rankList").innerHTML=`<h3><span style="color:var(--teal)">Build priority</span></h3><ol>`+
-    RANK.map(([k,who],i)=>{const u=UK[who];return `<li class="${i<STAR?'star':''}" data-k="${k}"><span class="n">${i<STAR?'★':''}${i+1}</span><img src="${itemImg(k)}" alt=""><b>${I[k][0]}</b><img class="who" src="${sq(who)}" alt="${u.n}" title="${u.n}" style="border-color:var(--c${u.c})"><span class="rcp">${C[I[k][2]].s} + ${C[I[k][3]].s}</span></li>`}).join("")+`</ol>`;
+    RANK.map(([k,who],i)=>{const u=UK[who];return `<li class="${i<STAR?'star':''}" data-k="${k}"><span class="n">${i<STAR?'★':''}${i+1}</span><img src="${itemImg(k)}" data-item="${k}" alt=""><b>${I[k][0]}</b><img class="who" src="${sq(who)}" alt="${u.n}" title="${u.n}" style="border-color:var(--c${u.c})"><span class="rcp">${C[I[k][2]].s} + ${C[I[k][3]].s}</span></li>`}).join("")+`</ol>`;
   $("#rankList").querySelectorAll("li").forEach(li=>li.onclick=()=>showItem(li.dataset.k));
 }
 
@@ -990,12 +1007,12 @@ const tagCls = t => t==="Z"?"P":t==="S"?"B":t==="T"?"T":t==="ZS"?"PB":"";
 function renderGrid(){
   const g=$("#igrid"); g.innerHTML="";
   g.appendChild(el("div",""));
-  CK.forEach(k=>{const h=el("div","h"+(sel===k?" on":""),`<img src="${ci(k)}" alt="${C[k].n}" title="${C[k].n}">`);h.onclick=()=>{sel=sel===k?null:k;renderGrid();};g.appendChild(h);});
+  CK.forEach(k=>{const h=el("div","h"+(sel===k?" on":""),`<img src="${ci(k)}" data-comp="${k}" alt="${C[k].n}">`);h.onclick=()=>{sel=sel===k?null:k;renderGrid();};g.appendChild(h);});
   CK.forEach(r=>{
-    const h=el("div","h"+(sel===r?" on":""),`<img src="${ci(r)}" alt="${C[r].n}" title="${C[r].n}">`);h.onclick=()=>{sel=sel===r?null:r;renderGrid();};g.appendChild(h);
+    const h=el("div","h"+(sel===r?" on":""),`<img src="${ci(r)}" data-comp="${r}" alt="${C[r].n}">`);h.onclick=()=>{sel=sel===r?null:r;renderGrid();};g.appendChild(h);
     CK.forEach(c=>{
       const k=recipe[[r,c].sort().join("+")]; const tag=I[k][4]; const rk=rankOf(k);
-      const d=el("div","c "+tagCls(tag)+(sel&&r!==sel&&c!==sel?" dim":"")+(!rk&&!tag?" unranked":"")+(rk&&rk<=STAR?" top":""),`<img src="${itemImg(k)}" alt="${I[k][0]}">`);
+      const d=el("div","c "+tagCls(tag)+(sel&&r!==sel&&c!==sel?" dim":"")+(!rk&&!tag?" unranked":"")+(rk&&rk<=STAR?" top":""),`<img src="${itemImg(k)}" data-item="${k}" alt="${I[k][0]}">`);
       if(rk) d.insertAdjacentHTML("beforeend",`<span class="rk ${rk<=STAR?'star':''}">${rk<=STAR?'★':''}${rk}</span>`);
       d.onmouseenter=d.onclick=()=>showItem(k);
       g.appendChild(d);
@@ -1011,6 +1028,35 @@ function showItem(k){
 }
 renderGrid(); renderRankList(); showItem("guinsoo");
 
+/* ---------------- hover / tap tooltips ---------------- */
+const tip = el("div","itip"); tip.setAttribute("role","tooltip"); document.body.appendChild(tip);
+const holders = k => U.filter(u=>u.items.includes(k));
+const mini = k => `<img src="${sq(k)}" alt="" style="border-color:var(--c${UK[k].c})">`;
+function tipFor(t){
+  if(t.dataset.item){
+    const k=t.dataset.item, [n,,a,b,,d]=I[k], rk=rankOf(k), hs=holders(k);
+    return `<div class="th"><img src="${itemImg(k)}" alt=""><div><b>${n}</b><div class="rc"><img src="${ci(a)}" alt="">${C[a].s} + <img src="${ci(b)}" alt="">${C[b].s}</div></div></div>
+      <div>${d}</div>${rk?`<div style="margin-top:6px"><span class="pill p-gold">${rk<=STAR?'★ ':''}#${rk} priority</span></div>`:''}
+      ${hs.length?`<div class="who">Goes on ${hs.map(u=>mini(u.k)+u.n).join(" · ")}</div>`:''}`;
+  }
+  const k=t.dataset.comp, its=RANK.map(r=>r[0]).filter(i=>I[i][2]===k||I[i][3]===k).slice(0,4);
+  return `<div class="th"><img src="${ci(k)}" alt=""><div><b>${C[k].n}</b><div class="rc">Component</div></div></div>
+    ${its.length?`<div class="small muted">Builds into (this comp):</div>`+its.map(i=>{const o=I[i][2]===k?I[i][3]:I[i][2];return `<div class="bi">+ <img src="${ci(o)}" alt="">${C[o].s} = <img src="${itemImg(i)}" alt=""><b>${I[i][0]}</b></div>`}).join(""):''}`;
+}
+let tipEl=null;
+function showTip(t){
+  tipEl=t; tip.innerHTML=tipFor(t); tip.classList.add("on");
+  const r=t.getBoundingClientRect(), w=tip.offsetWidth, h=tip.offsetHeight, m=8;
+  let x=Math.min(Math.max(m, r.left+r.width/2-w/2), innerWidth-w-m);
+  let y=r.top-h-10; if(y<m) y=Math.min(r.bottom+10, innerHeight-h-m);
+  tip.style.left=x+"px"; tip.style.top=y+"px";
+}
+function hideTip(){ tipEl=null; tip.classList.remove("on"); }
+const TIPSEL="[data-item],[data-comp]";
+document.addEventListener("pointerover",e=>{ if(e.pointerType==="touch") return; const t=e.target.closest(TIPSEL); if(t){ if(t!==tipEl) showTip(t); } else if(tipEl) hideTip(); });
+document.addEventListener("click",e=>{ const t=e.target.closest(TIPSEL); if(t&&matchMedia("(hover: none)").matches){ t===tipEl?hideTip():showTip(t); } else if(!t) hideTip(); }, true);
+addEventListener("scroll",()=>{ if(tipEl) hideTip(); },{passive:true});
+
 /* ---------------- advisor ---------------- */
 const bench = Object.fromEntries(CK.map(k=>[k,0]));
 const PRIO = {
@@ -1020,16 +1066,8 @@ const PRIO = {
   B:[["shojin","renataglasc"],["archangel","renataglasc"],["gunblade","renataglasc"],["sunfire","nasus"],["visage","nasus"],["warmog","nasus"],
      ["titans","jax"],["bt","jax"],["shojin","jax"],["gargoyle","leona"],["bramble","leona"],["dclaw","leona"],["jg","renataglasc"],["bluebuff","renataglasc"],["voidstaff","renataglasc"]]
 };
-const HINT = {
-  A:{bow:"Pair with a Rod (Guinsoo's) or a Tear (Void Staff)",rod:"Pair with a Bow (Guinsoo's), Gloves (JG) or a Sword (Gunblade)",gloves:"Pair with a Rod (JG) or a Belt (Striker's Flail)",
-     tear:"Pair with a Bow (Void Staff) or a Sword (Shojin) for Seraphine",sword:"Pair with a Tear (Shojin) or a Rod (Gunblade)",vest:"Pair with a Cloak (Gargoyle) for Kobuko",
-     cloak:"Pair with a Vest (Gargoyle) for Kobuko",belt:"Pair with a Belt (Warmog's) or a Tear (Spirit Visage)"},
-  B:{tear:"Pair with a Sword (Shojin) or a Rod (Archangel's)",sword:"Pair with a Tear (Shojin), a Rod (Gunblade) or a Cloak (Bloodthirster)",rod:"Pair with a Tear (Archangel's) or a Sword (Gunblade)",
-     bow:"Pair with a Vest (Titan's) for Jax",vest:"Pair with a Belt (Sunfire) or a Bow (Titan's)",belt:"Pair with a Vest (Sunfire), a Tear (Visage) or a Belt (Warmog's)",
-     cloak:"Pair with a Sword (Bloodthirster) or a Vest (Gargoyle)",gloves:"Pair with a Rod (JG) for Renata"}
-};
 function renderBench(){
-  $("#bench").innerHTML = CK.map(k=>`<div class="cbtn ${bench[k]?'has':''}"><img src="${ci(k)}" alt=""><div class="nm">${C[k].n}</div>
+  $("#bench").innerHTML = CK.map(k=>`<div class="cbtn ${bench[k]?'has':''}"><img src="${ci(k)}" data-comp="${k}" alt=""><div class="nm">${C[k].n}</div>
     <div class="ctl"><button data-k="${k}" data-d="-1">−</button><span class="cnt">${bench[k]}</span><button data-k="${k}" data-d="1">+</button></div></div>`).join("");
   $("#bench").querySelectorAll("button").forEach(b=>b.onclick=()=>{const k=b.dataset.k;bench[k]=Math.max(0,Math.min(9,bench[k]+ +b.dataset.d));renderBench();advise();});
 }
@@ -1045,8 +1083,12 @@ function advise(){
   for(const [k,who] of PRIO[plan]){ const [ , ,a,b]=I[k]; if(a===b? pool[a]>=2 : (pool[a]>=1&&pool[b]>=1)){ pool[a]--; pool[b]--; out.push([k,who]); } }
   const left=CK.flatMap(k=>Array(pool[k]).fill(k));
   let h=`<div class="small muted" style="margin:4px 0 8px">${out.length?'Build these, in this order:':'Nothing complete yet. Hold your components.'}</div>`;
-  h+=out.map(([k,who])=>`<div class="build"><div class="eq">${compIc(I[k][2],"ic xs")}+${compIc(I[k][3],"ic xs")}=</div><img class="ic sm" src="${itemImg(k)}" alt=""><b>${I[k][0]}</b>${plan==='A'&&rankOf(k)&&rankOf(k)<=STAR?'<span class="pill p-gold" style="font-size:10px">★</span>':''}<span class="who small muted" style="display:flex;align-items:center;gap:6px">→ ${UK[who].n} ${unitIc(who,26)}</span></div>`).join("");
-  if(left.length) h+=`<div class="small muted" style="margin:12px 0 6px">Leftovers and what to pair them with:</div>`+[...new Set(left)].map(k=>`<div class="build">${compIc(k,"ic sm")}<b>${C[k].n}${pool[k]>1?' ×'+pool[k]:''}</b><span class="small muted">${HINT[plan][k]}</span></div>`).join("");
+  h+=out.map(([k,who])=>`<div class="build"><div class="eq">${compIc(I[k][2],"ic xs")}+${compIc(I[k][3],"ic xs")}=</div><img class="ic sm" src="${itemImg(k)}" data-item="${k}" alt=""><b>${I[k][0]}</b>${plan==='A'&&rankOf(k)&&rankOf(k)<=STAR?'<span class="pill p-gold" style="font-size:10px">★</span>':''}<span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,26)}</span></div>`).join("");
+  if(left.length) h+=`<div class="small muted" style="margin:14px 0 6px">Leftovers: hold them, and look for the missing piece:</div>`+[...new Set(left)].map(k=>{
+    const seen=new Set(), opts=PRIO[plan].filter(([it])=>{const r=I[it]; if(seen.has(it)||(r[2]!==k&&r[3]!==k)) return false; seen.add(it); return true;}).slice(0,3);
+    return `<div class="left"><div class="lh">${compIc(k,"ic sm")}<b>${C[k].n}${pool[k]>1?' ×'+pool[k]:''}</b><span class="small muted">needs one of:</span></div>`+opts.map(([it,who])=>{
+      const o=I[it][2]===k?I[it][3]:I[it][2];
+      return `<div class="build opt"><div class="eq">${compIc(k,"ic xs")}+</div><span class="need">${compIc(o,"ic xs")}<b>${C[o].s}</b></span><span class="eq">=</span>${itemIc(it,"ic sm")}<b>${I[it][0]}</b><span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,22)}</span></div>`;}).join("")+`</div>`;}).join("");
   $("#builds").innerHTML=h;
 }
 $("#resetBench").onclick=()=>{CK.forEach(k=>bench[k]=0);renderBench();advise();};
