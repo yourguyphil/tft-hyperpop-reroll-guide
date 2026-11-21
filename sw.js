@@ -1,5 +1,5 @@
 // Auto-generated. Caches the whole site so it works offline once installed.
-const CACHE = "hyperpop-reroll-guide-922b079d3b";
+const CACHE = "hyperpop-reroll-guide-3b3e644e31";
 const PRECACHE = [
 "./",
 "index.html",

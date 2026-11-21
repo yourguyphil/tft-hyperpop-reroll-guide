@@ -208,6 +208,14 @@ nav.top a.l:hover{color:var(--text)}
 .left{margin-bottom:10px}
 .left .lh{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:13.5px}
 .build.opt{margin-left:18px;padding:6px 10px}
+.build .hx{flex:none;width:26px;height:26px;margin-left:2px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font:700 12px Inter;cursor:pointer}
+.build .hx:hover{color:var(--text);border-color:var(--red)}
+.hmenu{display:flex;flex-wrap:wrap;gap:6px;margin:-2px 0 8px;padding:8px;border-radius:10px;background:var(--panel2);border:1px dashed var(--line)}
+.hmenu button{flex:1 1 auto;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:#0f1622;color:var(--text);font:600 12.5px Inter;cursor:pointer}
+.hmenu button:hover{border-color:var(--gold)}
+.hbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;padding-top:10px;border-top:1px dashed var(--line)}
+.hchip{padding:4px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font:600 12px Inter;cursor:pointer}
+.hchip span{opacity:.6;margin-left:3px}.hchip:hover{color:var(--text)}.hchip.auto{cursor:default}.hchip.clr{color:var(--gold);border-color:var(--gold)}
 @media (max-width:600px){.build .who .nm{display:none}.build.opt{margin-left:8px}}
 .build .need{display:inline-flex;align-items:center;gap:5px;padding:2px 8px 2px 3px;border-radius:999px;border:1px dashed var(--gold);color:var(--gold);font-size:12.5px}
 [data-item],[data-comp]{cursor:help}
@@ -1066,6 +1074,28 @@ const PRIO = {
   B:[["shojin","renataglasc"],["archangel","renataglasc"],["gunblade","renataglasc"],["sunfire","nasus"],["visage","nasus"],["warmog","nasus"],
      ["titans","jax"],["bt","jax"],["shojin","jax"],["gargoyle","leona"],["bramble","leona"],["dclaw","leona"],["jg","renataglasc"],["bluebuff","renataglasc"],["voidstaff","renataglasc"]]
 };
+/* hide recommendations: built (item already on that unit), skip (don't want the item), full (unit has no slots) */
+const HID = (()=>{ try{ const o=JSON.parse(store.get("hpHide")||"{}"); return {built:new Set(o.built||[]),skip:new Set(o.skip||[]),full:new Set(o.full||[])}; }catch(e){ return {built:new Set(),skip:new Set(),full:new Set()}; } })();
+const saveHID = () => store.set("hpHide", JSON.stringify({built:[...HID.built],skip:[...HID.skip],full:[...HID.full]}));
+const builtOn = who => [...HID.built].filter(x=>x.endsWith("|"+who)).length;
+const isFull = who => HID.full.has(who) || builtOn(who)>=3;
+const allowed = (k,who) => !HID.skip.has(k) && !HID.built.has(k+"|"+who) && !isFull(who);
+function hideBar(){
+  const chip=(type,key,label)=>`<button class="hchip" data-t="${type}" data-x="${key}" title="Show again">${label} <span>✕</span></button>`;
+  const autoFull=[...new Set([...HID.built].map(x=>x.split("|")[1]))].filter(w=>!HID.full.has(w)&&builtOn(w)>=3);
+  const c=[...[...HID.built].map(x=>{const [k,w]=x.split("|");return chip("built",x,`✓ ${I[k][0]} on ${UK[w].n}`)}),
+    ...[...HID.skip].map(k=>chip("skip",k,`🚫 ${I[k][0]}`)),
+    ...[...HID.full].map(w=>chip("full",w,`🔒 ${UK[w].n} full`)),
+    ...autoFull.map(w=>`<span class="hchip auto">🔒 ${UK[w].n} has 3 items</span>`)];
+  return c.length?`<div class="hbar"><span class="small muted">Hidden:</span>${c.join("")}<button class="hchip clr" data-t="all">Show all</button></div>`:"";
+}
+const hideMenu = (k,who) => `<div class="hmenu"><button data-h="built" data-k="${k}" data-w="${who}">✓ Already built</button><button data-h="skip" data-k="${k}" data-w="${who}">🚫 Don't want ${I[k][0]}</button><button data-h="full" data-k="${k}" data-w="${who}">🔒 ${UK[who].n} is full</button></div>`;
+$("#builds").addEventListener("click",e=>{
+  const x=e.target.closest(".hx"); if(x){ const row=x.closest(".build"); const open=row.nextElementSibling&&row.nextElementSibling.classList.contains("hmenu");
+    $("#builds").querySelectorAll(".hmenu").forEach(m=>m.remove()); if(!open) row.insertAdjacentHTML("afterend",hideMenu(x.dataset.k,x.dataset.w)); return; }
+  const h=e.target.closest("[data-h]"); if(h){ const {h:t,k,w}=h.dataset; if(t==="built") HID.built.add(k+"|"+w); else if(t==="skip") HID.skip.add(k); else HID.full.add(w); saveHID(); advise(); return; }
+  const c=e.target.closest(".hchip[data-t]"); if(c){ const t=c.dataset.t; if(t==="all"){HID.built.clear();HID.skip.clear();HID.full.clear();} else HID[t].delete(c.dataset.x); saveHID(); advise(); }
+});
 function renderBench(){
   $("#bench").innerHTML = CK.map(k=>`<div class="cbtn ${bench[k]?'has':''}"><img src="${ci(k)}" data-comp="${k}" alt=""><div class="nm">${C[k].n}</div>
     <div class="ctl"><button data-k="${k}" data-d="-1">−</button><span class="cnt">${bench[k]}</span><button data-k="${k}" data-d="1">+</button></div></div>`).join("");
@@ -1078,18 +1108,18 @@ function advise(){
   const why = plan==="B" ? "Ziggs is contested, so go <b>Renata Guards</b>. Tear + Sword items become Spear of Shojin for Renata and Jax."
     : tears ? `<b>${tears} Tear${tears>1?'s':''}</b> → Seraphine items. Everything else → Ziggs and Kobuko.` : "No Tear → all damage items go to <b>Ziggs</b>.";
   $("#verdict").innerHTML=`<div class="verdict ${plan==='A'?'teal':'red'}"><img src="${sp(plan==='A'?(tears?'seraphine':'ziggs'):'renataglasc')}" alt=""><div><div class="kicker" style="margin:0">${plan==='A'?'Plan A · Hyperpop':'Plan B · Renata Guards'}</div><h3>${plan==='A'?(tears?'Ziggs + Seraphine':'Ziggs carry'):'Renata Guards'}</h3><div class="small">${why}</div></div></div>`;
-  if(!total){ $("#builds").innerHTML=`<div class="small muted">Use + / − on the left.</div>`; return; }
+  if(!total){ $("#builds").innerHTML=`<div class="small muted">Use + / − on the left.</div>`+hideBar(); return; }
   const pool={...bench}; const out=[];
-  for(const [k,who] of PRIO[plan]){ const [ , ,a,b]=I[k]; if(a===b? pool[a]>=2 : (pool[a]>=1&&pool[b]>=1)){ pool[a]--; pool[b]--; out.push([k,who]); } }
+  for(const [k,who] of PRIO[plan]){ if(!allowed(k,who)) continue; const [ , ,a,b]=I[k]; if(a===b? pool[a]>=2 : (pool[a]>=1&&pool[b]>=1)){ pool[a]--; pool[b]--; out.push([k,who]); } }
   const left=CK.flatMap(k=>Array(pool[k]).fill(k));
-  let h=`<div class="small muted" style="margin:4px 0 8px">${out.length?'Build these, in this order:':'Nothing complete yet. Hold your components.'}</div>`;
-  h+=out.map(([k,who])=>`<div class="build"><div class="eq">${compIc(I[k][2],"ic xs")}+${compIc(I[k][3],"ic xs")}=</div><img class="ic sm" src="${itemImg(k)}" data-item="${k}" alt=""><b>${I[k][0]}</b>${plan==='A'&&rankOf(k)&&rankOf(k)<=STAR?'<span class="pill p-gold" style="font-size:10px">★</span>':''}<span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,26)}</span></div>`).join("");
+  let h=`<div class="small muted" style="margin:4px 0 8px">${out.length?'Build these, in this order <span class="dim">(✕ to hide one)</span>:':'Nothing complete yet. Hold your components.'}</div>`;
+  h+=out.map(([k,who])=>`<div class="build"><div class="eq">${compIc(I[k][2],"ic xs")}+${compIc(I[k][3],"ic xs")}=</div><img class="ic sm" src="${itemImg(k)}" data-item="${k}" alt=""><b>${I[k][0]}</b>${plan==='A'&&rankOf(k)&&rankOf(k)<=STAR?'<span class="pill p-gold" style="font-size:10px">★</span>':''}<span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,26)}</span><button class="hx" data-k="${k}" data-w="${who}" title="Hide this" aria-label="Hide this">✕</button></div>`).join("");
   if(left.length) h+=`<div class="small muted" style="margin:14px 0 6px">Leftovers: hold them, and look for the missing piece:</div>`+[...new Set(left)].map(k=>{
-    const seen=new Set(), opts=PRIO[plan].filter(([it])=>{const r=I[it]; if(seen.has(it)||(r[2]!==k&&r[3]!==k)) return false; seen.add(it); return true;}).slice(0,3);
+    const seen=new Set(), opts=PRIO[plan].filter(([it,who])=>{const r=I[it]; if(seen.has(it)||(r[2]!==k&&r[3]!==k)||!allowed(it,who)) return false; seen.add(it); return true;}).slice(0,3);
     return `<div class="left"><div class="lh">${compIc(k,"ic sm")}<b>${C[k].n}${pool[k]>1?' ×'+pool[k]:''}</b><span class="small muted">needs one of:</span></div>`+opts.map(([it,who])=>{
       const o=I[it][2]===k?I[it][3]:I[it][2];
       return `<div class="build opt"><div class="eq">${compIc(k,"ic xs")}+</div><span class="need">${compIc(o,"ic xs")}<b>${C[o].s}</b></span><span class="eq">=</span>${itemIc(it,"ic sm")}<b>${I[it][0]}</b><span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,22)}</span></div>`;}).join("")+`</div>`;}).join("");
-  $("#builds").innerHTML=h;
+  $("#builds").innerHTML=h+hideBar();
 }
 $("#resetBench").onclick=()=>{CK.forEach(k=>bench[k]=0);renderBench();advise();};
 $("#contested").onchange=advise;

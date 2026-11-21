@@ -23,14 +23,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Stage site files (skip tools, print sources, deploy scripts)
         run: |
           mkdir _site
           cp -r index.html manifest.json sw.js favicon.ico assets hyperpop-reroll-guide.html hyperpop-reroll-guide.pdf _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
       - id: deployment
