@@ -15,7 +15,7 @@ S tier on TFT Academy and tft.ninja: 83.9% top 4, 2.53 average placement (PBE Di
 - `hyperpop-reroll-guide.html`: single file with every image embedded (open this if images ever fail to load)
 - `hyperpop-reroll-guide.pdf`: 3-page printout, built from `print/outline.md`
 - `tools/`: `build-pdf.py`, `build-standalone.py`, `build-sw.py`, `build-icons.py`
-- `deploy/`: Azure Blob static-website scripts
+- `.github/workflows/pages.yml`: publishes to GitHub Pages on every push to `main`
 
 ## Rebuild after edits
 ```bash
@@ -25,7 +25,7 @@ python tools/build-sw.py .         # offline cache list
 ```
 
 ## Host it / install on phone
-`.\deploy\deploy-azure-blob.ps1 -Account <yourname>`, then on your phone: Share → Add to Home Screen (iPhone) or ⋮ → Install app (Android).
+Live at **https://yourguyphil.github.io/tft-hyperpop-reroll-guide/**: every push to `main` redeploys it. Open that on your phone, then: Share → Add to Home Screen (iPhone) or ⋮ → Install app (Android).
 
 ## Sources
 [TFT Academy · Hyperpop Reroll](https://tftacademy.com/tierlist/comps/set-19-hyperpop-reroll) · [tft.ninja PBE comps](https://tft.ninja/comps?e=pbe) · [tft.ninja Set 19 units/traits/augments](https://tft.ninja/sets/19/units) · [Mobalytics · Hyperpop](https://mobalytics.gg/tft/set19/comps-guide/hyper-pop-3M8yhC5RAV9atbxt8QeSlEeGvgi) · [Mobalytics unlocks](https://mobalytics.gg/tft/set19/unlocks) · [tftflow unlocks](https://tftflow.com/how-to-unlock-every-champion-set19) · [TFT Academy · Renata Guards](https://tftacademy.com/tierlist/comps/set-19-renata-guards)
