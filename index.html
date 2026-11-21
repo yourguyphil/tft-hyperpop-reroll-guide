@@ -848,7 +848,9 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 </div></footer>
 
 <script>
-const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+// SITE must be unique per guide: every guide on one GitHub Pages domain shares localStorage.
+const SITE="hyperpop-reroll";
+const store={get(k){try{return localStorage.getItem(SITE+":"+k)}catch(e){return null}},set(k,v){try{localStorage.setItem(SITE+":"+k,v)}catch(e){}}};
 
 /* ---------------- DATA ---------------- */
 const C = {
@@ -1158,8 +1160,8 @@ const PRIO = {
      ["titans","jax"],["bt","jax"],["shojin","jax"],["gargoyle","leona"],["bramble","leona"],["dclaw","leona"],["jg","renataglasc"],["bluebuff","renataglasc"],["voidstaff","renataglasc"]]
 };
 /* hide recommendations: built (item already on that unit), skip (don't want the item), full (unit has no slots) */
-const HID = (()=>{ try{ const o=JSON.parse(store.get("hpHide")||"{}"); return {built:new Set(o.built||[]),skip:new Set(o.skip||[]),full:new Set(o.full||[])}; }catch(e){ return {built:new Set(),skip:new Set(),full:new Set()}; } })();
-const saveHID = () => store.set("hpHide", JSON.stringify({built:[...HID.built],skip:[...HID.skip],full:[...HID.full]}));
+const HID = (()=>{ try{ const o=JSON.parse(store.get("hide")||"{}"); return {built:new Set(o.built||[]),skip:new Set(o.skip||[]),full:new Set(o.full||[])}; }catch(e){ return {built:new Set(),skip:new Set(),full:new Set()}; } })();
+const saveHID = () => store.set("hide", JSON.stringify({built:[...HID.built],skip:[...HID.skip],full:[...HID.full]}));
 const builtOn = who => [...HID.built].filter(x=>x.endsWith("|"+who)).length;
 const isFull = who => HID.full.has(who) || builtOn(who)>=3;
 const allowed = (k,who) => !HID.skip.has(k) && !HID.built.has(k+"|"+who) && !isFull(who);

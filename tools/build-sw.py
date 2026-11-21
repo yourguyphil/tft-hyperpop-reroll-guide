@@ -11,7 +11,8 @@ for f in files[1:]:
     h.update(open(os.path.join(root, f), "rb").read())
 version = h.hexdigest()[:10]
 sw = f"""// Auto-generated. Caches the whole site so it works offline once installed.
-const CACHE = "{os.path.basename(os.path.abspath(root))}-{version}";
+const PREFIX = "{os.path.basename(os.path.abspath(root))}-";
+const CACHE = PREFIX + "{version}";
 const PRECACHE = {json.dumps(files, indent=0)};
 
 self.addEventListener("install", e => {{
@@ -19,7 +20,7 @@ self.addEventListener("install", e => {{
 }});
 
 self.addEventListener("activate", e => {{
-  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE && k.startsWith(PREFIX)).map(k => caches.delete(k))))
     .then(() => self.clients.claim()));
 }});
 

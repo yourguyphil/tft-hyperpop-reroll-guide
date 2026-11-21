@@ -1,5 +1,6 @@
 // Auto-generated. Caches the whole site so it works offline once installed.
-const CACHE = "hyperpop-reroll-guide-32b7aa0ce2";
+const PREFIX = "hyperpop-reroll-guide-";
+const CACHE = PREFIX + "0923725d0c";
 const PRECACHE = [
 "./",
 "index.html",
@@ -139,7 +140,7 @@ self.addEventListener("install", e => {
 });
 
 self.addEventListener("activate", e => {
-  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE && k.startsWith(PREFIX)).map(k => caches.delete(k))))
     .then(() => self.clients.claim()));
 });
 
