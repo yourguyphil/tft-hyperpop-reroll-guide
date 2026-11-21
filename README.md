@@ -15,7 +15,7 @@ S tier on TFT Academy and tft.ninja: 83.9% top 4, 2.53 average placement (PBE Di
 - `hyperpop-reroll-guide.html`: single file with every image embedded (open this if images ever fail to load)
 - `hyperpop-reroll-guide.pdf`: 3-page printout, built from `print/outline.md`
 - `tools/`: `build-pdf.py`, `build-standalone.py`, `build-sw.py`, `build-icons.py`
-- `.github/workflows/pages.yml`: publishes to GitHub Pages on every push to `main`
+- `.nojekyll`: GitHub Pages serves the `main` branch root as-is (no workflow needed)
 
 ## Rebuild after edits
 ```bash
