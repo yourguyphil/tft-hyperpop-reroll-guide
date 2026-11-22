@@ -234,29 +234,9 @@ nav.top a.l:hover{color:var(--text)}
 .itip .bi{display:flex;align-items:center;gap:6px;margin-top:5px}
 .itip .bi img{width:22px;height:22px;border-radius:5px}
 
-/* drills */
-.drills{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{perspective:1000px;height:330px;cursor:pointer}
-.card .in{position:relative;width:100%;height:100%;transition:transform .5s;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
-.card.flip .in{transform:rotateY(180deg)}
-.card .f,.card .b{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
-.card .f img{width:100%;height:100%;object-fit:cover}
-.card .f .q{position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.9));font:700 15px Inter}
-.card .b{transform:rotateY(180deg);background:var(--panel);padding:20px;display:flex;flex-direction:column;gap:10px}
 .btnrow{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 .btn{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 14px;border-radius:10px;font:700 13px Inter}
 .btn.pri{background:linear-gradient(90deg,var(--teal2),#0b7c88);border-color:transparent}
-.rq{display:flex;align-items:center;gap:16px}
-.rq .target{width:96px;height:96px;border-radius:16px;border:2px solid var(--gold)}
-.rq .slots{display:flex;gap:8px;align-items:center;font:800 20px Inter;color:var(--dim)}
-.rq .slot{width:56px;height:56px;border-radius:12px;border:2px dashed var(--line);display:flex;align-items:center;justify-content:center}
-.rq .slot img{width:52px;height:52px;border-radius:10px}
-.pick{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:14px}
-.pick button{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:5px;cursor:pointer}
-.pick button img{width:100%;border-radius:7px}
-.fb{min-height:24px;font-weight:700;margin-top:10px}
-.ok{color:#4ade80} .bad{color:#f87171}
-.score{font:800 13px Inter;color:var(--muted)}
 
 /* misc */
 .callout{display:flex;gap:12px;padding:14px 16px;border-radius:12px;background:rgba(245,196,81,.07);border:1px solid rgba(245,196,81,.35);margin:14px 0}
@@ -404,7 +384,7 @@ body{padding-bottom:var(--dockH,46px)}
 @media (max-width:900px){
   .fork{grid-template-columns:1fr}.fork .q{margin:0 auto;width:120px;height:120px}
   .track,.timeline{grid-template-columns:1fr 1fr}
-  .two,.adv,.drills,.ilayout{grid-template-columns:1fr}
+  .two,.adv,.ilayout{grid-template-columns:1fr}
 }
 @media (max-width:520px){
   .hrow{padding-right:21px}.hrow.odd{padding-left:21px}
@@ -414,7 +394,7 @@ body{padding-bottom:var(--dockH,46px)}
 }
 /* ---------- mobile ---------- */
 html,body{overflow-x:hidden;overflow-x:clip}
-.grid>*,.two>*,.adv>*,.drills>*,.ilayout>*,.fork>*,.choose>*,.track>*,.timeline>*{min-width:0}
+.grid>*,.two>*,.adv>*,.ilayout>*,.fork>*,.choose>*,.track>*,.timeline>*{min-width:0}
 body{-webkit-tap-highlight-color:transparent}
 #qr{padding-bottom:env(safe-area-inset-bottom)}
 nav.top{padding-top:env(safe-area-inset-top)}
@@ -473,9 +453,6 @@ nav.top{padding-top:env(safe-area-inset-top)}
   .cbtn{padding:8px 2px}.cbtn img{width:34px;height:34px}.cbtn .nm{display:none}
   .cbtn button{width:24px;height:24px}
   .cbtn .ctl{gap:4px}
-  .card{height:300px}
-  .pick{grid-template-columns:repeat(4,1fr)}
-  .rq .target{width:72px;height:72px}
   /* quick-ref dock: swipeable groups */
   #qr .bar{padding:6px 10px;gap:8px;flex-wrap:nowrap}
   #qr .bar b span{display:none}
@@ -494,7 +471,7 @@ nav.top{padding-top:env(safe-area-inset-top)}
 #qr .dots i.on{background:var(--text)}
 #qr.closed .dots{display:none!important}
 @media (display-mode:standalone){nav.top{padding-top:max(env(safe-area-inset-top),0px)}}
-@media print{nav.top,.drills,#advisor{display:none}body{background:#fff;color:#000}}
+@media print{nav.top,#advisor{display:none}body{background:#fff;color:#000}}
 
 /* ---------- Malzahar site additions ---------- */
 .b7{background:var(--c7)}
@@ -578,10 +555,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   .verdict.swap{animation:pop .4s cubic-bezier(.3,1.5,.5,1)}
   .hchip{animation:pop .3s cubic-bezier(.3,1.6,.5,1) both}
 
-  /* drills */
-  .rq .target.yay{animation:yay .6s cubic-bezier(.3,1.6,.5,1)}
-  .rq .slots.nope{animation:shake .4s ease}
-  .rq .slot img{animation:pop .3s cubic-bezier(.3,1.6,.5,1)}
 
   /* menu + tooltip */
   body.menu-open #menu a{animation:menuIn .28s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(var(--i,0) * 22ms)}
@@ -602,10 +575,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 @keyframes slideIn{from{opacity:0;transform:translateX(-14px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes slideOut{to{opacity:0;transform:translateX(24px) scale(.96)}}
 @keyframes bump{40%{transform:scale(1.6);color:var(--gold)}}
-@keyframes yay{0%{transform:none}35%{transform:scale(1.18) rotate(-6deg)}70%{transform:scale(.96) rotate(3deg)}100%{transform:none}}
-@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
 @keyframes menuIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
-.confetti{position:fixed;z-index:400;width:9px;height:9px;border-radius:2px;pointer-events:none;top:0;left:0}
 </style>
 </head>
 <body>
@@ -619,7 +589,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <a class="l" href="#plan">Game Plan</a>
   <a class="l" href="#advisor">Item Advisor</a>
   <a class="l" href="#items">Item Cheat Sheet</a>
-  <a class="l" href="#drills">Drills</a>
   <a class="l" href="#augments">Augments</a>
 </div></nav>
 
@@ -751,35 +720,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   </div>
 </div></section>
 
-<!-- ================= DRILLS ================= -->
-<section id="drills"><div class="wrap">
-  <h2>Drills</h2>
-  <div class="drills" style="margin-top:16px">
-    <div class="panel">
-      <h3 style="margin-bottom:12px">Who's that unit?</h3>
-      <div class="card" id="flash"><div class="in">
-        <div class="f"><img id="flashImg" src="assets/units/ziggs.webp" alt="Mystery unit"><div class="q">Tap to reveal: name, cost, role</div></div>
-        <div class="b" id="flashBack"></div>
-      </div></div>
-      <div class="btnrow"><button class="btn pri" id="flashNext">Next unit →</button><span class="score" id="flashCount" style="align-self:center"></span></div>
-    </div>
-    <div class="panel">
-      <h3 style="margin-bottom:12px">Build it: pick the two components</h3>
-      <div class="rq">
-        <img class="target" id="rqImg" src="assets/items/guinsoosrageblade.png" alt="Item">
-        <div>
-          <div style="font:800 18px Cinzel" id="rqName"></div>
-          <div class="small muted" id="rqUse"></div>
-          <div class="slots" style="margin-top:10px"><div class="slot" id="s1"></div>+<div class="slot" id="s2"></div></div>
-        </div>
-      </div>
-      <div class="pick" id="pick"></div>
-      <div class="fb" id="rqFb"></div>
-      <div class="btnrow"><button class="btn pri" id="rqNext">Next item →</button><label class="small muted" style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="rqOnly" checked> This comp's items only</label><span class="score" id="rqScore" style="align-self:center;margin-left:auto"></span></div>
-    </div>
-  </div>
-</div></section>
-
 <!-- ================= AUGMENTS ================= -->
 <section id="augments"><div class="wrap">
   <h2 style="margin-bottom:14px">Augments <span class="dim" style="font-size:.55em">· stats + safe scaling</span></h2>
@@ -804,7 +744,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="sep"></div>
   <a href="#advisor" data-s="advisor"><span class="mi"><img src="assets/items/sparringgloves.png" alt=""></span>Item Advisor</a>
   <a href="#items" data-s="items"><span class="mi"><img src="assets/items/guinsoosrageblade.png" alt=""></span>Item Cheat Sheet</a>
-  <a href="#drills" data-s="drills"><span class="mi">🧠</span>Drills</a>
   <a href="#augments" data-s="augments"><span class="mi"><img src="assets/augments/tons-of-stats-ii.png" alt=""></span>Augments</a>
   <a href="hyperpop-reroll-guide.pdf" target="_blank" rel="noopener" class="pdf"><span class="mi">📄</span>Printable PDF</a>
   <div class="sep"></div>
@@ -1237,47 +1176,6 @@ $("#menuQr").onclick=()=>{ setClosed(!$("#qr").classList.contains("closed")); se
 const io=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ document.querySelectorAll("#menu a[data-s]").forEach(a=>a.classList.toggle("cur",a.dataset.s===en.target.id)); } }); },{rootMargin:"-45% 0px -50% 0px"});
 [...document.querySelectorAll("#menu a[data-s]")].forEach(a=>{ const el=document.getElementById(a.dataset.s); if(el) io.observe(el); });
 
-/* ---------------- drills ---------------- */
-let deck=[], fi=0;
-const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
-function flashNext(){
-  if(!deck.length||fi>=deck.length){deck=shuffle(U.map(u=>u.k));fi=0;}
-  const u=UK[deck[fi++]]; $("#flash").classList.remove("flip");
-  setTimeout(()=>{
-    $("#flashImg").src=sp(u.k);
-    $("#flashBack").innerHTML=`<div style="display:flex;gap:12px;align-items:center"><img src="${sq(u.k)}" style="width:64px;height:64px;border-radius:12px;border:3px solid var(--c${u.c})" alt="">
-      <div><div style="font:800 24px Cinzel">${u.n}</div>${costChip(u.c)} ${u.tags.includes("core")?'<span class="pill p-teal">Final board</span>':'<span class="pill">Early game</span>'}</div></div>
-      <div class="traits">${u.t.map(traitPill).join("")}</div><div class="small">${u.role}</div>
-      ${u.unlock?`<div class="buff" style="border-left-color:var(--gold)"><b style="color:var(--gold)">🔓 Unlock</b>${u.unlock}</div>`:''}
-      ${u.items.length?`<div class="items" style="display:flex;gap:6px;align-items:center"><span class="small muted">BIS:</span>${u.items.map(k=>itemIc(k)).join("")}</div>`:''}`;
-    $("#flashCount").textContent=`${fi} / ${deck.length}`;
-  },180);
-}
-$("#flash").onclick=()=>$("#flash").classList.toggle("flip");
-$("#flashNext").onclick=flashNext; flashNext();
-
-let rqItem=null, rqPicked=[], rqRight=0, rqTotal=0;
-$("#pick").innerHTML=CK.map(k=>`<button data-k="${k}" title="${C[k].n}"><img src="${ci(k)}" alt="${C[k].n}"></button>`).join("");
-function rqNext(){
-  const keys=Object.keys(I).filter(k=>!$("#rqOnly").checked||I[k][4]);
-  let k; do{k=keys[Math.floor(Math.random()*keys.length)];}while(k===rqItem&&keys.length>1);
-  rqItem=k; rqPicked=[];
-  $("#rqImg").src=itemImg(k); $("#rqName").textContent=I[k][0];
-  $("#rqUse").innerHTML=tagLabel(I[k][4]); $("#s1").innerHTML=""; $("#s2").innerHTML=""; $("#rqFb").textContent="";
-}
-$("#pick").querySelectorAll("button").forEach(b=>b.onclick=()=>{
-  if(rqPicked.length>=2) return;
-  rqPicked.push(b.dataset.k); $("#s"+rqPicked.length).innerHTML=`<img src="${ci(b.dataset.k)}" alt="">`;
-  if(rqPicked.length===2){
-    rqTotal++;
-    const ok=[...rqPicked].sort().join("+")===[I[rqItem][2],I[rqItem][3]].sort().join("+");
-    if(ok){rqRight++;$("#rqFb").innerHTML=`<span class="ok">✔ Correct!</span>`;setTimeout(rqNext,900);}
-    else $("#rqFb").innerHTML=`<span class="bad">✘ It's ${C[I[rqItem][2]].n} + ${C[I[rqItem][3]].n}</span>`;
-    $("#rqScore").textContent=`${rqRight} / ${rqTotal}`;
-  }
-});
-$("#rqNext").onclick=rqNext; $("#rqOnly").onchange=rqNext; rqNext();
-
 /* ---------------- PWA ---------------- */
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
@@ -1291,7 +1189,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
 
   /* scroll reveal */
   const SEL = ["section h2","section .panel","section .unit","section .stage","section .carry","section .rule","section .bp","section .board",
-    "section .card","section .augs > *","section ol.unlock > li","section .verdict","section .ranklist","section .note-s","section .buff","section .igrid"].join(",");
+    "section .augs > *","section ol.unlock > li","section .verdict","section .ranklist","section .note-s","section .buff","section .igrid"].join(",");
   const waiting = new Set();
   const show = (t, n) => { waiting.delete(t);
     t.style.setProperty("--d", Math.min(n * 70, 350) + "ms"); t.classList.add("in");
@@ -1338,26 +1236,6 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
     if (prevCnt[k] != null && prevCnt[k] !== n) { c.querySelector(".cnt").classList.add("bump"); if (+n > +prevCnt[k]) c.classList.add("bump"); } prevCnt[k] = n; }); })
     .observe($("#bench"), { childList: true });
 
-  /* drills: confetti on a correct recipe, shake on a miss */
-  const COLORS = ["#3ff0c8","#ff5fd8","#f5c451","#a78bfa","#7aa2ff","#c6ff7a"];
-  function confetti(from) {
-    const r = from.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-    for (let i = 0; i < 34; i++) {
-      const c = document.createElement("i"); c.className = "confetti"; c.style.background = COLORS[i % COLORS.length];
-      if (i % 3 === 0) c.style.borderRadius = "50%";
-      document.body.appendChild(c);
-      const a = Math.random() * Math.PI * 2, v = 70 + Math.random() * 120, dx = Math.cos(a) * v, dy = Math.sin(a) * v - 60;
-      c.animate([{ transform: `translate(${cx}px,${cy}px) rotate(0) scale(1)`, opacity: 1 },
-                 { transform: `translate(${cx + dx}px,${cy + dy}px) rotate(${Math.random() * 540}deg) scale(1)`, opacity: 1, offset: .55 },
-                 { transform: `translate(${cx + dx * 1.2}px,${cy + dy + 140}px) rotate(${Math.random() * 900}deg) scale(.6)`, opacity: 0 }],
-                { duration: 900 + Math.random() * 500, easing: "cubic-bezier(.2,.7,.4,1)" }).onfinish = () => c.remove();
-    }
-  }
-  new MutationObserver(() => {
-    const fb = $("#rqFb");
-    if (fb.querySelector(".ok")) { const t = $("#rqImg"); t.classList.remove("yay"); void t.offsetWidth; t.classList.add("yay"); confetti(t); }
-    else if (fb.querySelector(".bad")) { const s = document.querySelector(".rq .slots"); s.classList.remove("nope"); void s.offsetWidth; s.classList.add("nope"); }
-  }).observe($("#rqFb"), { childList: true });
 })();
 </script>
 </body>
