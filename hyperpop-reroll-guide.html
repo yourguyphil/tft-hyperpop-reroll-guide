@@ -927,7 +927,7 @@ const U = [
    ab:["Hype Girl","0/50","Alternates: Whimsy (ally Attack Speed + magic on-hit) and Wild Growth (ally Health, burns adjacent enemies)."],role:"Support. Buffs Ziggs. Choreographer: back-row allies get Damage Amp.",items:[]},
   {k:"tristana",n:"Tristana",c:2,t:["Hyperpop","Hitmaker"],tags:"core hyperpop",star:2,unlock:"Get enough kills with Hyperpop active",
    ab:["Head Banger","0/55","Throws bombs at nearby enemies, then detonates them for physical damage."],role:"Hyperpop body + extra damage.",items:[]},
-  {k:"teemo",n:"Teemo",c:5,t:["Hyperpop","Hype Man"],tags:"core hyperpop",star:1,unlock:"Collect enough Hyperpop Hype",
+  {k:"teemo",n:"Teemo",c:5,t:["Hyperpop","Hype Man"],tags:"core hyperpop",star:1,unlock:"Collect 900 Hyperpop Hype",
    ab:["Going Viral","0/100","Attacks apply Viral; infected enemies become exploding zombies. Cast: mushroom spreads Viral in 3 hexes."],role:"5th Hyperpop + 2nd Tear carry. Hype Man stores extra Hype.",items:["jg","shojin","voidstaff"]},
   {k:"swain",n:"Swain",c:3,t:["Rock","Arcanist","Frontman"],tags:"core",star:2,
    ab:["A Cruel Devil's Thesis","70/120","Demon Form: max Health + damage to adjacent enemies each second. Later casts heal and hit harder."],role:"Second tank. Arcanist with Ziggs, Frontman with Kobuko.",items:[]},
@@ -977,7 +977,7 @@ const UNLOCKS = [
   ["seraphine","Before 2-4","<b>Seraphine:</b> <b>reroll 4 times</b> before the stage 2 carousel","Costs 8g, worth it every game"],
   ["lulu","Stage 2–3","<b>Lulu:</b> your Hyperpop units <b>cast enough times</b> with the trait active","Happens naturally with Ziggs + Kobuko"],
   ["tristana","Stage 2–3","<b>Tristana:</b> get <b>enough kills</b> with Hyperpop active","Needs Hyperpop 2 on the board"],
-  ["teemo","Stage 4–5","<b>Teemo:</b> collect <b>enough Hyperpop Hype</b>","3★ units make the most Hype"],
+  ["teemo","Stage 4–5","<b>Teemo:</b> collect <b>900 Hyperpop Hype</b>","3★ units make the most Hype"],
   ["renataglasc","Plan B","<b>Renata (backup):</b> items on a <b>Classical or Choreographer</b> unit","Lulu is a Choreographer, so her items count"]
 ];
 $("#unlockList").innerHTML = UNLOCKS.map(([k,when,what,tip],i)=>`<li><span class="un">${i+1}</span>${uic(k)}<div><div class="small" style="color:var(--gold);font-weight:800;letter-spacing:.08em;text-transform:uppercase">${when}</div><div>${what}</div><div class="small muted">${tip}</div></div></li>`).join("");
@@ -1020,21 +1020,23 @@ const TL = [
   {st:"Stage 1–2",h:"Unlock + streak",u:["ziggs","kobuko","seraphine","elise","sett"],li:[
     "Buy <b>every Ziggs</b>. 2★ him + 1 item → <b>Kobuko</b>",
     "<b>Reroll 4×</b> before the 2-4 carousel → <b>Seraphine</b>",
-    "Fill with Frontmen (Elise, Sett, Renekton)",
-    "Slam items: Guinsoo's / Gargoyle first"]},
+    "<b>Don't buy XP</b> early: save for the Lvl 5 roll",
+    "Take AP components; reroll augments are great",
+    "Fill with Frontmen (Elise, Sett, Renekton)"]},
   {st:"Stage 3",h:"Lvl 5 · slow roll",u:["ziggs","kobuko","seraphine","lulu"],li:[
     "Lvl 5 by <b>3-1</b>, roll only <b>above 50g</b>",
     "3★ <b>Ziggs</b> + <b>Kobuko</b> first, then Seraphine",
     "Lulu + Tristana unlock as Hyperpop casts and kills",
     "Seraphine's free units feed your rerolls"]},
   {st:"Stage 4",h:"Level up · fill",u:["lulu","tristana","swain","shyvana"],li:[
-    "3★s done → <b>Lvl 6–7</b>, add Lulu, Tristana, Swain",
+    "3★ Ziggs + Kobuko + Lulu → <b>Lvl 6</b> (better 2-cost odds)",
+    "Lulu holds Teemo's items until he unlocks",
+    "AD components? Itemize <b>Tristana</b>",
     "Keep rolling to 3★ Seraphine (Indie upgrades)",
-    "Tear items → Seraphine, the rest → Ziggs",
     "Lvl 8 when stable: Shyvana + Teemo slot"]},
   {st:"Stage 5",h:"Teemo · max Hype",u:["teemo","ziggs","seraphine"],li:[
-    "<b>Teemo</b> unlocks from Hype → 5th Hyperpop",
-    "Give Teemo spare Tear items (JG / Shojin / Void)",
+    "<b>Teemo</b> unlocks at <b>900 Hype</b> → 5th Hyperpop",
+    "Move Lulu's held items onto Teemo",
     "Lvl 8 board, roll for upgrades",
     "Every new Hype Level = rewards"]}
 ];

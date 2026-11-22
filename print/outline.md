@@ -43,7 +43,7 @@
 - **3 · Lulu:** Hyperpop units cast enough times with the trait active
 |||
 - **4 · Tristana:** enough kills with Hyperpop active
-- **5 · Teemo:** collect enough Hyperpop Hype (3★ units = most Hype)
+- **5 · Teemo:** collect **900 Hyperpop Hype** (3★ units = most Hype)
 - **Plan B · Renata:** items on a Classical/Choreographer unit
 :::
 
@@ -59,14 +59,13 @@
 ---page---
 
 # {big:ziggs} Game plan · Plan A
-> Lvl 5 slow roll from Mobalytics; stage timings are my plan (TFT Academy tips are "coming soon").
 
 ::: cols
 ### Stages
-- **Stage 1–2:** buy every Ziggs → 2★ + item = Kobuko · reroll 4× before 2-4 = Seraphine · Frontmen filler ({units:elise,sett,renekton})
+- **Stage 1–2:** buy every Ziggs → 2★ + item = Kobuko · reroll 4× before 2-4 = Seraphine · **no XP** · AP components · Frontmen filler ({units:elise,sett,renekton})
 - **Stage 3:** Lvl 5 by 3-1 · roll only above **50g** · 3★ Ziggs + Kobuko, then Seraphine
-- **Stage 4:** Lvl 6–7 · add {units:lulu,tristana,swain} · keep rolling for 3★ Seraphine · Lvl 8: {u:shyvana}
-- **Stage 5:** {u:teemo} unlocks from Hype → spare Tear items · roll for upgrades
+- **Stage 4:** 3★ Ziggs + Kobuko + Lulu → **Lvl 6** · Lulu holds Teemo's items · AD parts → itemize {u:tristana} · Lvl 8: {u:shyvana}
+- **Stage 5:** {u:teemo} unlocks at **900 Hype** → move Lulu's items to him · roll for upgrades
 
 ### Augments
 - {t:hyperpop} reroll.exe · {a:heroic-grab-bag-ii|Heroic Grab Bag} · {a:earlylearning_ii|Early Learnings}
