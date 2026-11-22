@@ -16,14 +16,14 @@
 ### {ci:tear} → {big:seraphine} Tear → Seraphine (main)
 - {r:voidstaff}
 - {r:shojin}
-- {r:jg}
+- {r:morello}
 :::
 |||
 ::: box teal
 ### {ci:sword}{ci:bow}{ci:rod}{ci:gloves} → {big:ziggs} No Tear → Ziggs
 - {r:guinsoo}
 - {r:jg}
-- {r:gunblade}
+- {r:flail}
 :::
 :::
 
@@ -62,12 +62,12 @@
 ### Stages
 - **Stage 1–2:** early 2★ Ziggs starts Hype · 2★ + item = Kobuko · reroll 4× before 2-4 = Seraphine · **no XP** · AP components · Frontmen filler ({units:elise,sett,renekton})
 - **Stage 3:** **3-1:** roll down to **30g** (best 1-cost odds) or slow roll above **50g** · 3★ Ziggs + Kobuko, then Seraphine · keep playing Hyperpop → Lulu + Tristana
-- **Stage 4:** 3★ Ziggs + Kobuko + Lulu → **Lvl 6** · Lulu holds Teemo's items · AD parts → itemize {u:tristana} · Lvl 8: {u:shyvana}
+- **Stage 4:** 3★ Ziggs + Kobuko + Lulu → **Lvl 6** · Lulu holds Teemo's items · AD parts → itemize {u:tristana} · Lvl 8: {u:garen}
 - **Stage 5:** {u:teemo} unlocks at **900 Hype** → move Lulu's items to him · roll for upgrades
 
 ### Augments
-- {t:hyperpop} reroll.exe · {a:heroic-grab-bag-ii|Heroic Grab Bag} · {a:earlylearning_ii|Early Learnings}
-- {a:tons-of-stats-ii|Tons of Stats!} · {a:ascension2|Ascension} · {a:crymeariver_ii|Cry Me A River}
+- **2-1:** {t:hyperpop} reroll.exe · {a:trade2|Trade Sector} · {a:heroic-grab-bag-ii|Heroic Grab Bag}
+- **3-2 / 4-2:** {a:tons-of-stats-ii|Tons of Stats!} · {a:crymeariver_ii|Cry Me A River} · {a:ascension2|Ascension}
 |||
 ### {u:kobuko} tank
 - {r:gargoyle}
@@ -78,8 +78,8 @@
 - {r:jg} · {r:shojin} · {r:voidstaff}
 
 ### Backups
-- {u:ziggs} {r:flail}
-- {u:seraphine} {r:morello}
+- {u:ziggs} {r:gunblade}
+- {u:seraphine} {r:jg}
 :::
 
 ---page---
@@ -92,8 +92,8 @@
 ## {units:ziggs} Ziggs · no Tear
 - {r:guinsoo}{br}**Does:** stacking Attack Speed.{br}**Why:** his attacks deal bonus magic damage, so faster attacks = more damage. **#1.**
 - {r:jg}{br}**Does:** AP + crit; abilities can crit.{br}**Why:** his bomb and on-hit damage both crit.
-- {r:gunblade}{br}**Does:** heals your lowest ally from damage dealt.{br}**Why:** fast attacker = steady team healing.
-- {r:flail}{br}**Why:** backup: crits stack Damage Amp.
+- {r:flail}{br}**Does:** crits give stacking Damage Amp.{br}**Why:** JG lets his bombs crit, so it stacks fast. **#3.**
+- {r:gunblade}{br}**Why:** backup: heals your lowest ally from damage dealt.
 :::
 ::: box items
 ## {units:kobuko} Kobuko · tank
@@ -106,7 +106,58 @@
 ## {units:seraphine,teemo} Seraphine / Teemo · Tear
 - {r:voidstaff}{br}**Does:** shreds Magic Resist.{br}**Why:** all their damage is magic, and Ziggs' too.
 - {r:shojin}{br}**Does:** attacks give bonus Mana.{br}**Why:** casts come faster, and casting is their damage.
-- {r:jg}{br}**Why:** their notes and Viral ticks can crit. Ziggs gets the first JG.
-- {r:morello}{br}**Why:** backup: burn + wound cuts enemy healing.
+- {r:morello}{br}**Does:** burn + wound.{br}**Why:** Seraphine's #3: her notes spread anti-heal.
+- {r:jg}{br}**Why:** Teemo's Viral ticks can crit; Seraphine's backup. Ziggs gets the first JG.
 :::
+:::
+
+---page---
+
+# Decisions
+> Guidelines, not solved math. The site's **What now?** tool runs the same rules for your exact HP, gold and copies.
+
+## Checkpoints
+::: cols
+::: box teal
+### 3-1 · first roll-down?
+- **Roll** if HP under 70, losing streak, or 6+ copies → to ~30g
+- **Save** if HP 70+ on a streak → econ to 50
+- **Emergency:** HP under 50 → roll to ~10g
+:::
+::: box teal
+### 3-5 · core check
+- Roll only gold above **50**, every round
+- Ziggs + Kobuko 3★ → **Lvl 6** now
+- **Emergency:** HP under 40 → roll to 0–10g
+:::
+|||
+::: box red
+### 4-1 · Seraphine + level
+- Lvl 6, above 50g → 3★ Seraphine / 2★ Lulu
+- Ziggs/Kobuko 2★ with ≤5 copies → **stop chasing**, go 7
+- **Emergency:** HP under 40 → roll down at 6
+:::
+::: box red
+### 4-5 · Lvl 8 push
+- 50g+ and HP 40+ → **Lvl 8** (or 5-1)
+- Then 2★ Garen / Swain, then Teemo
+- **Emergency:** HP under 30 → spend everything
+:::
+:::
+
+## When the plan breaks
+::: cols
+- **Losing hard early:** roll to ~30g at 3-1, 2★ Frontmen. HP is your slow-roll budget
+- **Contested:** buy every copy, Lvl 6 earlier, carry with Seraphine + Teemo (30 copies each)
+- **Kobuko late:** any item on Ziggs the moment he's 2★
+|||
+- **No Tear:** everything on Ziggs; Seraphine is a body
+- **No Teemo by stage 5:** {u:shyvana} holds the slot; Lulu keeps the Tear items
+- **3★ Ziggs but losing:** it's the frontline: Kobuko items, 2★ Swain, {u:garen}
+:::
+
+::: box gold
+### 🏆 Top Cut (lobbies of 8 · top 4 advance · 1 game per round)
+- **4th = 1st, 5th = out.** Roll at 3-1 if HP is under 70 · take the sure 2★ over the 3★ chase · combat augments over econ after 3-2
+- Count who's weaker than you in stage 4: 4+ below → protect HP; fewer → spend now. **In the final, play for 1st.**
 :::
