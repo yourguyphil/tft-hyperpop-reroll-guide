@@ -209,6 +209,7 @@ nav.top a.l:hover{color:var(--text)}
 .left{margin-bottom:10px}
 .left .lh{display:flex;align-items:center;gap:8px;margin-bottom:5px;font-size:13.5px}
 .build.opt{margin-left:18px;padding:6px 10px}
+.left .hmenu{margin-left:18px}
 .build .hx{flex:none;width:26px;height:26px;margin-left:2px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font:700 12px Inter;cursor:pointer}
 .build .hx:hover{color:var(--text);border-color:var(--red)}
 .hmenu{display:flex;flex-wrap:wrap;gap:6px;margin:-2px 0 8px;padding:8px;border-radius:10px;background:var(--panel2);border:1px dashed var(--line)}
@@ -217,7 +218,7 @@ nav.top a.l:hover{color:var(--text)}
 .hbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;padding-top:10px;border-top:1px dashed var(--line)}
 .hchip{padding:4px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);font:600 12px Inter;cursor:pointer}
 .hchip span{opacity:.6;margin-left:3px}.hchip:hover{color:var(--text)}.hchip.auto{cursor:default}.hchip.clr{color:var(--gold);border-color:var(--gold)}
-@media (max-width:600px){.build .who .nm{display:none}.build.opt{margin-left:8px}}
+@media (max-width:600px){.build .who .nm{display:none}.build.opt,.left .hmenu{margin-left:8px}}
 .build .need{display:inline-flex;align-items:center;gap:5px;padding:2px 8px 2px 3px;border-radius:999px;border:1px dashed var(--gold);color:var(--gold);font-size:12.5px}
 [data-item],[data-comp]{cursor:help}
 .itip{position:fixed;z-index:300;max-width:290px;padding:12px 13px;border-radius:12px;background:#0d1420;border:1px solid var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.6);font-size:13px;line-height:1.45;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
@@ -1177,7 +1178,7 @@ function advise(){
     const seen=new Set(), opts=PRIO.A.filter(([it,who])=>{const r=I[it]; if(seen.has(it)||(r[2]!==k&&r[3]!==k)||!allowed(it,who)) return false; seen.add(it); return true;}).slice(0,3);
     return `<div class="left"><div class="lh">${compIc(k,"ic sm")}<b>${C[k].n}${pool[k]>1?' ×'+pool[k]:''}</b><span class="small muted">needs one of:</span></div>`+opts.map(([it,who])=>{
       const o=I[it][2]===k?I[it][3]:I[it][2];
-      return `<div class="build opt"><div class="eq">${compIc(k,"ic xs")}+</div><span class="need">${compIc(o,"ic xs")}<b>${C[o].s}</b></span><span class="eq">=</span>${itemIc(it,"ic sm")}<b>${I[it][0]}</b><span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,22)}</span></div>`;}).join("")+`</div>`;}).join("");
+      return `<div class="build opt"><div class="eq">${compIc(k,"ic xs")}+</div><span class="need">${compIc(o,"ic xs")}<b>${C[o].s}</b></span><span class="eq">=</span>${itemIc(it,"ic sm")}<b>${I[it][0]}</b><span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,22)}</span><button class="hx" data-k="${it}" data-w="${who}" title="Hide this" aria-label="Hide this">✕</button></div>`;}).join("")+`</div>`;}).join("");
   $("#builds").innerHTML=h+hideBar();
 }
 $("#resetBench").onclick=()=>{CK.forEach(k=>bench[k]=0);renderBench();advise();};
@@ -1329,7 +1330,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   document.querySelectorAll("#menu a").forEach((a, i) => a.style.setProperty("--i", i));
 
   /* advisor: animate only rows that are new, bump changed counts */
-  const rowKey = r => { const x = r.querySelector(".hx"); if (x) return x.dataset.k + "|" + x.dataset.w;
+  const rowKey = r => { const x = r.querySelector(".hx"); if (x) return (r.classList.contains("opt") ? "o:" : "") + x.dataset.k + "|" + x.dataset.w;
     const it = r.querySelector("[data-item]"); return (r.classList.contains("opt") ? "o:" : "") + (it ? it.dataset.item : r.textContent.slice(0, 30)) + "|" + r.textContent.length; };
   let prevRows = new Set(), prevVerdict = "";
   new MutationObserver(() => {
