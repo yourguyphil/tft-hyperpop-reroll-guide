@@ -9,21 +9,21 @@
 -->
 
 # {big:ziggs} Hyperpop Reroll Guide
-> TFT Set 19 Prismatic Tour · PBE · S tier · 83.9% top 4 · avg place 2.53
+> TFT Set 19 Prismatic Tour · S tier · 83.9% top 4 · avg place 2.53
 
 ::: cols
+::: box red
+### {ci:tear} → {big:seraphine} Tear → Seraphine (main)
+- {r:voidstaff}
+- {r:shojin}
+- {r:jg}
+:::
+|||
 ::: box teal
 ### {ci:sword}{ci:bow}{ci:rod}{ci:gloves} → {big:ziggs} No Tear → Ziggs
 - {r:guinsoo}
 - {r:jg}
 - {r:gunblade}
-:::
-|||
-::: box red
-### {ci:tear} → {big:seraphine} Tear → Seraphine
-- {r:voidstaff}
-- {r:shojin}
-- {r:jg}
 :::
 :::
 
@@ -32,7 +32,7 @@
 - {units:ziggs,kobuko} **1-cost reroll.** Slow-roll above 50g at **Lvl 5** → 3★ Ziggs + 3★ Kobuko
 - {units:kobuko} Tank parts → **Kobuko**: {ii:gargoyle}{ii:warmog}{ii:visage}
 |||
-- {ci:tear} **Items pick the carry:** Tear → Seraphine (then Teemo), the rest → Ziggs
+- {ci:tear} **Items pick the carry:** Tear → Seraphine (preferred, then Teemo), the rest → Ziggs
 :::
 
 ## 🔓 Unlock path

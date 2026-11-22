@@ -247,6 +247,7 @@ footer a{color:var(--muted)}
 /* simple layout */
 .choose{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
 .choice.main{box-shadow:0 0 0 1px rgba(63,240,200,.3),0 14px 40px rgba(63,240,200,.12)}
+.choice.red.main{box-shadow:0 0 0 1px rgba(255,95,216,.35),0 14px 40px rgba(255,95,216,.14)}
 
 .choice{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:20px;text-decoration:none;color:var(--text);border:2px solid var(--line);transition:transform .15s}
 .choice:hover{transform:translateY(-3px)}
@@ -612,7 +613,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 </div></nav>
 
 <header class="hero wrap" id="top">
-  <div class="kicker">TFT Set 19 · Prismatic Tour · PBE</div>
+  <div class="kicker">TFT Set 19 · Prismatic Tour</div>
   <h1><span class="t">Hyperpop</span> Reroll <span class="r">Guide</span></h1>
   <div class="statrow">
     <span class="pill p-gold">S tier</span>
@@ -620,15 +621,15 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
     <span class="pill">Avg place 2.53</span>
   </div>
   <div class="choose">
-    <a class="choice teal main" href="#plan">
+    <a class="choice red main" href="#plan">
+      <img class="por wide" src="assets/units/seraphine.webp" alt="Seraphine">
+      <div><div class="if">Tear → main carry · 3★ · 2-cost</div><div class="nm">Seraphine</div>
+        <div class="trig row"><img class="ic" src="assets/items/voidstaff.png" data-item="voidstaff" alt=""><img class="ic" src="assets/items/spearofshojin.png" data-item="shojin" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" data-item="jg" alt=""></div></div>
+    </a>
+    <a class="choice teal" href="#plan">
       <img class="por wide" src="assets/units/ziggs.webp" alt="Ziggs">
       <div><div class="if">No Tear → carry · 3★ · 1-cost</div><div class="nm">Ziggs</div>
         <div class="trig row"><img class="ic" src="assets/items/guinsoosrageblade.png" data-item="guinsoo" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" data-item="jg" alt=""><img class="ic" src="assets/items/hextechgunblade.png" data-item="gunblade" alt=""></div></div>
-    </a>
-    <a class="choice red" href="#plan">
-      <img class="por wide" src="assets/units/seraphine.webp" alt="Seraphine">
-      <div><div class="if">Tear → carry · 3★ · 2-cost</div><div class="nm">Seraphine</div>
-        <div class="trig row"><img class="ic" src="assets/items/voidstaff.png" data-item="voidstaff" alt=""><img class="ic" src="assets/items/spearofshojin.png" data-item="shojin" alt=""><img class="ic" src="assets/items/jeweledgauntlet.png" data-item="jg" alt=""></div></div>
     </a>
   </div>
 </header>
@@ -638,7 +639,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="kicker">Rules</div>
   <ul class="bul two-col">
     <li><span class="ics" id="r1"></span><span><b>1-cost reroll.</b> Slow-roll above 50g at <b>Lvl 5</b> → 3★ Ziggs + 3★ Kobuko <a class="gr" href="#g-level">📚 Carry's level</a></span></li>
-    <li><span class="ics" id="r2"></span><span><b>Items pick the carry:</b> non-Tear → <b>Ziggs</b> · Tear → <b>Seraphine</b>, then Teemo <a class="gr" href="#g-duo">📚 Two carries</a></span></li>
+    <li><span class="ics" id="r2"></span><span><b>Items pick the carry:</b> Tear → <b>Seraphine</b> (preferred), then Teemo · no Tear → <b>Ziggs</b> <a class="gr" href="#g-duo">📚 Two carries</a></span></li>
     <li><span class="ics" id="r3"></span><span><b>Unlock early:</b> 2★ Ziggs + an item → Kobuko · 4 rerolls before the stage 2 carousel → Seraphine</span></li>
   </ul>
 </div></section>
@@ -727,7 +728,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <ul class="bul tight two-col" style="margin:14px 0 18px">
     <li>👆 Click a component to highlight its items</li>
     <li><span><b style="color:var(--gold)">★1–5</b> must-build · <b>6–10</b> good · faded = skip</span></li>
-    <li><span class="pill p-teal">Ziggs · no Tear</span><span class="pill p-red">Seraphine / Teemo · Tear</span><span class="pill p-tank">Kobuko</span></li>
+    <li><span class="pill p-red">Seraphine / Teemo · Tear</span><span class="pill p-teal">Ziggs · no Tear</span><span class="pill p-tank">Kobuko</span></li>
     <li><span>Three units want <b>Jeweled Gauntlet</b>: Ziggs first, then Seraphine <a class="gr" href="#g-crit">📚 Why JG</a></span></li>
   </ul>
   <div class="ilayout">
@@ -792,7 +793,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 </aside>
 
 <footer><div class="wrap">
-  <p><b>Sources:</b> comp, tier and items from <a href="https://tftacademy.com/tierlist/comps/set-19-hyperpop-reroll">TFT Academy · Hyperpop Reroll</a> and <a href="https://tft.ninja/comps?e=pbe">tft.ninja PBE comps</a> (Ziggs Reroll, Diamond+). Unit, trait, ability and augment text from <a href="https://tft.ninja/sets/19/units">tft.ninja</a> (Riot Dev Drop, Nov 15 2026). Leveling from <a href="https://mobalytics.gg/tft/set19/comps-guide/hyper-pop-3M8yhC5RAV9atbxt8QeSlEeGvgi">Mobalytics · Hyperpop</a>; unlock counts from <a href="https://mobalytics.gg/tft/set19/unlocks">Mobalytics unlocks</a> and <a href="https://tftflow.com/how-to-unlock-every-champion-set19">tftflow</a>. Golden Rules: <a href="https://www.youtube.com/watch?v=7D1Fj883120">Frodan · You're Building Items Wrong!</a>, <a href="https://www.youtube.com/watch?v=PuhMnPkKQlE">dpei · You're Rerolling at the Wrong Time</a>, <a href="https://tftsense.gg/study-hall/tft-leveling-guide/">TFTSense leveling guide</a>, <a href="https://mobalytics.gg/tft/guides/how-to-play-reroll-comps">Mobalytics · reroll comps</a>. Art: TFT Academy, tft.ninja, CommunityDragon. Snapshot: Nov 19 2026, Set 19 PBE.</p>
   <p>Hyperpop Reroll Guide isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, Teamfight Tactics and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
 </div></footer>
 
@@ -984,8 +984,8 @@ const carryHTML = list => list.map(c=>{const u=UK[c.u];return `
     <div style="flex:1"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><b style="font:800 17px Cinzel">${u.n}</b>${costChip(u.c)}<span class="pill ${c.cls}">${c.tag}</span></div>
     <div class="recipes" style="margin-top:8px">${c.items.map(recHTML).join("")}${c.bk?`<div class="bkrec"><span class="bkl">Backup</span>${recHTML(c.bk)}</div>`:""}</div></div></div>`}).join("");
 $("#carries").innerHTML = carryHTML([
+  {u:"seraphine",tag:"Tear carry · 3★ · preferred",cls:"p-red",items:["voidstaff","shojin","jg"],bk:"morello"},
   {u:"ziggs",tag:"No-Tear carry · 3★",cls:"p-teal",items:["guinsoo","jg","gunblade"],bk:"flail"},
-  {u:"seraphine",tag:"Tear carry · 3★",cls:"p-red",items:["voidstaff","shojin","jg"],bk:"morello"},
   {u:"kobuko",tag:"Tank · 3★",cls:"p-tank",items:["gargoyle","warmog","visage"],bk:"bramble"},
   {u:"teemo",tag:"Late · spare Tear items",cls:"p-red",items:["jg","shojin","voidstaff"],bk:null}
 ]);
@@ -1166,7 +1166,7 @@ $("#augGrid").innerHTML = AUG.map(g=>`<div class="ag ${g.cls||''}"><h3>${g.h}</h
 /* ---------------- golden rules (general TFT) ---------------- */
 const em = e => `<span class="em">${e}</span>`;
 const GOLD = [
-  {h:"🛡️ Items",src:"Frodan · TFT Academy",list:[
+  {h:"🛡️ Items",list:[
     ["g-33",uic("kobuko")+uic("ziggs"),"<b>3 items on your tank + 3 on your carry</b> first. A frontliner isn't a tank: build a real one","Kobuko + Ziggs"],
     ["g-slam",em("🔨"),"<b>Slam, don't greed.</b> 10% better isn't worth 10 HP. Items on the bench do nothing","the Item Advisor builds what you can make now"],
     ["g-core",icI("guinsoo")+icI("jg"),"<b>1–2 items are core</b>, the 3rd is a flexible +1","Guinsoo's + JG on Ziggs"],
@@ -1176,7 +1176,7 @@ const GOLD = [
     ["g-util",icI("morello")+icI("voidstaff"),"<b>Bring utility:</b> anti-heal (Morello, Red Buff, Sunfire) + one shred. Shreds don't stack",""],
     ["g-duo",uic("ziggs")+uic("seraphine"),"<b>Two carries late</b>, not two tanks","Ziggs + Seraphine, then Teemo"],
     ["g-car",em("🎠"),"<b>Carousel: item over unit.</b> Plan A › B › C, else take a flexible part (Gloves)",""]]},
-  {h:"🎲 Rolling + econ",src:"dpei · reroll guides",list:[
+  {h:"🎲 Rolling + econ",list:[
     ["g-level",em("🎯"),"<b>Roll on your carry's level:</b> 1-cost Lvl 4–5 · 2-cost 6 · 3-cost 7 · 4-cost 8","Lvl 5 for Ziggs + Kobuko, Lvl 6 for Lulu + Seraphine"],
     ["g-31",em("⏱"),"<b>3-1 is your last turn at Lvl 4</b>: the best 1-cost odds you'll get","the 3-1 roll down"],
     ["g-weak",em("💤"),"<b>Don't level if it won't make you strong.</b> Bank the gold instead","no XP in Stage 2"],
@@ -1187,13 +1187,13 @@ const GOLD = [
     ["g-pos",uic("kobuko"),"<b>Your main tank takes the first hits.</b> Position for your scariest opponent",""],
     ["g-tilt",em("🧘"),"<b>Ignore high-rollers and contests.</b> Play your best line",""]]}
 ];
-$("#grules").innerHTML = GOLD.map(g=>`<div><h3>${g.h} <span class="small dim">· ${g.src}</span></h3><ul class="bul tight">${g.list.map(([id,ic,t,here])=>
+$("#grules").innerHTML = GOLD.map(g=>`<div><h3>${g.h}</h3><ul class="bul tight">${g.list.map(([id,ic,t,here])=>
   `<li id="${id}"><span class="ics">${ic}</span><span>${t}${here?`<span class="here">↳ Here: ${here}</span>`:""}</span></li>`).join("")}</ul></div>`).join("");
 
 /* ---------------- quick-ref dock ---------------- */
 const QR = [
-  {h:"No Tear → Ziggs",col:"var(--teal)",units:[["ziggs","3★ · corner",["guinsoo","jg","gunblade"],"flail"]]},
   {h:"Tear → Seraphine · Teemo",col:"var(--red)",units:[["seraphine","3★ · other corner",["voidstaff","shojin","jg"],"morello"],["teemo","late · spare Tear items",["jg","shojin","voidstaff"],null]]},
+  {h:"No Tear → Ziggs",col:"var(--teal)",units:[["ziggs","3★ · corner",["guinsoo","jg","gunblade"],"flail"]]},
   {h:"Tank",col:"var(--tank)",units:[["kobuko","3★ · 2★ Ziggs + item unlocks",["gargoyle","warmog","visage"],"bramble"]]},
   {h:"No items",col:"var(--muted)",fill:["lulu","tristana","swain","shyvana","elise","sett","renekton","zoe"]}
 ];
