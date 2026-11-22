@@ -62,8 +62,8 @@
 
 ::: cols
 ### Stages
-- **Stage 1–2:** buy every Ziggs → 2★ + item = Kobuko · reroll 4× before 2-4 = Seraphine · **no XP** · AP components · Frontmen filler ({units:elise,sett,renekton})
-- **Stage 3:** Lvl 5 by 3-1 · roll only above **50g** · 3★ Ziggs + Kobuko, then Seraphine
+- **Stage 1–2:** early 2★ Ziggs starts Hype · 2★ + item = Kobuko · reroll 4× before 2-4 = Seraphine · **no XP** · AP components · Frontmen filler ({units:elise,sett,renekton})
+- **Stage 3:** **3-1:** roll down to **30g** (best 1-cost odds) or slow roll above **50g** · 3★ Ziggs + Kobuko, then Seraphine · keep playing Hyperpop → Lulu + Tristana
 - **Stage 4:** 3★ Ziggs + Kobuko + Lulu → **Lvl 6** · Lulu holds Teemo's items · AD parts → itemize {u:tristana} · Lvl 8: {u:shyvana}
 - **Stage 5:** {u:teemo} unlocks at **900 Hype** → move Lulu's items to him · roll for upgrades
 

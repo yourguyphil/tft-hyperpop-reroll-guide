@@ -708,6 +708,9 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 
   <div class="timeline" id="tl"></div>
 
+  <h3 style="margin:22px 0 12px">Comp tips</h3>
+  <ul class="bul tight two-col" id="tips"></ul>
+
   <div class="two">
     <div class="panel">
       <h3 style="margin-bottom:12px">Who holds what</h3>
@@ -1007,15 +1010,15 @@ renderUnits();
 /* ---------------- timeline ---------------- */
 const TL = [
   {st:"Stage 1–2",h:"Unlock + streak",u:["ziggs","kobuko","seraphine","elise","sett"],li:[
-    "Buy <b>every Ziggs</b>. 2★ him + 1 item → <b>Kobuko</b>",
+    "<b>Early 2★ Ziggs</b> starts your Hype. 2★ + 1 item → <b>Kobuko</b>",
     "<b>Reroll 4×</b> before the 2-4 carousel → <b>Seraphine</b>",
     "<b>Don't buy XP</b> early: save for the Lvl 5 roll",
     "Take AP components; reroll augments are great",
     "Fill with Frontmen (Elise, Sett, Renekton)"]},
   {st:"Stage 3",h:"Lvl 5 · slow roll",u:["ziggs","kobuko","seraphine","lulu"],li:[
-    "Lvl 5 by <b>3-1</b>, roll only <b>above 50g</b>",
+    "<b>3-1:</b> roll down to <b>30g</b> while 1-cost odds are best, <i>or</i> slow roll above <b>50g</b>",
     "3★ <b>Ziggs</b> + <b>Kobuko</b> first, then Seraphine",
-    "Lulu + Tristana unlock as Hyperpop casts and kills",
+    "<b>Keep playing Hyperpop</b> to unlock Lulu + Tristana",
     "Seraphine's free units feed your rerolls"]},
   {st:"Stage 4",h:"Level up · fill",u:["lulu","tristana","swain","shyvana"],li:[
     "3★ Ziggs + Kobuko + Lulu → <b>Lvl 6</b> (better 2-cost odds)",
@@ -1029,6 +1032,16 @@ const TL = [
     "Lvl 8 board, roll for upgrades",
     "Every new Hype Level = rewards"]}
 ];
+const TIPS = [
+  [["ziggs"],"<b>Early 2★ Ziggs</b> so you can start building Hype"],
+  [["seraphine"],"<b>Reroll your shop 4×</b> before the Stage 2 carousel → unlocks Seraphine"],
+  [["lulu","tristana"],"<b>Keep playing Hyperpop</b> to unlock Lulu and Tristana"],
+  [["ziggs","kobuko"],"<b>Stage 3-1:</b> roll down to <b>30g</b> while you still have better 1-cost odds, <i>or</i> slow roll above <b>50g</b>"],
+  [["ziggs","kobuko","lulu"],"3★ Ziggs, Kobuko + Lulu → <b>level to 6</b> for better 2-cost odds"],
+  [["lulu","teemo"],"<b>Lulu holds Teemo's items</b> until you find him"],
+  [["tristana"],"<b>AD components?</b> Itemize Tristana"]
+];
+$("#tips").innerHTML = TIPS.map(([us,t])=>`<li><span class="ics">${us.map(uic).join("")}</span><span>${t}</span></li>`).join("");
 $("#tl").innerHTML = TL.map(s=>`<div class="stage"><div class="st">${s.st}</div><h4>${s.h}</h4><ul>${s.li.map(l=>`<li>${l}</li>`).join("")}</ul><div class="row">${s.u.map(k=>unitIc(k,34)).join("")}</div></div>`).join("");
 
 /* ---------------- carries ---------------- */
