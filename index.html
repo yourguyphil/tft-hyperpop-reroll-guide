@@ -618,7 +618,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <a class="l" href="#plan">Game Plan</a>
   <a class="l" href="#advisor">Item Advisor</a>
   <a class="l" href="#items">Item Cheat Sheet</a>
-  <a class="l" href="#backup">Plan B · Renata</a>
   <a class="l" href="#drills">Drills</a>
   <a class="l" href="#augments">Augments</a>
 </div></nav>
@@ -627,11 +626,9 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="kicker">TFT Set 19 · Prismatic Tour · PBE</div>
   <h1><span class="t">Hyperpop</span> Reroll <span class="r">Guide</span></h1>
   <div class="statrow">
-    <span class="pill p-gold">S tier · both sites</span>
+    <span class="pill p-gold">S tier</span>
     <span class="pill">83.9% top 4</span>
     <span class="pill">Avg place 2.53</span>
-    <span class="pill">41% win rate</span>
-    <span class="pill">EASY · 1-cost reroll</span>
   </div>
   <div class="choose">
     <a class="choice teal main" href="#plan">
@@ -654,7 +651,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
     <li><span class="ics" id="r1"></span><span><b>1-cost reroll.</b> Slow-roll above 50g at <b>Lvl 5</b> → 3★ Ziggs + 3★ Kobuko</span></li>
     <li><span class="ics" id="r2"></span><span><b>Items pick the carry:</b> non-Tear → <b>Ziggs</b> · Tear → <b>Seraphine</b>, then Teemo</span></li>
     <li><span class="ics" id="r3"></span><span><b>Unlock early:</b> 2★ Ziggs + an item → Kobuko · 4 rerolls before the stage 2 carousel → Seraphine</span></li>
-    <li><span class="ics" id="r4"></span><span><b>Someone else collecting Ziggs?</b> Go <a href="#backup">Plan B · Renata Guards</a></span></li>
   </ul>
 </div></section>
 
@@ -690,7 +686,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
     <button class="fbtn" data-f="core">Final board</button>
     <button class="fbtn" data-f="early">Early game</button>
     <button class="fbtn" data-f="hyperpop">Hyperpop</button>
-    <button class="fbtn" data-f="backup">Plan B · Renata</button>
   </div>
   <div class="grid units" id="unitGrid"></div>
 </div></section>
@@ -700,7 +695,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="plan-head">
     <img class="big" src="assets/units-sq/ziggs.png" alt="Ziggs">
     <div>
-      <div class="kicker">Plan A · every game · 1-cost reroll · Lvl 5 slow roll</div>
+      <div class="kicker">Every game · 1-cost reroll · Lvl 5 slow roll</div>
       <h2>Game Plan</h2>
       <div class="muted"><span class="pill p-teal">3★ Ziggs</span> <span class="pill p-tank">3★ Kobuko</span> <span class="pill p-red">3★ Seraphine</span> <span class="pill p-gold">Teemo</span></div>
     </div>
@@ -731,8 +726,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="adv">
     <div class="panel">
       <div class="bench" id="bench"></div>
-      <div class="btnrow"><button class="btn" id="resetBench">Clear</button>
-        <label class="small muted" style="display:flex;align-items:center;gap:6px;margin-left:auto"><input type="checkbox" id="contested"> Someone else is collecting Ziggs</label></div>
+      <div class="btnrow"><button class="btn" id="resetBench">Clear</button></div>
     </div>
     <div><div id="verdict"></div><div id="builds"></div></div>
   </div>
@@ -753,23 +747,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
       <div class="panel iinfo" id="iinfo"></div>
       <div class="panel ranklist" id="rankList"></div>
     </div>
-  </div>
-</div></section>
-
-<!-- ================= PLAN B ================= -->
-<section id="backup" class="plan red"><div class="wrap">
-  <div class="plan-head">
-    <img class="big" src="assets/units-sq/renataglasc.png" alt="Renata Glasc">
-    <div>
-      <div class="kicker">Plan B · only if Ziggs is contested · 2-cost reroll · EASY</div>
-      <h2>Renata Guards</h2>
-      <div class="muted"><span class="pill p-red">3★ Renata</span> <span class="pill p-tank">3★ Nasus</span> <span class="pill">3★ Jax</span> <span class="pill">71.5% top 4 · Consistent</span></div>
-    </div>
-  </div>
-  <ul class="bul tight two-col" id="backupRules"></ul>
-  <div class="two" style="margin-top:16px">
-    <div class="panel"><h3 style="margin-bottom:12px">Who holds what</h3><div id="carriesB"></div></div>
-    <div class="panel"><h3 style="margin-bottom:10px">Final board <span class="small dim">(suggested layout)</span></h3><div id="boardR"></div></div>
   </div>
 </div></section>
 
@@ -822,11 +799,10 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <a href="#unlocks" data-s="unlocks"><span class="mi">🔓</span>Unlock path</a>
   <a href="#trait" data-s="trait"><span class="mi"><img class="tr" src="assets/traits/hyperpop.svg" alt="" style="padding:5px"></span>Traits</a>
   <a href="#units" data-s="units"><span class="mi" style="border-color:var(--c2)"><img src="assets/units-sq/seraphine.png" alt=""></span>Units</a>
-  <a href="#plan" data-s="plan"><span class="mi" style="border-color:var(--teal)"><img src="assets/units-sq/ziggs.png" alt=""></span><span>Plan A · <b style="color:var(--teal)">Hyperpop</b></span></a>
+  <a href="#plan" data-s="plan"><span class="mi" style="border-color:var(--teal)"><img src="assets/units-sq/ziggs.png" alt=""></span><span>Game Plan · <b style="color:var(--teal)">Hyperpop</b></span></a>
   <div class="sep"></div>
   <a href="#advisor" data-s="advisor"><span class="mi"><img src="assets/items/sparringgloves.png" alt=""></span>Item Advisor</a>
   <a href="#items" data-s="items"><span class="mi"><img src="assets/items/guinsoosrageblade.png" alt=""></span>Item Cheat Sheet</a>
-  <a href="#backup" data-s="backup"><span class="mi" style="border-color:var(--red)"><img src="assets/units-sq/renataglasc.png" alt=""></span><span>Plan B · <b style="color:var(--red)">Renata</b></span></a>
   <a href="#drills" data-s="drills"><span class="mi">🧠</span>Drills</a>
   <a href="#augments" data-s="augments"><span class="mi"><img src="assets/augments/tons-of-stats-ii.png" alt=""></span>Augments</a>
   <a href="hyperpop-reroll-guide.pdf" target="_blank" rel="noopener" class="pdf"><span class="mi">📄</span>Printable PDF</a>
@@ -846,7 +822,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 </aside>
 
 <footer><div class="wrap">
-  <p><b>Sources:</b> comp, tier and items from <a href="https://tftacademy.com/tierlist/comps/set-19-hyperpop-reroll">TFT Academy · Hyperpop Reroll</a> and <a href="https://tft.ninja/comps?e=pbe">tft.ninja PBE comps</a> (Ziggs Reroll, Diamond+). Unit, trait, ability and augment text from <a href="https://tft.ninja/sets/19/units">tft.ninja</a> (Riot Dev Drop, Nov 15 2026). Leveling from <a href="https://mobalytics.gg/tft/set19/comps-guide/hyper-pop-3M8yhC5RAV9atbxt8QeSlEeGvgi">Mobalytics · Hyperpop</a>; unlock counts from <a href="https://mobalytics.gg/tft/set19/unlocks">Mobalytics unlocks</a> and <a href="https://tftflow.com/how-to-unlock-every-champion-set19">tftflow</a>. Backup: <a href="https://tftacademy.com/tierlist/comps/set-19-renata-guards">TFT Academy · Renata Guards</a>. Art: TFT Academy, tft.ninja, CommunityDragon. Snapshot: Nov 19 2026, Set 19 PBE.</p>
+  <p><b>Sources:</b> comp, tier and items from <a href="https://tftacademy.com/tierlist/comps/set-19-hyperpop-reroll">TFT Academy · Hyperpop Reroll</a> and <a href="https://tft.ninja/comps?e=pbe">tft.ninja PBE comps</a> (Ziggs Reroll, Diamond+). Unit, trait, ability and augment text from <a href="https://tft.ninja/sets/19/units">tft.ninja</a> (Riot Dev Drop, Nov 15 2026). Leveling from <a href="https://mobalytics.gg/tft/set19/comps-guide/hyper-pop-3M8yhC5RAV9atbxt8QeSlEeGvgi">Mobalytics · Hyperpop</a>; unlock counts from <a href="https://mobalytics.gg/tft/set19/unlocks">Mobalytics unlocks</a> and <a href="https://tftflow.com/how-to-unlock-every-champion-set19">tftflow</a>. Art: TFT Academy, tft.ninja, CommunityDragon. Snapshot: Nov 19 2026, Set 19 PBE.</p>
   <p>Hyperpop Reroll Guide isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, Teamfight Tactics and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
 </div></footer>
 
@@ -929,17 +905,7 @@ const U = [
   {k:"sett",n:"Sett",c:1,t:["Heartsteel","Frontman"],tags:"early",star:1,ab:null,role:"1-cost Frontman for stage 2.",items:[]},
   {k:"renekton",n:"Renekton",c:2,t:["Beach Pop","Frontman"],tags:"early",star:1,ab:["Crocodile Rock","60/110","Grows (max Health), then spins for physical damage."],role:"2-cost Frontman for stage 2–3.",items:[]},
   {k:"zoe",n:"Zoe",c:1,t:["Beach Pop","Arcanist"],tags:"early",star:1,ab:["Paddle Ball","15/90","Ball that ricochets on kills."],role:"Arcanist with Ziggs early.",items:[]},
-  {k:"renataglasc",n:"Renata Glasc",c:2,t:["Classical","Choreographer"],tags:"backup",star:3,unlock:"Items on a Classical or Choreographer unit",
-   ab:["Hostile Measures","0/45","Musical bar applies Toxin (magic DoT), spreads to nearby enemies and Captivates them."],role:"Plan B carry.",items:["shojin","archangel","gunblade"]},
-  {k:"nasus",n:"Nasus",c:2,t:["Classical","Bodyguard"],tags:"backup",star:3,unlock:"Items on a Classical unit",
-   ab:["Patron of the Arts","25/75","Hex field: heals him and allies inside, damages and Captivates enemies."],role:"Plan B main tank.",items:["sunfire","visage","warmog"]},
-  {k:"jax",n:"Jax",c:2,t:["EDM","Bodyguard","Swiftstriker"],tags:"backup",star:3,
-   ab:["Instant Crush","0/30","Bash + heal, then Attack Speed for the rest of combat."],role:"Plan B second carry.",items:["titans","bt","shojin"]},
-  {k:"leona",n:"Leona",c:4,t:["K/DA","Bodyguard","Manager"],tags:"backup",star:2,ab:["Coordinated Light Show","40/100","Shield + light beams that shred MR."],role:"Plan B tank.",items:[]},
-  {k:"tibbers",n:"Tibbers",c:3,t:["Ionic Spark","Bodyguard"],tags:"backup",star:2,unlock:"Annie at the required star level holding items",ab:["Girl's Best Friend","40/100","Enrages at low HP: Health, AD, Attack Speed."],role:"Plan B tank.",items:[]},
-  {k:"ksante",n:"K'Sante",c:3,t:["Heartsteel","Bodyguard"],tags:"backup",star:2,ab:["In Your House!","70/140","Shield, charge + stun, then taunt."],role:"Plan B tank.",items:[]},
-  {k:"garen",n:"Garen",c:4,t:["Synthwave","Choreographer"],tags:"backup",star:2,ab:["Sword of Truth","30/100","Heal, then a wave that weakens enemies."],role:"Plan B frontline.",items:[]},
-  {k:"lillia",n:"Lillia",c:1,t:["K/DA","Bodyguard"],tags:"backup",star:2,ab:["We Love You K/DA","40/100","Heal + strike that weakens nearby enemies."],role:"Plan B Bodyguard.",items:[]}
+
 ];
 const UK = Object.fromEntries(U.map(u=>[u.k,u]));
 const sq = k => `assets/units-sq/${k}.png`, sp = k => `assets/units/${k}.webp`;
@@ -963,14 +929,12 @@ const costChip = c => `<span class="cc b${c}">${c}g</span>`;
 $("#r1").innerHTML = uic("ziggs")+uic("kobuko");
 $("#r2").innerHTML = icC("tear")+uic("seraphine")+uic("ziggs");
 $("#r3").innerHTML = uic("kobuko")+uic("seraphine");
-$("#r4").innerHTML = uic("renataglasc");
 const UNLOCKS = [
   ["kobuko","Stage 1–2","<b>Kobuko:</b> get <b>Ziggs to 2★</b> and give him <b>one item</b>","Turns on Hyperpop 2 right away"],
   ["seraphine","Before 2-4","<b>Seraphine:</b> <b>reroll 4 times</b> before the stage 2 carousel","Costs 8g, worth it every game"],
   ["lulu","Stage 2–3","<b>Lulu:</b> your Hyperpop units <b>cast enough times</b> with the trait active","Happens naturally with Ziggs + Kobuko"],
   ["tristana","Stage 2–3","<b>Tristana:</b> get <b>enough kills</b> with Hyperpop active","Needs Hyperpop 2 on the board"],
-  ["teemo","Stage 4–5","<b>Teemo:</b> collect <b>900 Hyperpop Hype</b>","3★ units make the most Hype"],
-  ["renataglasc","Plan B","<b>Renata (backup):</b> items on a <b>Classical or Choreographer</b> unit","Lulu is a Choreographer, so her items count"]
+  ["teemo","Stage 4–5","<b>Teemo:</b> collect <b>900 Hyperpop Hype</b>","3★ units make the most Hype"]
 ];
 $("#unlockList").innerHTML = UNLOCKS.map(([k,when,what,tip],i)=>`<li><span class="un">${i+1}</span>${uic(k)}<div><div class="small" style="color:var(--gold);font-weight:800;letter-spacing:.08em;text-transform:uppercase">${when}</div><div>${what}</div><div class="small muted">${tip}</div></div></li>`).join("");
 $("#otherTraits").innerHTML = [
@@ -985,12 +949,12 @@ $("#otherTraits").innerHTML = [
 /* ---------------- unit cards ---------------- */
 function renderUnits(f="all"){
   const g=$("#unitGrid"); g.innerHTML="";
-  U.filter(u=> f==="all" ? !u.tags.includes("backup") : u.tags.includes(f)).forEach(u=>{
+  U.filter(u=> f==="all" || u.tags.includes(f)).forEach(u=>{
     const card=el("div","unit"); card.style.borderColor=`var(--c${u.c})`;
     card.innerHTML=`
       <div class="art"><img src="${sp(u.k)}" alt="${u.n}" loading="lazy">
         <span class="cost b${u.c}">${u.c}-cost · ${u.c}g</span>
-        <div class="plans">${u.tags.includes("core")||u.tags.includes("backup")?`<span class="pill ${u.tags.includes("backup")?'p-red':'p-teal'}">${"★".repeat(u.star)}</span>`:''}${u.tags.includes("early")&&!u.tags.includes("core")?'<span class="pill">Early</span>':''}${u.tags.includes("backup")?'<span class="pill p-red">B</span>':''}</div>
+        <div class="plans">${u.tags.includes("core")?`<span class="pill p-teal">${"★".repeat(u.star)}</span>`:''}${u.tags.includes("early")&&!u.tags.includes("core")?'<span class="pill">Early</span>':''}</div>
         <div class="nm">${u.n}</div><img class="shop" src="${sq(u.k)}" alt="" title="Shop icon" style="border-color:var(--c${u.c})"></div>
       <div class="body">
         <div class="traits">${u.t.map(traitPill).join("")}</div>
@@ -1055,19 +1019,12 @@ $("#carries").innerHTML = carryHTML([
   {u:"kobuko",tag:"Tank · 3★",cls:"p-tank",items:["gargoyle","warmog","visage"],bk:"bramble"},
   {u:"teemo",tag:"Late · spare Tear items",cls:"p-red",items:["jg","shojin","voidstaff"],bk:null}
 ]);
-$("#carriesB").innerHTML = carryHTML([
-  {u:"renataglasc",tag:"Carry · 3★",cls:"p-red",items:["shojin","archangel","gunblade"],bk:null},
-  {u:"nasus",tag:"Tank · 3★",cls:"p-tank",items:["sunfire","visage","warmog"],bk:null},
-  {u:"jax",tag:"Second carry · 3★",cls:"p-red",items:["titans","bt","shojin"],bk:null}
-]);
 
 /* ---------------- boards ---------------- */
 const BOARDS = {
   b8:[[0,2,"shyvana",2,[]],[0,3,"kobuko",3,["gargoyle","warmog","visage"]],[0,4,"swain",2,[]],
       [2,1,"tristana",2,[]],[2,3,"lulu",2,[]],
-      [3,0,"seraphine",3,["voidstaff","shojin","jg"]],[3,3,"teemo",1,[]],[3,6,"ziggs",3,["guinsoo","jg","gunblade"]]],
-  bR:[[0,1,"lillia",2,[]],[0,2,"leona",2,[]],[0,3,"nasus",3,["sunfire","visage","warmog"]],[0,4,"ksante",2,[]],[0,5,"tibbers",2,[]],
-      [1,2,"garen",2,[]],[1,4,"jax",3,["titans","bt","shojin"]],[3,6,"renataglasc",3,["shojin","archangel","gunblade"]]]
+      [3,0,"seraphine",3,["voidstaff","shojin","jg"]],[3,3,"teemo",1,[]],[3,6,"ziggs",3,["guinsoo","jg","gunblade"]]]
 };
 function renderBoard(id, cells){
   const map={}; cells.forEach(c=>map[c[0]+"-"+c[1]]=c);
@@ -1087,16 +1044,11 @@ function renderBoard(id, cells){
   h+=`<div class="lbl" style="margin-top:12px">▼ back line · your bench side</div></div>`;
   $(id).innerHTML=h;
 }
-renderBoard("#board8",BOARDS.b8); renderBoard("#boardR",BOARDS.bR);
+renderBoard("#board8",BOARDS.b8);
 $("#board8notes").innerHTML = `
   <li><span class="ics">${uic("ziggs")}${uic("seraphine")}</span><span><b>Carries in opposite corners</b>, so one AoE can't hit both</span></li>
   <li><span class="ics">${uic("lulu")}</span><span>Lulu in row 3 next to Ziggs. Back rows get Choreographer Damage Amp</span></li>
   <li><span class="ics">${uic("kobuko")}${uic("swain")}</span><span>Kobuko + Swain front and center</span></li>`;
-$("#backupRules").innerHTML = `
-  <li><span class="ics">${uic("renataglasc")}${uic("nasus")}${uic("jax")}</span><span><b>2-cost reroll</b>: 3★ Renata, Nasus, Jax</span></li>
-  <li><span class="ics">${icC("tear")}${icC("sword")}</span><span>Uses your Tear + Sword items: <b>Shojin</b> on Renata and Jax</span></li>
-  <li><span class="ics">${uic("lulu")}</span><span>Unlock Renata: items on a <b>Classical/Choreographer</b> unit (Lulu, Garen, Viego, Katarina)</span></li>
-  <li><span class="ics">${uic("kobuko")}</span><span>Tank items (Gargoyle/Warmog/Visage) move to <b>Nasus</b></span></li>`;
 
 /* ---------------- item ranking ---------------- */
 const RANK = [["guinsoo","ziggs"],["jg","ziggs"],["gargoyle","kobuko"],["voidstaff","seraphine"],["shojin","seraphine"],
@@ -1170,9 +1122,7 @@ const bench = Object.fromEntries(CK.map(k=>[k,0]));
 const PRIO = {
   A:[["guinsoo","ziggs"],["jg","ziggs"],["gargoyle","kobuko"],["voidstaff","seraphine"],["shojin","seraphine"],["warmog","kobuko"],["gunblade","ziggs"],
      ["visage","kobuko"],["jg","seraphine"],["flail","ziggs"],["morello","seraphine"],["shojin","teemo"],["voidstaff","teemo"],["jg","teemo"],["bluebuff","seraphine"],
-     ["archangel","seraphine"],["bramble","kobuko"],["dclaw","kobuko"],["sunfire","swain"],["evenshroud","swain"],["thief","lulu"]],
-  B:[["shojin","renataglasc"],["archangel","renataglasc"],["gunblade","renataglasc"],["sunfire","nasus"],["visage","nasus"],["warmog","nasus"],
-     ["titans","jax"],["bt","jax"],["shojin","jax"],["gargoyle","leona"],["bramble","leona"],["dclaw","leona"],["jg","renataglasc"],["bluebuff","renataglasc"],["voidstaff","renataglasc"]]
+     ["archangel","seraphine"],["bramble","kobuko"],["dclaw","kobuko"],["sunfire","swain"],["evenshroud","swain"],["thief","lulu"]]
 };
 /* hide recommendations: built (item already on that unit), skip (don't want the item), full (unit has no slots) */
 const HID = (()=>{ try{ const o=JSON.parse(store.get("hide")||"{}"); return {built:new Set(o.built||[]),skip:new Set(o.skip||[]),full:new Set(o.full||[])}; }catch(e){ return {built:new Set(),skip:new Set(),full:new Set()}; } })();
@@ -1203,26 +1153,23 @@ function renderBench(){
 }
 function advise(){
   const total=CK.reduce((s,k)=>s+bench[k],0);
-  const plan=$("#contested").checked?"B":"A";
   const tears=bench.tear;
-  const why = plan==="B" ? "Ziggs is contested, so go <b>Renata Guards</b>. Tear + Sword items become Spear of Shojin for Renata and Jax."
-    : tears ? `<b>${tears} Tear${tears>1?'s':''}</b> → Seraphine items. Everything else → Ziggs and Kobuko.` : "No Tear → all damage items go to <b>Ziggs</b>.";
-  $("#verdict").innerHTML=`<div class="verdict ${plan==='A'?'teal':'red'}"><img src="${sp(plan==='A'?(tears?'seraphine':'ziggs'):'renataglasc')}" alt=""><div><div class="kicker" style="margin:0">${plan==='A'?'Plan A · Hyperpop':'Plan B · Renata Guards'}</div><h3>${plan==='A'?(tears?'Ziggs + Seraphine':'Ziggs carry'):'Renata Guards'}</h3><div class="small">${why}</div></div></div>`;
+  const why = tears ? `<b>${tears} Tear${tears>1?'s':''}</b> → Seraphine items. Everything else → Ziggs and Kobuko.` : "No Tear → all damage items go to <b>Ziggs</b>.";
+  $("#verdict").innerHTML=`<div class="verdict teal"><img src="${sp(tears?'seraphine':'ziggs')}" alt=""><div><div class="kicker" style="margin:0">Hyperpop</div><h3>${tears?'Ziggs + Seraphine':'Ziggs carry'}</h3><div class="small">${why}</div></div></div>`;
   if(!total){ $("#builds").innerHTML=`<div class="small muted">Use + / − on the left.</div>`+hideBar(); return; }
   const pool={...bench}; const out=[];
-  for(const [k,who] of PRIO[plan]){ if(!allowed(k,who)) continue; const [ , ,a,b]=I[k]; if(a===b? pool[a]>=2 : (pool[a]>=1&&pool[b]>=1)){ pool[a]--; pool[b]--; out.push([k,who]); } }
+  for(const [k,who] of PRIO.A){ if(!allowed(k,who)) continue; const [ , ,a,b]=I[k]; if(a===b? pool[a]>=2 : (pool[a]>=1&&pool[b]>=1)){ pool[a]--; pool[b]--; out.push([k,who]); } }
   const left=CK.flatMap(k=>Array(pool[k]).fill(k));
   let h=`<div class="small muted" style="margin:4px 0 8px">${out.length?'Build these, in this order <span class="dim">(✕ to hide one)</span>:':'Nothing complete yet. Hold your components.'}</div>`;
-  h+=out.map(([k,who])=>`<div class="build"><div class="eq">${compIc(I[k][2],"ic xs")}+${compIc(I[k][3],"ic xs")}=</div><img class="ic sm" src="${itemImg(k)}" data-item="${k}" alt=""><b>${I[k][0]}</b>${plan==='A'&&rankOf(k)&&rankOf(k)<=STAR?'<span class="pill p-gold" style="font-size:10px">★</span>':''}<span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,26)}</span><button class="hx" data-k="${k}" data-w="${who}" title="Hide this" aria-label="Hide this">✕</button></div>`).join("");
+  h+=out.map(([k,who])=>`<div class="build"><div class="eq">${compIc(I[k][2],"ic xs")}+${compIc(I[k][3],"ic xs")}=</div><img class="ic sm" src="${itemImg(k)}" data-item="${k}" alt=""><b>${I[k][0]}</b>${rankOf(k)&&rankOf(k)<=STAR?'<span class="pill p-gold" style="font-size:10px">★</span>':''}<span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,26)}</span><button class="hx" data-k="${k}" data-w="${who}" title="Hide this" aria-label="Hide this">✕</button></div>`).join("");
   if(left.length) h+=`<div class="small muted" style="margin:14px 0 6px">Leftovers: hold them, and look for the missing piece:</div>`+[...new Set(left)].map(k=>{
-    const seen=new Set(), opts=PRIO[plan].filter(([it,who])=>{const r=I[it]; if(seen.has(it)||(r[2]!==k&&r[3]!==k)||!allowed(it,who)) return false; seen.add(it); return true;}).slice(0,3);
+    const seen=new Set(), opts=PRIO.A.filter(([it,who])=>{const r=I[it]; if(seen.has(it)||(r[2]!==k&&r[3]!==k)||!allowed(it,who)) return false; seen.add(it); return true;}).slice(0,3);
     return `<div class="left"><div class="lh">${compIc(k,"ic sm")}<b>${C[k].n}${pool[k]>1?' ×'+pool[k]:''}</b><span class="small muted">needs one of:</span></div>`+opts.map(([it,who])=>{
       const o=I[it][2]===k?I[it][3]:I[it][2];
       return `<div class="build opt"><div class="eq">${compIc(k,"ic xs")}+</div><span class="need">${compIc(o,"ic xs")}<b>${C[o].s}</b></span><span class="eq">=</span>${itemIc(it,"ic sm")}<b>${I[it][0]}</b><span class="who small muted" style="display:flex;align-items:center;gap:6px">→ <span class="nm">${UK[who].n}</span> ${unitIc(who,22)}</span></div>`;}).join("")+`</div>`;}).join("");
   $("#builds").innerHTML=h+hideBar();
 }
 $("#resetBench").onclick=()=>{CK.forEach(k=>bench[k]=0);renderBench();advise();};
-$("#contested").onchange=advise;
 renderBench(); advise();
 
 /* ---------------- augments ---------------- */
@@ -1251,8 +1198,7 @@ const QR = [
   {h:"No Tear → Ziggs",col:"var(--teal)",units:[["ziggs","3★ · corner",["guinsoo","jg","gunblade"],"flail"]]},
   {h:"Tear → Seraphine · Teemo",col:"var(--red)",units:[["seraphine","3★ · other corner",["voidstaff","shojin","jg"],"morello"],["teemo","late · spare Tear items",["jg","shojin","voidstaff"],null]]},
   {h:"Tank",col:"var(--tank)",units:[["kobuko","3★ · 2★ Ziggs + item unlocks",["gargoyle","warmog","visage"],"bramble"]]},
-  {h:"No items",col:"var(--muted)",fill:["lulu","tristana","swain","shyvana","elise","sett","renekton","zoe"]},
-  {h:"Plan B · Renata (contested)",col:"var(--gold)",units:[["renataglasc","3★",["shojin","archangel","gunblade"],null],["nasus","3★ tank",["sunfire","visage","warmog"],null]]}
+  {h:"No items",col:"var(--muted)",fill:["lulu","tristana","swain","shyvana","elise","sett","renekton","zoe"]}
 ];
 function renderQR(){
   $("#qrBody").innerHTML = QR.map(g=>{
@@ -1286,7 +1232,6 @@ document.querySelectorAll("#menu a[data-s]").forEach(a=>a.addEventListener("clic
   const t=document.getElementById(a.dataset.s);
   if(t){ const y=a.dataset.s==="top"?0:t.getBoundingClientRect().top+scrollY-64; scrollTo({top:y,behavior:"smooth"}); history.replaceState(null,"","#"+a.dataset.s); }
 }));
-document.querySelectorAll('a[href="#backup"]').forEach(a=>{ if(!a.dataset.s) a.addEventListener("click",e=>{ e.preventDefault(); const t=$("#backup"); scrollTo({top:t.getBoundingClientRect().top+scrollY-64,behavior:"smooth"}); }); });
 $("#menuQr").onclick=()=>{ setClosed(!$("#qr").classList.contains("closed")); setMenu(false); };
 const io=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ document.querySelectorAll("#menu a[data-s]").forEach(a=>a.classList.toggle("cur",a.dataset.s===en.target.id)); } }); },{rootMargin:"-45% 0px -50% 0px"});
 [...document.querySelectorAll("#menu a[data-s]")].forEach(a=>{ const el=document.getElementById(a.dataset.s); if(el) io.observe(el); });
@@ -1300,7 +1245,7 @@ function flashNext(){
   setTimeout(()=>{
     $("#flashImg").src=sp(u.k);
     $("#flashBack").innerHTML=`<div style="display:flex;gap:12px;align-items:center"><img src="${sq(u.k)}" style="width:64px;height:64px;border-radius:12px;border:3px solid var(--c${u.c})" alt="">
-      <div><div style="font:800 24px Cinzel">${u.n}</div>${costChip(u.c)} ${u.tags.includes("backup")?'<span class="pill p-red">Plan B</span>':u.tags.includes("core")?'<span class="pill p-teal">Final board</span>':'<span class="pill">Early game</span>'}</div></div>
+      <div><div style="font:800 24px Cinzel">${u.n}</div>${costChip(u.c)} ${u.tags.includes("core")?'<span class="pill p-teal">Final board</span>':'<span class="pill">Early game</span>'}</div></div>
       <div class="traits">${u.t.map(traitPill).join("")}</div><div class="small">${u.role}</div>
       ${u.unlock?`<div class="buff" style="border-left-color:var(--gold)"><b style="color:var(--gold)">🔓 Unlock</b>${u.unlock}</div>`:''}
       ${u.items.length?`<div class="items" style="display:flex;gap:6px;align-items:center"><span class="small muted">BIS:</span>${u.items.map(k=>itemIc(k)).join("")}</div>`:''}`;

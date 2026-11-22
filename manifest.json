@@ -1,7 +1,7 @@
 {
   "name": "Hyperpop Reroll Guide",
   "short_name": "Hyperpop",
-  "description": "TFT Set 19 Hyperpop Reroll cheat sheet: 3-star Ziggs + Kobuko, Seraphine for Tear items, Renata Guards backup.",
+  "description": "TFT Set 19 Hyperpop Reroll cheat sheet: 3-star Ziggs + Kobuko, Seraphine for Tear items.",
   "id": "./", "start_url": "./", "scope": "./", "display": "standalone", "orientation": "any",
   "background_color": "#0b0f17", "theme_color": "#0b0f17",
   "icons": [

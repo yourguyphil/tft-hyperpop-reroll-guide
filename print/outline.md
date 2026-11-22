@@ -9,7 +9,7 @@
 -->
 
 # {big:ziggs} Hyperpop Reroll Guide
-> TFT Set 19 Prismatic Tour · PBE · S tier (TFT Academy + tft.ninja) · 83.9% top 4 · avg place 2.53 · EASY 1-cost reroll
+> TFT Set 19 Prismatic Tour · PBE · S tier · 83.9% top 4 · avg place 2.53
 
 ::: cols
 ::: box teal
@@ -33,7 +33,6 @@
 - {units:kobuko} Tank parts → **Kobuko**: {ii:gargoyle}{ii:warmog}{ii:visage}
 |||
 - {ci:tear} **Items pick the carry:** Tear → Seraphine (then Teemo), the rest → Ziggs
-- {units:renataglasc} Someone else collecting Ziggs? → **Renata Guards**
 :::
 
 ## 🔓 Unlock path
@@ -44,7 +43,6 @@
 |||
 - **4 · Tristana:** enough kills with Hyperpop active
 - **5 · Teemo:** collect **900 Hyperpop Hype** (3★ units = most Hype)
-- **Plan B · Renata:** items on a Classical/Choreographer unit
 :::
 
 ## {t:hyperpop} Hyperpop · 2 / 3 / 4 / 5
@@ -58,7 +56,7 @@
 
 ---page---
 
-# {big:ziggs} Game plan · Plan A
+# {big:ziggs} Game plan
 
 ::: cols
 ### Stages
@@ -82,15 +80,6 @@
 ### Backups
 - {u:ziggs} {r:flail}
 - {u:seraphine} {r:morello}
-:::
-
-## Plan B · Renata Guards (if Ziggs is contested)
-::: cols
-- {units:renataglasc,nasus,jax} **2-cost reroll:** 3★ Renata, Nasus, Jax · 71.5% top 4 · Consistent
-- {u:renataglasc} {r:shojin} · {r:archangel} · {r:gunblade}
-|||
-- {u:nasus} {r:sunfire} · {r:visage} · {r:warmog}
-- {u:jax} {r:titans} · {r:bt} · {r:shojin}
 :::
 
 ---page---
@@ -119,10 +108,5 @@
 - {r:shojin}{br}**Does:** attacks give bonus Mana.{br}**Why:** casts come faster, and casting is their damage.
 - {r:jg}{br}**Why:** their notes and Viral ticks can crit. Ziggs gets the first JG.
 - {r:morello}{br}**Why:** backup: burn + wound cuts enemy healing.
-:::
-::: box items
-## {units:renataglasc,nasus} Plan B
-- {r:shojin} · {r:archangel}{br}**Why:** Renata's Toxin is all ability damage: more casts, more AP.
-- {r:sunfire}{br}**Why:** Nasus sits in front: HP + burn.
 :::
 :::
