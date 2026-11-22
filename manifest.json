@@ -1,7 +1,7 @@
 {
   "name": "Hyperpop Reroll Guide",
   "short_name": "Hyperpop",
-  "description": "TFT Set 19 Hyperpop Reroll playbook: what-to-do-now helper, checkpoints, item advisor, matchups, match log.",
+  "description": "TFT Set 19 Hyperpop Reroll playbook: checkpoints, item advisor, matchups, match log.",
   "id": "./",
   "start_url": "./",
   "scope": "./",

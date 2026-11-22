@@ -199,11 +199,6 @@ nav.top a.l:hover{color:var(--text)}
 .cbtn .cnt{font:800 16px Inter;min-width:14px;text-align:center}
 .cbtn.has{border-color:var(--gold)}
 .cbtn .nm{font-size:11px;color:var(--muted);text-align:center;line-height:1.2}
-.verdict{border-radius:14px;padding:18px;border:1px solid var(--line);background:var(--panel2);margin-bottom:12px;display:flex;gap:14px;align-items:center}
-.verdict img{width:72px;height:72px;border-radius:14px;object-fit:cover}
-.verdict.teal{border-color:var(--teal);background:var(--tealbg)}
-.verdict.red{border-color:var(--red);background:var(--redbg)}
-.verdict h3{font-size:22px}
 .build{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:#0f1622;border:1px solid var(--line);margin-bottom:6px;font-size:13.5px}
 .build .eq{display:flex;align-items:center;gap:3px;color:var(--dim);font-weight:800}
 .build .who{margin-left:auto}
@@ -280,14 +275,14 @@ ul.bul.tight li{padding:10px 14px;font-size:14.5px}
 .gr{display:inline-flex;align-items:center;gap:3px;margin-left:8px;padding:2px 8px;border-radius:999px;font:700 11px Inter;color:var(--gold);border:1px solid rgba(245,196,81,.4);background:rgba(245,196,81,.08);text-decoration:none;white-space:nowrap;vertical-align:1px}
 .gr:hover{background:rgba(245,196,81,.2)}
 h3 .gr{vertical-align:3px}
-.vids{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 22px}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:16px 0 22px}
 .vid{display:flex;gap:14px;align-items:center;padding:12px;border-radius:14px;background:var(--panel);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:border-color .2s}
 .vid:hover{border-color:var(--gold)}
-.vid .th{position:relative;flex:none;width:150px;aspect-ratio:16/9;border-radius:10px;overflow:hidden}
+.vid .th{position:relative;flex:none;width:128px;aspect-ratio:16/9;border-radius:10px;overflow:hidden}
 .vid .th img{width:100%;height:100%;object-fit:cover}
 .vid .th::after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;font-size:22px;color:#fff;background:rgba(0,0,0,.25);text-shadow:0 2px 8px #000}
 .vid b{display:block;font:800 16px Inter}.vid .small{display:block;margin-top:3px}
-.grules{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
 .grules h3{font:800 17px Inter;margin:0 0 10px}
 .grules .em{font-size:24px;width:34px;text-align:center}
 .grules .here{display:block;font-size:13px;color:var(--teal);margin-top:3px}
@@ -305,7 +300,6 @@ h3 .gr{vertical-align:3px}
 .dw.red{border-color:rgba(255,95,216,.55);background:linear-gradient(160deg,var(--redbg),var(--panel2) 60%)}.dw.red .d .lb{background:var(--red);color:#2a0620}
 .warn{font-size:13px;color:var(--gold);margin:6px 2px}
 /* forms */
-.now{display:grid;grid-template-columns:minmax(300px,440px) 1fr;gap:18px;align-items:start}
 .form{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
 .fld label,.fld .lb{display:block;font:700 11px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
 .fld input,.fld select{width:100%;min-height:40px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:600 15px Inter}
@@ -377,7 +371,7 @@ details.fld>summary{cursor:pointer;font-weight:700;color:var(--muted);min-height
 #missChips,#muTabs,#bvTabs{flex-wrap:wrap!important}
 .seg[data-name="d-place"] button{min-width:0;padding:6px 2px}
 #menu .mh2{font:800 10px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:8px 12px 2px}
-@media (max-width:900px){.now,.logw,.mu,.vs{grid-template-columns:1fr}.cps{grid-template-columns:1fr 1fr}.recov,.augs2{grid-template-columns:1fr}.ux{grid-template-columns:1fr}}
+@media (max-width:900px){.logw,.mu,.vs{grid-template-columns:1fr}.cps{grid-template-columns:1fr 1fr}.recov,.augs2{grid-template-columns:1fr}.ux{grid-template-columns:1fr}}
 @media (max-width:560px){.mu .panel,.two .panel{padding:12px}.cps{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.dw.big .d{font-size:17px}}
 
 .ag{break-inside:avoid;margin-bottom:18px}
@@ -657,7 +651,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   .hmenu{animation:fadeUp .2s ease both}
   .cnt.bump{animation:bump .3s cubic-bezier(.3,1.8,.5,1)}
   .cbtn.bump img{animation:wiggle .45s ease}
-  .verdict.swap{animation:pop .4s cubic-bezier(.3,1.5,.5,1)}
   .hchip{animation:pop .3s cubic-bezier(.3,1.6,.5,1) both}
 
 
@@ -688,7 +681,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 <nav class="top"><div class="wrap">
   <a class="brand" href="#top"><img src="assets/icons/favicon-48.png" alt="" style="border-radius:7px"><span>Hyperpop Reroll Guide</span></a>
   <a class="l" href="#fork">Rules</a>
-  <a class="l" href="#now">What now?</a>
   <a class="l" href="#unlocks">Unlocks</a>
   <a class="l" href="#trait">Traits</a>
   <a class="l" href="#units">Units</a>
@@ -729,20 +721,10 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 <section id="fork" style="padding-top:30px"><div class="wrap">
   <div class="kicker">Rules</div>
   <ul class="bul two-col">
-    <li><span class="ics" id="r1"></span><span><b>1-cost reroll.</b> Slow-roll above 50g at <b>Lvl 5</b> → 3★ Ziggs + 3★ Kobuko <a class="gr" href="#g-level">📚 Carry's level</a></span></li>
+    <li><span class="ics" id="r1"></span><span><b>1-cost reroll.</b> Slow-roll above 50g at <b>Lvl 5</b> → 3★ Seraphine / 3★ Ziggs + 3★ Kobuko <a class="gr" href="#g-level">📚 Carry's level</a></span></li>
     <li><span class="ics" id="r2"></span><span><b>Items pick the carry:</b> Tear → <b>Seraphine</b> (preferred), then Teemo · no Tear → <b>Ziggs</b> <a class="gr" href="#g-duo">📚 Two carries</a></span></li>
     <li><span class="ics" id="r3"></span><span><b>Unlock early:</b> 2★ Ziggs + an item → Kobuko · 4 rerolls before the stage 2 carousel → Seraphine</span></li>
   </ul>
-</div></section>
-
-<!-- ================= WHAT NOW ================= -->
-<section id="now"><div class="wrap">
-  <h2>🧭 What should I do now?</h2>
-  <ul class="bul tight" style="margin:12px 0 16px;max-width:760px"><li><span>Enter where you are → one clear move + why. Rules of thumb, not solved math <a class="gr" href="#g-urgent">📚 When to roll</a></span></li></ul>
-  <div class="now">
-    <div class="panel"><div class="form" id="nowForm"></div><div class="btnrow" style="margin-top:10px"><button class="btn" id="nowReset" type="button">New game</button></div></div>
-    <div id="nowOut" aria-live="polite"></div>
-  </div>
 </div></section>
 
 <!-- ================= UNLOCKS ================= -->
@@ -753,6 +735,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="panel hype">
     <h3>🎤 Hype → Teemo <span class="small dim">(900)</span></h3>
     <div class="form" style="margin-top:12px;max-width:520px">
+      <div class="fld"><label for="h-stage">Stage</label><select id="h-stage"></select></div>
       <div class="fld"><label for="h-cur">Hype now</label><input id="h-cur" type="number" inputmode="numeric" min="0" max="5000"></div>
       <div class="fld"><label for="h-gain">Gained last round</label><input id="h-gain" type="number" inputmode="numeric" min="0" max="999" placeholder="e.g. 45"></div>
     </div>
@@ -843,7 +826,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
       <div class="bench" id="bench"></div>
       <div class="btnrow"><button class="btn" id="resetBench">Clear</button></div>
     </div>
-    <div><div id="verdict"></div><div id="builds"></div></div>
+    <div><div id="builds"></div></div>
   </div>
   <div class="panel" style="margin-top:18px">
     <h3>🤔 What am I missing?</h3>
@@ -948,6 +931,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="vids">
     <a class="vid" href="https://www.youtube.com/watch?v=7D1Fj883120" target="_blank" rel="noopener"><span class="th"><img src="assets/resources/tftacademy-items.jpg" alt="" loading="lazy"></span><span><b>You're Building Items Wrong!</b><span class="small muted">Frodan · TFT Academy · items</span></span></a>
     <a class="vid" href="https://www.youtube.com/watch?v=PuhMnPkKQlE" target="_blank" rel="noopener"><span class="th"><img src="assets/resources/dpei-reroll.jpg" alt="" loading="lazy"></span><span><b>You're Rerolling at the Wrong Time</b><span class="small muted">dpei · Road to Masters · rolling</span></span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=QNfN0eSp7tU" target="_blank" rel="noopener"><span class="th"><img src="assets/resources/ripple-reroll.jpg" alt="" loading="lazy"></span><span><b>How to Play ANY Reroll Comp Like a Pro</b><span class="small muted">Ripple · TFT Academy · tempo + cap</span></span></a>
   </div>
   <div class="grules" id="grules"></div>
 </div></section>
@@ -964,7 +948,6 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <a href="#plan" data-s="plan"><span class="mi" style="border-color:var(--teal)"><img src="assets/units-sq/ziggs.png" alt=""></span><span>Game Plan · <b style="color:var(--teal)">checkpoints</b></span></a>
   <a href="#items" data-s="items"><span class="mi"><img src="assets/items/guinsoosrageblade.png" alt=""></span>Item Cheat Sheet</a>
   <div class="mh2">Decision tools</div>
-  <a href="#now" data-s="now"><span class="mi">🧭</span>What now?</a>
   <a href="#advisor" data-s="advisor"><span class="mi"><img src="assets/items/sparringgloves.png" alt=""></span>Item Advisor</a>
   <a href="#augments" data-s="augments"><span class="mi"><img src="assets/augments/tons-of-stats-ii.png" alt=""></span>Augments</a>
   <a href="#positioning" data-s="positioning"><span class="mi">⚔️</span>Positioning</a>
@@ -1095,8 +1078,6 @@ const PATCH = {
 };
 
 /* ================= LOGIC (pure: tested by tools/test-logic.mjs) ================= */
-const starsOf = c => c>=9?3:c>=3?2:c>=1?1:0;
-const starTxt = c => !c?"none":c>=9?"3★":`${starsOf(c)}★${c%3?" +"+(c%3):""}`;
 function parseStage(v){ const m=/^\s*([1-7])\s*-\s*([1-7])\s*$/.exec(String(v==null?"":v)); return m?[+m[1],+m[2]]:null; }
 
 function traitCount(keys){
@@ -1105,68 +1086,6 @@ function traitCount(keys){
     .sort((a,b)=>(b.on>0)-(a.on>0)||b.c-a.c||a.t.localeCompare(b.t));
 }
 
-/* What should I do now? Transparent rules, first match wins. HP/gold lines are guidelines, not solved math. */
-function decide(inp){
-  const err=[], warn=[], more=[];
-  const st=parseStage(inp.stage); if(!st) err.push("Stage: like 3-2");
-  const num=(v,lo,hi,name)=>{ if(v===""||v==null){ err.push(name+": empty"); return 0; } const x=Number(v);
-    if(!Number.isFinite(x)||x<lo||x>hi||Math.round(x)!==x){ err.push(`${name}: whole number ${lo}–${hi}`); return 0; } return x; };
-  const lvl=num(inp.level,1,10,"Level"), hp=num(inp.hp,0,100,"HP"), gold=num(inp.gold,0,300,"Gold");
-  const z=num(inp.z,0,9,"Ziggs copies"), k=num(inp.k,0,9,"Kobuko copies"), s=num(inp.s,0,9,"Seraphine copies");
-  const cont=["no","one","two"].includes(inp.contested)?inp.contested:"no";
-  const mood=["win","even","lose","bad"].includes(inp.mood)?inp.mood:"even";
-  if(err.length) return {err,warn,main:null,more};
-  if(hp===0) return {err:["0 HP: that game is over. Log it in the Match log."],warn,main:null,more};
-  const [S,R]=st;
-  if(S<=2&&lvl>=7) warn.push(`Level ${lvl} in stage ${S}? Double-check.`);
-  if(S===1&&gold>20) warn.push("Over 20 gold in stage 1? Double-check.");
-  if(S<=2&&(z>=9||k>=9)) warn.push("A 3★ 1-cost in stage 2 is rare. Double-check copies.");
-  if(k>0&&z<3) warn.push("Kobuko unlocks from a 2★ Ziggs. Did you sell Ziggs copies?");
-  const cup=!!inp.cup, pad=cup?10:0;            // Top Cut: protect HP 10 earlier
-  const core=z>=9&&k>=9, s3=s>=9, near=c=>c>=7&&c<9;
-  const bleed=mood==="bad"||mood==="lose";
-  const danger=hp<=40+pad||(hp<=55+pad&&mood==="bad");
-  const spare=Math.max(0,gold-50), o1=l=>PATCH.odds[Math.min(Math.max(l,3),9)];
-  const M=(tone,d,why)=>({tone,do:d,why});
-  let main;
-  if(S<=2){
-    if(S===1||R<4) more.push({do:`Reroll ${PATCH.unlock.seraRerolls}× before the 2-4 carousel`,why:"Unlocks Seraphine, your preferred Tear carry. 8g, worth it every game."});
-    if(z<3) more.push({do:"2★ Ziggs, then give him any item",why:"Unlocks Kobuko → Hyperpop 2 → Hype starts counting toward Teemo."});
-    if(hp<=60+pad&&mood==="bad") main=M("red","Spend a little now: 2★ Frontmen, a few rolls (stay above 20g)","You're bleeding early. A panic roll at 3-1 costs more than the interest you'd save. Small spend now = HP saved.");
-    else main=M("teal","No XP. Buy Ziggs + Kobuko copies, hold pairs, save toward 50g","Your spike is 1-cost 3★s at Lvl 5. XP now doesn't make that board stronger; gold does. Pairs make every later roll hit more.");
-    if(mood==="win") more.push({do:"Protect the win streak with cheap upgrades",why:"Streak gold + HP pays for the slow roll."});
-  } else if(S===3){
-    if(core) main=M("teal","Ziggs + Kobuko 3★ done → level to 6, slow-roll Seraphine + Lulu",`Lvl 6 has ${PATCH.odds[6][1]}% 2-cost odds (${PATCH.odds[5][1]}% at 5). You don't need more 1-cost copies.`);
-    else if(danger) main=M("red",`Roll down now to stabilize (keep ~${hp<=25?0:10}g)`,`At ${hp} HP${bleed?" and losing":""}, each loss costs 5–10 HP. Interest can't save you. Buy every upgrade that makes the board stronger.`);
-    else if(near(z)||near(k)) main=M("gold",`You're close (${Math.max(z,k)} copies): roll until it hits, down to ~20g`,"Only 1–2 copies left to find, so each roll has a real chance to finish a 3★ and stop the bleeding.");
-    else if(R<=2&&(hp<70+pad||bleed)&&gold>=30&&lvl<=5) main=M("gold","3-1 roll-down: roll to ~30g now",`1-cost odds are ${o1(lvl)[0]}% at Lvl ${lvl}. Stabilizing early keeps HP for the slow roll.`);
-    else if(cont==="two") main=M("red","Hard contested: keep your 2★s, level to 6 early, lean on Seraphine / Teemo","Two others hold your units, so fewer than 9 copies may be left. Rolling at 5 might never finish.");
-    else if(gold>=50) main=M("teal",spare?`Slow-roll: spend ${spare}g, stay at 50`:"At 50g: hold, then roll only the gold above 50 each round",`Keeps max interest (+5g) while digging at ${o1(lvl)[0]}% 1-cost odds.`);
-    else main=M("teal",`Don't roll yet: econ to 50g (${50-gold}g to go)`,"Below 50, every roll costs interest. You're healthy: build the bank, then slow-roll from 50.");
-    if(lvl<5) more.push({do:"Get to Lvl 5",why:"The level this comp rolls at, plus a 5th board slot."});
-    if(lvl>=6&&!core) more.push({do:`At Lvl ${lvl}, 1-cost odds drop`,why:`${o1(lvl)[0]}% vs ${PATCH.odds[5][0]}% at 5: each missing copy costs more gold.`});
-  } else if(S===4){
-    const best=Math.max(z<9?z:0,k<9?k:0);
-    if(danger) main=M("red","Roll down now at your level","Low HP in stage 4: top 4 is about surviving the next 3 fights. Gold you die with is worth nothing.");
-    else if(!core&&best>=6&&cont!=="two"&&hp>50) main=M("gold","Keep slow-rolling above 50 for the missing 3★",`${best>=7?"Only 1–2":"About 3"} copies left to find, so it's still the cheapest power you can buy.`);
-    else if(!core) main=M("red","Stop chasing: keep the 2★s, level to 7–8, carry with Seraphine / Teemo",`1-cost odds fall to ${PATCH.odds[6][0]}% at 6 and ${PATCH.odds[7][0]}% at 7. Chasing a 3★ with few copies left burns HP and gold.`);
-    else if(lvl<6) main=M("teal","Level to 6, then slow-roll for 3★ Seraphine + 2★ Lulu",`${PATCH.odds[6][1]}% 2-cost odds at 6.`);
-    else if(!s3&&s>=6&&lvl<=6) main=M("gold",`Seraphine at ${s} copies: slow-roll at 6 to finish her`,"3★ Seraphine (Rising Star) is a big spike, and Lvl 6 has the best 2-cost odds.");
-    else if(lvl<8&&gold>=40&&hp>40) main=M("teal",`Level up toward 8 (${lvl<7?"7 now, ":""}8 at 4-5 / 5-1)`,"Your 1- and 2-cost spikes are done. More power now comes from Garen + Teemo slots and Lvl 8 odds.");
-    else if(gold>50) main=M("teal",`Roll the gold above 50 (${spare}g) for upgrades`,"You're stable: keep interest while upgrading Lulu, Tristana, Swain.");
-    else main=M("teal","Econ up, then level","You're stable. Build to 50+ and spend it on Lvl 7–8.");
-  } else {
-    if(danger) main=M("red","All-in: roll for upgrades now","Late game, HP is your only clock. Spend everything that makes this fight winnable.");
-    else if(lvl<8&&gold>=36) main=M("teal","Level to 8","Adds the Garen + Teemo slots and real 4-cost odds.");
-    else if(lvl===8&&gold>=50&&hp>=60&&mood!=="bad") main=M("gold","Strong + healthy: think about Lvl 9 (Nidalee, Teemo odds)",`5-cost odds go ${PATCH.odds[8][4]}% → ${PATCH.odds[9][4]}% at 9. Only if you'll keep winning fights while you level.`);
-    else if(lvl>=8&&gold>50) main=M("teal",`Roll ${spare}g for 2★ Garen / Swain or Teemo`,`Lvl ${Math.min(lvl,9)} has ${o1(lvl)[3]}% 4-cost odds.`);
-    else main=M("teal","Hold: econ, roll only the excess","Board is set. Small upgrades and positioning win from here.");
-  }
-  if(cont==="one"&&S<=4&&!core) more.push({do:"One rival: still go, scout their bench",why:`${PATCH.pool[1][0]} copies each. One rival still leaves enough for both if you hold pairs.`});
-  if(cont==="two"&&S<=4&&!core&&!/contested/i.test(main.do)) more.push({do:"Two rivals: count their copies first",why:"Use the Copy finder (Learn) before rolling deep."});
-  if(cup&&S>=3) more.push({do:"Top Cut: top 4 or out",why:"4th = 1st until the final. Take the safer line when HP drops."});
-  return {err,warn,main,more:more.slice(0,3)};
-}
 
 /* Hype → Teemo: rounds left from your real per-round gain (multipliers aren't published, so we don't guess them) */
 function hypeEta(cur,gain,stage){
@@ -1221,7 +1140,7 @@ const qLine = (k,bk) => `<div class="ql${bk?' bk':''}"><img src="${ci(I[k][2])}"
 const costChip = c => `<span class="cc b${c}">${c}g</span>`;
 
 /* ---------------- rules / unlocks / traits ---------------- */
-$("#r1").innerHTML = uic("ziggs")+uic("kobuko");
+$("#r1").innerHTML = uic("seraphine")+uic("ziggs")+uic("kobuko");
 $("#r2").innerHTML = icC("tear")+uic("seraphine")+uic("ziggs");
 $("#r3").innerHTML = uic("kobuko")+uic("seraphine");
 const UNLOCKS = [
@@ -1452,10 +1371,6 @@ function renderBench(){
 }
 function advise(){
   const total=CK.reduce((s,k)=>s+bench[k],0);
-  const tears=bench.tear;
-  const seraFirst = carryMode==="sera" || (carryMode==="auto" && tears>0);
-  const why = (tears ? `<b>${tears} Tear${tears>1?'s':''}</b> → Seraphine items. ` : "No Tear → damage items go to <b>Ziggs</b>. ") + (seraFirst?"Seraphine's items come first.":carryMode==="ziggs"?"Ziggs' items come first.":"Everything else → Ziggs and Kobuko.");
-  $("#verdict").innerHTML=`<div class="verdict teal"><img src="${sp(tears?'seraphine':'ziggs')}" alt=""><div><div class="kicker" style="margin:0">Hyperpop</div><h3>${tears?'Ziggs + Seraphine':'Ziggs carry'}</h3><div class="small">${why}</div></div></div>`;
   if(!total){ $("#builds").innerHTML=`<div class="small muted">Use + / − on the left.</div>`+hideBar(); return; }
   const pool={...bench}; const out=[];
   for(const [k,who] of prioList()){ if(!allowed(k,who)) continue; const [ , ,a,b]=I[k]; if(a===b? pool[a]>=2 : (pool[a]>=1&&pool[b]>=1)){ pool[a]--; pool[b]--; out.push([k,who]); } }
@@ -1496,7 +1411,17 @@ const GOLD = [
     ["g-pairs",uic("ziggs")+uic("kobuko")+uic("lulu"),"<b>Hold pairs.</b> Rolling for many units hits far more often than rolling for one","Ziggs, Kobuko, Lulu, Seraphine at once"],
     ["g-urgent",em("❤️"),"<b>High HP, no streak = no rush.</b> One copy off a spike, or on a streak → roll",""],
     ["g-pos",uic("kobuko"),"<b>Your main tank takes the first hits.</b> Position for your scariest opponent",""],
-    ["g-tilt",em("🧘"),"<b>Ignore high-rollers and contests.</b> Play your best line",""]]}
+    ["g-tilt",em("🧘"),"<b>Ignore high-rollers and contests.</b> Play your best line",""]]},
+  {h:"🎢 Reroll tempo",list:[
+    ["g-spot",em("🧭"),"<b>Reroll from a weak opener</b> with pairs + items that fit. Strong opener → win-streak and level instead","pairs of Ziggs / Kobuko in Stage 2"],
+    ["g-above",em("📊"),"<b>Be stronger than the lobby for half the game.</b> Reroll's window is Stage 3 to early 4, before 2★ 4-costs","win from 3-1 to 4-2"],
+    ["g-spike",em("⚡"),"<b>Hit your 2★s on the spike round and slam every item.</b> Upgrades with no items don't win","3-1 roll-down, items on Ziggs right away"],
+    ["g-send",em("🚀"),"<b>3★ reachable by 4-1 to 4-5? Send it.</b> Slow-rolling past that loses to 2★ 4-cost boards","all-in on Ziggs / Seraphine in stage 4"],
+    ["g-10g",em("💵"),"<b>Roll 10g at a time.</b> Found a copy → keep going. Nothing → stop and econ","6+ copies at 40g"],
+    ["g-streak",em("🔥"),"<b>Spent big? Win-streak it back. Weak? Lose all the way.</b> HP is gold: no need to 5-loss with a strong start",""],
+    ["g-cap",em("🎯"),"<b>Know your cap.</b> Behind → send early in stage 4 and steal fights. Ahead + rich → push 8–9","Garen / Swain at 8, Teemo"],
+    ["g-noitem",em("📦"),"<b>A 3★ with no items ≈ a 2★.</b> Spend that gold on levels instead","Lulu / Tristana stay 2★"],
+    ["g-econaug",em("🎟️"),"<b>Reroll augments pay most when used early.</b> Free rolls sitting unused add nothing","Trade Sector: roll every round"]]}
 ];
 $("#grules").innerHTML = GOLD.map(g=>`<div><h3>${g.h}</h3><ul class="bul tight">${g.list.map(([id,ic,t,here])=>
   `<li id="${id}"><span class="ics">${ic}</span><span>${t}${here?`<span class="here">↳ Here: ${here}</span>`:""}</span></li>`).join("")}</ul></div>`).join("");
@@ -1507,56 +1432,19 @@ const dw = (d,why,tone="") => `<div class="dw ${tone}"><div class="d"><span clas
 const segHTML = (name,opts,cur) => `<div class="seg" data-name="${name}">${opts.map(([v,l])=>`<button type="button" data-v="${v}" class="${String(v)===String(cur)?'on':''}">${l}</button>`).join("")}</div>`;
 const loadJ = (k,d) => { try{ return Object.assign({},d,JSON.parse(store.get(k)||"{}")); }catch(e){ return {...d}; } };
 
-/* ---------------- What should I do now? ---------------- */
-const NOW = loadJ("now",{stage:"3-1",level:5,hp:80,gold:50,z:3,k:3,s:0,contested:"no",mood:"even",cup:false});
-const STAGES = []; for(let a=1;a<=6;a++) for(let b=1;b<=7;b++) if(!(a===1&&b>4)) STAGES.push(a+"-"+b);
-function nowForm(){
-  const cp = (key,u) => `<div class="cp"><img src="${sq(u)}" alt="" style="border-color:var(--c${UK[u].c})"><div class="cpn"><b>${UK[u].n}</b><span class="small muted" id="st-${key}">${starTxt(NOW[key])}</span></div>
-    <div class="stp"><button type="button" data-k="${key}" data-d="-1" aria-label="fewer ${UK[u].n}">−</button><span id="n-${key}">${NOW[key]}</span><button type="button" data-k="${key}" data-d="1" aria-label="more ${UK[u].n}">+</button></div></div>`;
-  $("#nowForm").innerHTML = `
-    <div class="fld"><label for="f-stage">Stage</label><select id="f-stage">${STAGES.map(x=>`<option${x===NOW.stage?" selected":""}>${x}</option>`).join("")}</select></div>
-    <div class="fld"><label for="f-level">Level</label><input id="f-level" type="number" inputmode="numeric" min="1" max="10" value="${NOW.level}"></div>
-    <div class="fld"><label for="f-hp">HP</label><input id="f-hp" type="number" inputmode="numeric" min="0" max="100" value="${NOW.hp}"></div>
-    <div class="fld"><label for="f-gold">Gold</label><input id="f-gold" type="number" inputmode="numeric" min="0" max="300" value="${NOW.gold}"></div>
-    <div class="fld full"><span class="lb">Copies owned <span class="dim">(2★ = 3, 3★ = 9)</span></span>${cp("z","ziggs")}${cp("k","kobuko")}${cp("s","seraphine")}</div>
-    <div class="fld full"><span class="lb">Others on Ziggs / Kobuko?</span>${segHTML("contested",[["no","Nobody"],["one","One player"],["two","2+ players"]],NOW.contested)}</div>
-    <div class="fld full"><span class="lb">Fights</span>${segHTML("mood",[["win","Winning"],["even","Even"],["lose","Losing a bit"],["bad","Losing badly"]],NOW.mood)}</div>
-    <label class="tgl full"><input type="checkbox" id="f-cup"${NOW.cup?" checked":""}> 🏆 Top Cut game (top 4 advance)</label>`;
-}
-function nowRun(){
-  const r=decide(NOW);
-  let h="";
-  if(r.err.length) h=`<div class="dw red"><div class="d"><span class="lb">Fix</span>${r.err.join(" · ")}</div></div>`;
-  else {
-    h=dw(r.main.do,r.main.why,"big "+r.main.tone);
-    if(r.warn.length) h+=`<div class="warn">⚠️ ${r.warn.join(" · ")}</div>`;
-    if(r.more.length) h+=`<div class="kicker" style="margin:14px 0 6px">Also</div>`+r.more.map(m=>dw(m.do,m.why)).join("");
-  }
-  $("#nowOut").innerHTML=h;
-  store.set("now",JSON.stringify(NOW));
-  hypeRun();
-}
-function nowWire(){
-  const f=$("#nowForm");
-  [["stage","f-stage"],["level","f-level"],["hp","f-hp"],["gold","f-gold"]].forEach(([k,id])=>$("#"+id).addEventListener("input",e=>{ NOW[k]=k==="stage"?e.target.value:e.target.value===""?"":+e.target.value; nowRun(); }));
-  $("#f-cup").onchange=e=>{ NOW.cup=e.target.checked; nowRun(); };
-  f.addEventListener("click",e=>{
-    const b=e.target.closest(".stp button"); if(b){ const k=b.dataset.k; NOW[k]=Math.max(0,Math.min(9,(+NOW[k]||0)+ +b.dataset.d)); $("#n-"+k).textContent=NOW[k]; $("#st-"+k).textContent=starTxt(NOW[k]); nowRun(); return; }
-    const sb=e.target.closest(".seg button"); if(sb){ const seg=sb.parentElement; NOW[seg.dataset.name]=sb.dataset.v; seg.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===sb)); nowRun(); }
-  });
-  $("#nowReset").onclick=()=>{ Object.assign(NOW,{stage:"2-1",level:4,hp:100,gold:10,z:0,k:0,s:0,contested:"no",mood:"even"}); nowForm(); nowRun(); };
-}
-
 /* ---------------- unlock details + Hype tracker ---------------- */
-const HY = loadJ("hype",{cur:0,gain:""});
+const HY = loadJ("hype",{cur:0,gain:"",stage:"3-1"});
+const STAGES = []; for(let a=1;a<=6;a++) for(let b=1;b<=7;b++) if(!(a===1&&b>4)) STAGES.push(a+"-"+b);
 function hypeRun(){
-  const r=hypeEta(HY.cur,HY.gain,NOW.stage), g=PATCH.unlock.teemoHype;
+  const r=hypeEta(HY.cur,HY.gain,HY.stage), g=PATCH.unlock.teemoHype;
   $("#hypeBar").style.setProperty("--p",Math.min(100,r.pct)+"%");
   $("#hypeOut").innerHTML = r.done ? `<b style="color:var(--gold)">${g}+ Hype: Teemo is unlocked.</b> Look for him in the shop (5-cost: ${PATCH.odds[8][4]}% at Lvl 8, ${PATCH.odds[9][4]}% at 9).`
     : `<b>${r.need}</b> Hype to Teemo${r.rounds?` · at <b>+${HY.gain}</b>/round ≈ <b>${r.rounds}</b> player round${r.rounds>1?"s":""}${r.at?` → around <b>${r.at}</b>`:""}`:" · add last round's gain to see when"}`;
   store.set("hype",JSON.stringify(HY));
 }
 function hypeWire(){
+  $("#h-stage").innerHTML=STAGES.map(x=>`<option${x===HY.stage?" selected":""}>${x}</option>`).join("");
+  $("#h-stage").onchange=e=>{ HY.stage=e.target.value; hypeRun(); };
   $("#h-cur").value=HY.cur; $("#h-gain").value=HY.gain;
   $("#h-cur").oninput=e=>{ HY.cur=Math.max(0,Math.min(5000,+e.target.value||0)); hypeRun(); };
   $("#h-gain").oninput=e=>{ HY.gain=e.target.value===""?"":Math.max(0,Math.min(999,+e.target.value||0)); hypeRun(); };
@@ -1756,7 +1644,7 @@ function logWire(){
 }
 
 /* ---------------- boot new sections ---------------- */
-nowForm(); nowWire(); hypeWire(); nowRun();
+hypeWire(); hypeRun();
 renderCP(); renderBV(); renderMiss(); renderAug(); renderMU(); renderLearn(); logForm(); logStats(); logWire();
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-bv],[data-m],[data-a],[data-mu],[data-cm]"); if(!b) return;
@@ -1831,7 +1719,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
 
   /* scroll reveal */
   const SEL = ["section h2","section .panel","section .unit","section .stage","section .carry","section .rule","section .bp","section .board",
-    "section .augs > *","section .vid","#golden li","section ol.unlock > li","section .verdict","section .ranklist","section .note-s","section .buff","section .igrid"].join(",");
+    "section .augs > *","section .vid","#golden li","section ol.unlock > li","section .ranklist","section .note-s","section .buff","section .igrid"].join(",");
   const waiting = new Set();
   const show = (t, n) => { waiting.delete(t);
     t.style.setProperty("--d", Math.min(n * 70, 350) + "ms"); t.classList.add("in");
@@ -1861,14 +1749,12 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   /* advisor: animate only rows that are new, bump changed counts */
   const rowKey = r => { const x = r.querySelector(".hx"); if (x) return (r.classList.contains("opt") ? "o:" : "") + x.dataset.k + "|" + x.dataset.w;
     const it = r.querySelector("[data-item]"); return (r.classList.contains("opt") ? "o:" : "") + (it ? it.dataset.item : r.textContent.slice(0, 30)) + "|" + r.textContent.length; };
-  let prevRows = new Set(), prevVerdict = "";
+  let prevRows = new Set();
   new MutationObserver(() => {
     const rows = [...document.querySelectorAll("#builds .build")]; let i = 0; const now = new Set();
     rows.forEach(r => { const k = rowKey(r); now.add(k); if (!prevRows.has(k)) { r.style.setProperty("--i", i++); r.classList.add("new"); } });
     prevRows = now;
   }).observe($("#builds"), { childList: true });
-  new MutationObserver(() => { const v = $("#verdict .verdict"); if (!v) return; const h = v.querySelector("h3").textContent; if (prevVerdict && h !== prevVerdict) v.classList.add("swap"); prevVerdict = h; })
-    .observe($("#verdict"), { childList: true });
   /* fade a row out before it is hidden */
   $("#builds").addEventListener("click", e => { const h = e.target.closest("[data-h]"); if (!h || h.dataset.anim) return;
     e.stopImmediatePropagation(); const row = h.closest(".hmenu").previousElementSibling; row && row.classList.add("out");

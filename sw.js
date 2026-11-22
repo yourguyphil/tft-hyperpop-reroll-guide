@@ -1,6 +1,6 @@
 // Auto-generated. Caches the whole site so it works offline once installed.
 const PREFIX = "hyperpop-reroll-guide-";
-const CACHE = PREFIX + "5591dd034e";
+const CACHE = PREFIX + "d567b0f43f";
 const PRECACHE = [
 "./",
 "index.html",
@@ -82,6 +82,7 @@ const PRECACHE = [
 "assets/items/voidstaff.png",
 "assets/items/warmogsarmor.png",
 "assets/resources/dpei-reroll.jpg",
+"assets/resources/ripple-reroll.jpg",
 "assets/resources/tftacademy-items.jpg",
 "assets/traits/arcanist.svg",
 "assets/traits/beachpop.svg",

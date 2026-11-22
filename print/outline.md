@@ -29,7 +29,7 @@
 
 ## Rules
 ::: cols
-- {units:ziggs,kobuko} **1-cost reroll.** Slow-roll above 50g at **Lvl 5** → 3★ Ziggs + 3★ Kobuko
+- {units:seraphine,ziggs,kobuko} **1-cost reroll.** Slow-roll above 50g at **Lvl 5** → 3★ Seraphine / 3★ Ziggs + 3★ Kobuko
 - {units:kobuko} Tank parts → **Kobuko**: {ii:gargoyle}{ii:warmog}{ii:visage}
 |||
 - {ci:tear} **Items pick the carry:** Tear → Seraphine (preferred, then Teemo), the rest → Ziggs
@@ -114,7 +114,7 @@
 ---page---
 
 # Decisions
-> Guidelines, not solved math. The site's **What now?** tool runs the same rules for your exact HP, gold and copies.
+> Guidelines, not solved math.
 
 ## Checkpoints
 ::: cols
