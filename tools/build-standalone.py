@@ -13,7 +13,7 @@ import sys
 ROOT = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.getcwd()
 SRC = os.path.join(ROOT, "index.html")
 OUT = os.path.join(ROOT, os.path.basename(os.path.normpath(ROOT)) + ".html")
-MIME = {".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml", ".ico": "image/x-icon"}
+MIME = {".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".jpg": "image/jpeg", ".jpeg": "image/jpeg"}
 
 def data_uri(rel):
     path = os.path.join(ROOT, rel.replace("/", os.sep))

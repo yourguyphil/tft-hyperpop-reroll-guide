@@ -275,6 +275,24 @@ ul.bul.tight li{padding:10px 14px;font-size:14.5px}
 
 /* augments */
 .augs{columns:2;column-gap:16px}
+/* golden rules */
+.gr{display:inline-flex;align-items:center;gap:3px;margin-left:8px;padding:2px 8px;border-radius:999px;font:700 11px Inter;color:var(--gold);border:1px solid rgba(245,196,81,.4);background:rgba(245,196,81,.08);text-decoration:none;white-space:nowrap;vertical-align:1px}
+.gr:hover{background:rgba(245,196,81,.2)}
+h3 .gr{vertical-align:3px}
+.vids{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 22px}
+.vid{display:flex;gap:14px;align-items:center;padding:12px;border-radius:14px;background:var(--panel);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:border-color .2s}
+.vid:hover{border-color:var(--gold)}
+.vid .th{position:relative;flex:none;width:150px;aspect-ratio:16/9;border-radius:10px;overflow:hidden}
+.vid .th img{width:100%;height:100%;object-fit:cover}
+.vid .th::after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;font-size:22px;color:#fff;background:rgba(0,0,0,.25);text-shadow:0 2px 8px #000}
+.vid b{display:block;font:800 16px Inter}.vid .small{display:block;margin-top:3px}
+.grules{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grules h3{font:800 17px Inter;margin:0 0 10px}
+.grules .em{font-size:24px;width:34px;text-align:center}
+.grules .here{display:block;font-size:13px;color:var(--teal);margin-top:3px}
+#golden li{scroll-margin-top:90px;transition:border-color .3s,box-shadow .3s}
+#golden li:target{border-color:var(--gold);box-shadow:0 0 0 2px rgba(245,196,81,.45)}
+@media (max-width:900px){.vids,.grules{grid-template-columns:1fr}.vid .th{width:110px}}
 .ag{break-inside:avoid;margin-bottom:18px}
 .ag h3{font:800 15px Inter;margin:0 0 10px;display:flex;align-items:center;gap:8px}
 .ag ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
@@ -590,6 +608,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <a class="l" href="#advisor">Item Advisor</a>
   <a class="l" href="#items">Item Cheat Sheet</a>
   <a class="l" href="#augments">Augments</a>
+  <a class="l" href="#golden">Golden Rules</a>
 </div></nav>
 
 <header class="hero wrap" id="top">
@@ -618,8 +637,8 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 <section id="fork" style="padding-top:30px"><div class="wrap">
   <div class="kicker">Rules</div>
   <ul class="bul two-col">
-    <li><span class="ics" id="r1"></span><span><b>1-cost reroll.</b> Slow-roll above 50g at <b>Lvl 5</b> → 3★ Ziggs + 3★ Kobuko</span></li>
-    <li><span class="ics" id="r2"></span><span><b>Items pick the carry:</b> non-Tear → <b>Ziggs</b> · Tear → <b>Seraphine</b>, then Teemo</span></li>
+    <li><span class="ics" id="r1"></span><span><b>1-cost reroll.</b> Slow-roll above 50g at <b>Lvl 5</b> → 3★ Ziggs + 3★ Kobuko <a class="gr" href="#g-level">📚 Carry's level</a></span></li>
+    <li><span class="ics" id="r2"></span><span><b>Items pick the carry:</b> non-Tear → <b>Ziggs</b> · Tear → <b>Seraphine</b>, then Teemo <a class="gr" href="#g-duo">📚 Two carries</a></span></li>
     <li><span class="ics" id="r3"></span><span><b>Unlock early:</b> 2★ Ziggs + an item → Kobuko · 4 rerolls before the stage 2 carousel → Seraphine</span></li>
   </ul>
 </div></section>
@@ -678,7 +697,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 
   <div class="two">
     <div class="panel">
-      <h3 style="margin-bottom:12px">Who holds what</h3>
+      <h3 style="margin-bottom:12px">Who holds what <a class="gr" href="#g-33">📚 3 + 3</a><a class="gr" href="#g-split">📚 Split &gt; double</a></h3>
       <div id="carries"></div>
     </div>
     <div class="panel">
@@ -692,7 +711,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 <!-- ================= ADVISOR ================= -->
 <section id="advisor"><div class="wrap">
   <h2>Item Advisor</h2>
-  <ul class="bul tight" style="margin:14px 0 18px;max-width:640px"><li>➕ Add your components → see what to build and who holds it</li></ul>
+  <ul class="bul tight" style="margin:14px 0 18px;max-width:640px"><li><span>➕ Add your components → see what to build and who holds it <a class="gr" href="#g-slam">📚 Slam, don't greed</a></span></li></ul>
   <div class="adv">
     <div class="panel">
       <div class="bench" id="bench"></div>
@@ -709,7 +728,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
     <li>👆 Click a component to highlight its items</li>
     <li><span><b style="color:var(--gold)">★1–5</b> must-build · <b>6–10</b> good · faded = skip</span></li>
     <li><span class="pill p-teal">Ziggs · no Tear</span><span class="pill p-red">Seraphine / Teemo · Tear</span><span class="pill p-tank">Kobuko</span></li>
-    <li><span>Three units want <b>Jeweled Gauntlet</b>: Ziggs first, then Seraphine</span></li>
+    <li><span>Three units want <b>Jeweled Gauntlet</b>: Ziggs first, then Seraphine <a class="gr" href="#g-crit">📚 Why JG</a></span></li>
   </ul>
   <div class="ilayout">
     <div class="igrid" id="igrid"></div>
@@ -732,6 +751,16 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <div class="augs" id="augGrid"></div>
 </div></section>
 
+<!-- ================= GOLDEN RULES ================= -->
+<section id="golden"><div class="wrap">
+  <h2>📚 Golden Rules <span class="dim" style="font-size:.55em">· any comp, any set</span></h2>
+  <div class="vids">
+    <a class="vid" href="https://www.youtube.com/watch?v=7D1Fj883120" target="_blank" rel="noopener"><span class="th"><img src="assets/resources/tftacademy-items.jpg" alt="" loading="lazy"></span><span><b>You're Building Items Wrong!</b><span class="small muted">Frodan · TFT Academy · items</span></span></a>
+    <a class="vid" href="https://www.youtube.com/watch?v=PuhMnPkKQlE" target="_blank" rel="noopener"><span class="th"><img src="assets/resources/dpei-reroll.jpg" alt="" loading="lazy"></span><span><b>You're Rerolling at the Wrong Time</b><span class="small muted">dpei · Road to Masters · rolling</span></span></a>
+  </div>
+  <div class="grules" id="grules"></div>
+</div></section>
+
 <div id="menuBg"></div>
 <nav id="menu" aria-label="Sections" aria-hidden="true">
   <div class="mh">Jump to</div>
@@ -745,6 +774,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
   <a href="#advisor" data-s="advisor"><span class="mi"><img src="assets/items/sparringgloves.png" alt=""></span>Item Advisor</a>
   <a href="#items" data-s="items"><span class="mi"><img src="assets/items/guinsoosrageblade.png" alt=""></span>Item Cheat Sheet</a>
   <a href="#augments" data-s="augments"><span class="mi"><img src="assets/augments/tons-of-stats-ii.png" alt=""></span>Augments</a>
+  <a href="#golden" data-s="golden"><span class="mi">📚</span>Golden Rules</a>
   <a href="hyperpop-reroll-guide.pdf" target="_blank" rel="noopener" class="pdf"><span class="mi">📄</span>Printable PDF</a>
   <div class="sep"></div>
   <button class="qrt" id="menuQr"><span class="mi">📌</span><span id="menuQrLbl">Hide Quick Ref</span></button>
@@ -762,7 +792,7 @@ html.still *,html.still *::before,html.still *::after{animation:none!important;t
 </aside>
 
 <footer><div class="wrap">
-  <p><b>Sources:</b> comp, tier and items from <a href="https://tftacademy.com/tierlist/comps/set-19-hyperpop-reroll">TFT Academy · Hyperpop Reroll</a> and <a href="https://tft.ninja/comps?e=pbe">tft.ninja PBE comps</a> (Ziggs Reroll, Diamond+). Unit, trait, ability and augment text from <a href="https://tft.ninja/sets/19/units">tft.ninja</a> (Riot Dev Drop, Nov 15 2026). Leveling from <a href="https://mobalytics.gg/tft/set19/comps-guide/hyper-pop-3M8yhC5RAV9atbxt8QeSlEeGvgi">Mobalytics · Hyperpop</a>; unlock counts from <a href="https://mobalytics.gg/tft/set19/unlocks">Mobalytics unlocks</a> and <a href="https://tftflow.com/how-to-unlock-every-champion-set19">tftflow</a>. Art: TFT Academy, tft.ninja, CommunityDragon. Snapshot: Nov 19 2026, Set 19 PBE.</p>
+  <p><b>Sources:</b> comp, tier and items from <a href="https://tftacademy.com/tierlist/comps/set-19-hyperpop-reroll">TFT Academy · Hyperpop Reroll</a> and <a href="https://tft.ninja/comps?e=pbe">tft.ninja PBE comps</a> (Ziggs Reroll, Diamond+). Unit, trait, ability and augment text from <a href="https://tft.ninja/sets/19/units">tft.ninja</a> (Riot Dev Drop, Nov 15 2026). Leveling from <a href="https://mobalytics.gg/tft/set19/comps-guide/hyper-pop-3M8yhC5RAV9atbxt8QeSlEeGvgi">Mobalytics · Hyperpop</a>; unlock counts from <a href="https://mobalytics.gg/tft/set19/unlocks">Mobalytics unlocks</a> and <a href="https://tftflow.com/how-to-unlock-every-champion-set19">tftflow</a>. Golden Rules: <a href="https://www.youtube.com/watch?v=7D1Fj883120">Frodan · You're Building Items Wrong!</a>, <a href="https://www.youtube.com/watch?v=PuhMnPkKQlE">dpei · You're Rerolling at the Wrong Time</a>, <a href="https://tftsense.gg/study-hall/tft-leveling-guide/">TFTSense leveling guide</a>, <a href="https://mobalytics.gg/tft/guides/how-to-play-reroll-comps">Mobalytics · reroll comps</a>. Art: TFT Academy, tft.ninja, CommunityDragon. Snapshot: Nov 19 2026, Set 19 PBE.</p>
   <p>Hyperpop Reroll Guide isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, Teamfight Tactics and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
 </div></footer>
 
@@ -916,16 +946,16 @@ const TL = [
   {st:"Stage 1–2",h:"Unlock + streak",u:["ziggs","kobuko","seraphine","elise","sett"],li:[
     "<b>Early 2★ Ziggs</b> starts your Hype. 2★ + 1 item → <b>Kobuko</b>",
     "<b>Reroll 4×</b> before the 2-4 carousel → <b>Seraphine</b>",
-    "<b>Don't buy XP</b> early: save for the Lvl 5 roll",
+    "<b>Don't buy XP</b> early: save for the Lvl 5 roll <a class=\"gr\" href=\"#g-weak\">📚 Why</a>",
     "Take AP components; reroll augments are great",
     "Fill with Frontmen (Elise, Sett, Renekton)"]},
   {st:"Stage 3",h:"Lvl 5 · slow roll",u:["ziggs","kobuko","seraphine","lulu"],li:[
-    "<b>3-1:</b> roll down to <b>30g</b> while 1-cost odds are best, <i>or</i> slow roll above <b>50g</b>",
+    "<b>3-1:</b> roll down to <b>30g</b> while 1-cost odds are best, <i>or</i> slow roll above <b>50g</b> <a class=\"gr\" href=\"#g-31\">📚 3-1</a>",
     "3★ <b>Ziggs</b> + <b>Kobuko</b> first, then Seraphine",
     "<b>Keep playing Hyperpop</b> to unlock Lulu + Tristana",
     "Seraphine's free units feed your rerolls"]},
   {st:"Stage 4",h:"Level up · fill",u:["lulu","tristana","swain","shyvana"],li:[
-    "3★ Ziggs + Kobuko + Lulu → <b>Lvl 6</b> (better 2-cost odds)",
+    "3★ Ziggs + Kobuko + Lulu → <b>Lvl 6</b> (better 2-cost odds) <a class=\"gr\" href=\"#g-level\">📚 Carry's level</a>",
     "Lulu holds Teemo's items until he unlocks",
     "AD components? Itemize <b>Tristana</b>",
     "Keep rolling to 3★ Seraphine (Indie upgrades)",
@@ -942,8 +972,8 @@ const TIPS = [
   [["lulu","tristana"],"<b>Keep playing Hyperpop</b> to unlock Lulu and Tristana"],
   [["ziggs","kobuko"],"<b>Stage 3-1:</b> roll down to <b>30g</b> while you still have better 1-cost odds, <i>or</i> slow roll above <b>50g</b>"],
   [["ziggs","kobuko","lulu"],"3★ Ziggs, Kobuko + Lulu → <b>level to 6</b> for better 2-cost odds"],
-  [["lulu","teemo"],"<b>Lulu holds Teemo's items</b> until you find him"],
-  [["tristana"],"<b>AD components?</b> Itemize Tristana"]
+  [["lulu","teemo"],"<b>Lulu holds Teemo's items</b> until you find him <a class=\"gr\" href=\"#g-dead\">📚 No dead parts</a>"],
+  [["tristana"],"<b>AD components?</b> Itemize Tristana <a class=\"gr\" href=\"#g-dead\">📚 No dead parts</a>"]
 ];
 $("#tips").innerHTML = TIPS.map(([us,t])=>`<li><span class="ics">${us.map(uic).join("")}</span><span>${t}</span></li>`).join("");
 $("#tl").innerHTML = TL.map(s=>`<div class="stage"><div class="st">${s.st}</div><h4>${s.h}</h4><ul>${s.li.map(l=>`<li>${l}</li>`).join("")}</ul><div class="row">${s.u.map(k=>unitIc(k,34)).join("")}</div></div>`).join("");
@@ -1133,6 +1163,33 @@ $("#augGrid").innerHTML = AUG.map(g=>`<div class="ag ${g.cls||''}"><h3>${g.h}</h
   <li><img class="${ic.includes('traits')?'tr':''}" src="assets/augments/${ic.includes('.svg')?ic:ic+'.png'}" alt="" loading="lazy" ${ic.includes('traits')?'style="padding:7px;background:#2a1a3a"':''}><div class="t"><b>${n}</b><span class="d">${d}</span></div>
   <div class="tags"><span class="pill">Set 19 ✓</span></div></li>`).join("")}</ul></div>`).join("");
 
+/* ---------------- golden rules (general TFT) ---------------- */
+const em = e => `<span class="em">${e}</span>`;
+const GOLD = [
+  {h:"🛡️ Items",src:"Frodan · TFT Academy",list:[
+    ["g-33",uic("kobuko")+uic("ziggs"),"<b>3 items on your tank + 3 on your carry</b> first. A frontliner isn't a tank: build a real one","Kobuko + Ziggs"],
+    ["g-slam",em("🔨"),"<b>Slam, don't greed.</b> 10% better isn't worth 10 HP. Items on the bench do nothing","the Item Advisor builds what you can make now"],
+    ["g-core",icI("guinsoo")+icI("jg"),"<b>1–2 items are core</b>, the 3rd is a flexible +1","Guinsoo's + JG on Ziggs"],
+    ["g-split",icI("shojin")+icI("voidstaff"),"<b>Split beats double:</b> Shojin + Void Staff over Blue Buff (2 Tears)","Seraphine's build"],
+    ["g-dead",em("🧩"),"<b>No dead components.</b> Stack spares on one unit; don't spread 1-item units","Lulu holds, AD parts → Tristana"],
+    ["g-crit",icI("jg"),"<b>Abilities only crit with JG</b> (or IE). Otherwise crit is wasted","why all 3 carries want JG"],
+    ["g-util",icI("morello")+icI("voidstaff"),"<b>Bring utility:</b> anti-heal (Morello, Red Buff, Sunfire) + one shred. Shreds don't stack",""],
+    ["g-duo",uic("ziggs")+uic("seraphine"),"<b>Two carries late</b>, not two tanks","Ziggs + Seraphine, then Teemo"],
+    ["g-car",em("🎠"),"<b>Carousel: item over unit.</b> Plan A › B › C, else take a flexible part (Gloves)",""]]},
+  {h:"🎲 Rolling + econ",src:"dpei · reroll guides",list:[
+    ["g-level",em("🎯"),"<b>Roll on your carry's level:</b> 1-cost Lvl 4–5 · 2-cost 6 · 3-cost 7 · 4-cost 8","Lvl 5 for Ziggs + Kobuko, Lvl 6 for Lulu + Seraphine"],
+    ["g-31",em("⏱"),"<b>3-1 is your last turn at Lvl 4</b>: the best 1-cost odds you'll get","the 3-1 roll down"],
+    ["g-weak",em("💤"),"<b>Don't level if it won't make you strong.</b> Bank the gold instead","no XP in Stage 2"],
+    ["g-50",em("💰"),"<b>Slow roll = only roll the gold above 50</b>, so you keep max interest",""],
+    ["g-income",em("📈"),"<b>It's the money you make, not your bank.</b> A streak pays you back",""],
+    ["g-pairs",uic("ziggs")+uic("kobuko")+uic("lulu"),"<b>Hold pairs.</b> Rolling for many units hits far more often than rolling for one","Ziggs, Kobuko, Lulu, Seraphine at once"],
+    ["g-urgent",em("❤️"),"<b>High HP, no streak = no rush.</b> One copy off a spike, or on a streak → roll",""],
+    ["g-pos",uic("kobuko"),"<b>Your main tank takes the first hits.</b> Position for your scariest opponent",""],
+    ["g-tilt",em("🧘"),"<b>Ignore high-rollers and contests.</b> Play your best line",""]]}
+];
+$("#grules").innerHTML = GOLD.map(g=>`<div><h3>${g.h} <span class="small dim">· ${g.src}</span></h3><ul class="bul tight">${g.list.map(([id,ic,t,here])=>
+  `<li id="${id}"><span class="ics">${ic}</span><span>${t}${here?`<span class="here">↳ Here: ${here}</span>`:""}</span></li>`).join("")}</ul></div>`).join("");
+
 /* ---------------- quick-ref dock ---------------- */
 const QR = [
   {h:"No Tear → Ziggs",col:"var(--teal)",units:[["ziggs","3★ · corner",["guinsoo","jg","gunblade"],"flail"]]},
@@ -1189,7 +1246,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
 
   /* scroll reveal */
   const SEL = ["section h2","section .panel","section .unit","section .stage","section .carry","section .rule","section .bp","section .board",
-    "section .augs > *","section ol.unlock > li","section .verdict","section .ranklist","section .note-s","section .buff","section .igrid"].join(",");
+    "section .augs > *","section .vid","#golden li","section ol.unlock > li","section .verdict","section .ranklist","section .note-s","section .buff","section .igrid"].join(",");
   const waiting = new Set();
   const show = (t, n) => { waiting.delete(t);
     t.style.setProperty("--d", Math.min(n * 70, 350) + "ms"); t.classList.add("in");

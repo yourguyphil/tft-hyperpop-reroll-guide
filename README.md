@@ -6,6 +6,7 @@ An illustrated cheat sheet for forcing **Hyperpop Reroll** in Teamfight Tactics 
 - **No Tear → Ziggs:** Guinsoo's (Bow + Rod), Jeweled Gauntlet (Rod + Gloves), Hextech Gunblade (Sword + Rod)
 - **Tear → Seraphine, then Teemo:** Void Staff (Bow + Tear), Spear of Shojin (Sword + Tear), Jeweled Gauntlet
 - **Tank parts → Kobuko:** Gargoyle, Warmog's, Spirit Visage
+- **Golden Rules** at the bottom: general item + rolling advice from Frodan (TFT Academy) and dpei, each linked to where it applies in this comp
 
 S tier on TFT Academy and tft.ninja: 83.9% top 4, 2.53 average placement (PBE Diamond+, Nov 19 2026).
 
