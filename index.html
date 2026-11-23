@@ -150,7 +150,7 @@ nav.top a.l:hover{color:var(--text)}
 .rec > img.ic{width:46px;height:46px}
 .rec .eq .ic{width:22px;height:22px;border-radius:5px}
 .alt{font-size:13px;color:var(--muted);margin-top:4px}
-.bkrec{position:relative;padding:12px 6px 4px;border:1px dashed var(--line);border-radius:10px;opacity:.85}
+.bkrec{position:relative;display:flex;gap:6px;padding:12px 6px 4px;border:1px dashed var(--line);border-radius:10px;opacity:.85}
 .bkrec .bkl{position:absolute;top:-8px;left:50%;transform:translateX(-50%);padding:0 6px;background:var(--panel2);font:800 9.5px Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
 
 /* hex board */
@@ -993,8 +993,8 @@ const ci = k => `assets/items/${C[k].f}.png`;
 // tags: Z = Ziggs (no Tear), S = Seraphine/Teemo (Tear), T = Kobuko tank, ZS = both carries
 const I = {
   deathblade:["Deathblade","deathblade","sword","sword","","Big flat Attack Damage. Tristana."],
-  giantslayer:["Giant Slayer","madredsbloodrazor","sword","bow","","Bonus damage vs tanks."],
-  gunblade:["Hextech Gunblade","hextechgunblade","sword","rod","Z","Heals the lowest ally from damage dealt. Ziggs alternative 3rd item."],
+  giantslayer:["Giant Slayer","madredsbloodrazor","sword","bow","","Bonus damage vs tanks. Tristana backup."],
+  gunblade:["Hextech Gunblade","hextechgunblade","sword","rod","Z","Heals the lowest ally from damage dealt. Ziggs backup: the sustain pick if you keep losing fights late."],
   shojin:["Spear of Shojin","spearofshojin","sword","tear","S","Attacks give bonus Mana. Seraphine / Teemo core."],
   eon:["Edge of Night","guardianangel","sword","vest","","At low HP: untargetable, cleanse, heal."],
   bt:["Bloodthirster","bloodthirster","sword","cloak","","Omnivamp + shield at low HP."],
@@ -1005,24 +1005,24 @@ const I = {
   voidstaff:["Void Staff","voidstaff","bow","tear","S","Shreds Magic Resist. Seraphine / Teemo core."],
   titans:["Titan's Resolve","titansresolve","bow","vest","","Stacks AD/AP when hitting or hit."],
   kraken:["Kraken's Fury","krakenslayer","bow","cloak","","Stacking AD, then attack speed."],
-  nashor:["Nashor's Tooth","leviathan","bow","belt","","Attacks give bonus Mana."],
-  lw:["Last Whisper","lastwhisper","bow","gloves","","Sunders Armor."],
-  rabadon:["Rabadon's Deathcap","rabadonsdeathcap","rod","rod","","Huge AP."],
-  archangel:["Archangel's Staff","archangelsstaff","rod","tear","S","AP that grows every few seconds. Tear-carry option."],
+  nashor:["Nashor's Tooth","leviathan","bow","belt","Z","Attack Speed + AP. Ziggs backup: faster attacks when you have no Rod for Guinsoo."],
+  lw:["Last Whisper","lastwhisper","bow","gloves","","Sunders Armor. Tristana backup."],
+  rabadon:["Rabadon's Deathcap","rabadonsdeathcap","rod","rod","Z","Huge AP. Ziggs backup when you're Rod-heavy (bombs + on-hit both scale)."],
+  archangel:["Archangel's Staff","archangelsstaff","rod","tear","S","AP that grows every few seconds. Seraphine / Teemo backup: great in long fights."],
   crownguard:["Crownguard","crownguard","rod","vest","","Shield at combat start, then AP."],
-  ionic:["Ionic Spark","ionicspark","rod","cloak","","Shreds MR nearby; zaps enemy casters."],
+  ionic:["Ionic Spark","ionicspark","rod","cloak","T","Shreds MR nearby; zaps enemy casters. Swain backup: boosts all your magic damage."],
   morello:["Morellonomicon","morellonomicon","rod","belt","S","Burn + Wound (anti-heal). Seraphine #3."],
   jg:["Jeweled Gauntlet","jeweledgauntlet","rod","gloves","ZS","AP + crit, abilities can crit. Ziggs #2, Teemo core, Seraphine alternative."],
-  bluebuff:["Blue Buff","bluebuff","tear","tear","S","More AD and AP from all sources. Tear-carry option."],
+  bluebuff:["Blue Buff","bluebuff","tear","tear","S","More AD and AP from all sources. Seraphine / Teemo backup with a 2nd Tear."],
   vow:["Protector's Vow","frozenheart","tear","vest","","Mana + shield at low HP."],
   helm:["Adaptive Helm","adaptivehelm","tear","cloak","","More Mana from all sources."],
   visage:["Spirit Visage","spiritvisagerr","tear","belt","T","Regenerates missing HP. Kobuko core."],
   hoj:["Hand of Justice","unstableconcoction","tear","gloves","","AD + AP + Omnivamp."],
-  bramble:["Bramble Vest","bramblevest","vest","vest","T","Less damage from attacks. Kobuko backup."],
+  bramble:["Bramble Vest","bramblevest","vest","vest","T","Less damage from attacks. Kobuko / Swain backup vs AD boards."],
   gargoyle:["Gargoyle Stoneplate","gargoylestoneplate","vest","cloak","T","Armor + MR per enemy targeting it. Kobuko core."],
-  sunfire:["Sunfire Cape","redbuff","vest","belt","T","Max HP + periodic Burn/Wound. Tank option."],
+  sunfire:["Sunfire Cape","redbuff","vest","belt","T","Max HP + periodic Burn/Wound. Swain core, Kobuko backup (anti-heal if no Morello)."],
   steadfast:["Steadfast Heart","nightharvester","vest","gloves","","Durability, more while healthy."],
-  dclaw:["Dragon's Claw","dragonsclaw","cloak","cloak","T","Max HP + periodic healing. Kobuko backup."],
+  dclaw:["Dragon's Claw","dragonsclaw","cloak","cloak","T","Max HP + periodic healing. Kobuko / Swain backup vs AP boards."],
   evenshroud:["Evenshroud","spectralgauntlet","cloak","belt","","Sunders nearby enemies; early resists."],
   qss:["Quicksilver","quicksilver","cloak","gloves","","CC immunity + stacking AS."],
   warmog:["Warmog's Armor","warmogsarmor","belt","belt","T","Tons of max HP. Kobuko core (his passive scales with Health)."],
@@ -1227,14 +1227,14 @@ $("#tl").innerHTML = TL.map(s=>`<div class="stage"><div class="st">${s.st}</div>
 const carryHTML = list => list.map(c=>{const u=UK[c.u];return `
   <div class="carry"><img class="por" src="${sq(c.u)}" alt="${u.n}" style="border-color:var(--c${u.c})">
     <div style="flex:1"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><b style="font:800 17px Cinzel">${u.n}</b>${costChip(u.c)}<span class="pill ${c.cls}">${c.tag}</span></div>
-    <div class="recipes" style="margin-top:8px">${c.items.map(recHTML).join("")}${c.bk?`<div class="bkrec"><span class="bkl">Backup</span>${recHTML(c.bk)}</div>`:""}</div></div></div>`}).join("");
+    <div class="recipes" style="margin-top:8px">${c.items.map(recHTML).join("")}${c.bk?`<div class="bkrec"><span class="bkl">Backup${c.bk.length>1?"s":""}</span>${c.bk.map(recHTML).join("")}</div>`:""}</div></div></div>`}).join("");
 $("#carries").innerHTML = carryHTML([
-  {u:"seraphine",tag:"Tear carry · 3★ · preferred",cls:"p-red",items:["voidstaff","shojin","morello"],bk:"jg"},
-  {u:"ziggs",tag:"No-Tear carry · 3★",cls:"p-teal",items:["guinsoo","jg","flail"],bk:"gunblade"},
-  {u:"kobuko",tag:"Tank · 3★",cls:"p-tank",items:["gargoyle","warmog","visage"],bk:"bramble"},
-  {u:"teemo",tag:"Late · spare Tear items",cls:"p-red",items:["jg","shojin","voidstaff"],bk:"guinsoo"},
-  {u:"tristana",tag:"AD components",cls:"",items:["ie","deathblade"],bk:"guinsoo"},
-  {u:"swain",tag:"2nd tank · spare tank parts",cls:"p-tank",items:["sunfire","evenshroud"],bk:"dclaw"}
+  {u:"seraphine",tag:"Tear carry · 3★ · preferred",cls:"p-red",items:["voidstaff","shojin","morello"],bk:["jg","bluebuff","archangel"]},
+  {u:"ziggs",tag:"No-Tear carry · 3★",cls:"p-teal",items:["guinsoo","jg","flail"],bk:["gunblade","nashor","rabadon"]},
+  {u:"kobuko",tag:"Tank · 3★",cls:"p-tank",items:["gargoyle","warmog","visage"],bk:["bramble","dclaw","sunfire"]},
+  {u:"teemo",tag:"Late · spare Tear items",cls:"p-red",items:["jg","shojin","voidstaff"],bk:["archangel","bluebuff","guinsoo"]},
+  {u:"tristana",tag:"AD components",cls:"",items:["ie","deathblade"],bk:["guinsoo","giantslayer","lw"]},
+  {u:"swain",tag:"2nd tank · spare tank parts",cls:"p-tank",items:["sunfire","evenshroud"],bk:["dclaw","bramble","ionic"]}
 ]);
 
 /* ---------------- boards ---------------- */
@@ -1333,7 +1333,7 @@ const bench = Object.fromEntries(CK.map(k=>[k,0]));
 const PRIO = {
   A:[["guinsoo","ziggs"],["jg","ziggs"],["gargoyle","kobuko"],["voidstaff","seraphine"],["shojin","seraphine"],["warmog","kobuko"],["flail","ziggs"],
      ["visage","kobuko"],["morello","seraphine"],["gunblade","ziggs"],["jg","teemo"],["shojin","teemo"],["voidstaff","teemo"],["jg","seraphine"],["bluebuff","seraphine"],
-     ["archangel","seraphine"],["ie","tristana"],["deathblade","tristana"],["bramble","kobuko"],["dclaw","kobuko"],["sunfire","swain"],["evenshroud","swain"],["thief","lulu"]]
+     ["archangel","seraphine"],["ie","tristana"],["deathblade","tristana"],["nashor","ziggs"],["rabadon","ziggs"],["archangel","teemo"],["bluebuff","teemo"],["bramble","kobuko"],["dclaw","kobuko"],["sunfire","kobuko"],["sunfire","swain"],["evenshroud","swain"],["dclaw","swain"],["bramble","swain"],["ionic","swain"],["giantslayer","tristana"],["lw","tristana"],["thief","lulu"]]
 };
 let carryMode = store.get("carry")||"auto";
 function prioList(){
@@ -1665,16 +1665,16 @@ $("#cupDo").innerHTML = `<h3 style="margin:18px 0 6px">Top Cut decisions</h3>` +
 
 /* ---------------- quick-ref dock ---------------- */
 const QR = [
-  {h:"Tear → Seraphine · Teemo",col:"var(--red)",units:[["seraphine","3★ · other corner",["voidstaff","shojin","morello"],"jg"],["teemo","late · spare Tear items",["jg","shojin","voidstaff"],null]]},
-  {h:"No Tear → Ziggs",col:"var(--teal)",units:[["ziggs","3★ · corner",["guinsoo","jg","flail"],"gunblade"]]},
-  {h:"Tank",col:"var(--tank)",units:[["kobuko","3★ · 2★ Ziggs + item unlocks",["gargoyle","warmog","visage"],"bramble"]]},
+  {h:"Tear → Seraphine · Teemo",col:"var(--red)",units:[["seraphine","3★ · other corner",["voidstaff","shojin","morello"],["jg","bluebuff"]],["teemo","late · spare Tear items",["jg","shojin","voidstaff"],["archangel"]]]},
+  {h:"No Tear → Ziggs",col:"var(--teal)",units:[["ziggs","3★ · corner",["guinsoo","jg","flail"],["gunblade","nashor"]]]},
+  {h:"Tank",col:"var(--tank)",units:[["kobuko","3★ · 2★ Ziggs + item unlocks",["gargoyle","warmog","visage"],["bramble","dclaw"]]]},
   {h:"No items",col:"var(--muted)",fill:["lulu","tristana","swain","garen","shyvana","nidalee","elise","sett","renekton","zoe"]}
 ];
 function renderQR(){
   $("#qrBody").innerHTML = QR.map(g=>{
     let inner;
     if(g.fill) inner=`<div class="qfill">${g.fill.map(k=>{const u=UK[k];return `<div><img src="${sq(k)}" alt="" style="border-color:var(--c${u.c})"><span>${u.n}</span>${costChip(u.c)}</div>`}).join("")}</div>`;
-    else inner=g.units.map(([k,why,its,bk])=>{const u=UK[k];return `<div class="qu"><div class="hd"><img src="${sq(k)}" alt="" style="border-color:var(--c${u.c})"><span class="n">${u.n}</span>${costChip(u.c)}<span class="why">${why}</span></div>${its.map(i=>qLine(i)).join("")}${bk?qLine(bk,true):""}</div>`}).join("");
+    else inner=g.units.map(([k,why,its,bk])=>{const u=UK[k];return `<div class="qu"><div class="hd"><img src="${sq(k)}" alt="" style="border-color:var(--c${u.c})"><span class="n">${u.n}</span>${costChip(u.c)}<span class="why">${why}</span></div>${its.map(i=>qLine(i)).join("")}${(bk||[]).map(b=>qLine(b,true)).join("")}</div>`}).join("");
     return `<div class="qg" style="border-top-color:${g.col}"><h5 style="color:${g.col}">${g.h}</h5>${inner}</div>`;
   }).join("");
   $("#qrDots").innerHTML = QR.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join("");

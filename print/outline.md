@@ -78,8 +78,9 @@
 - {r:jg} · {r:shojin} · {r:voidstaff}
 
 ### Backups
-- {u:ziggs} {r:gunblade}
-- {u:seraphine} {r:jg}
+- {u:seraphine} {r:jg} · {r:bluebuff} · {r:archangel}
+- {u:ziggs} {r:gunblade} · {r:nashor} · {r:rabadon}
+- {u:kobuko} {r:bramble} · {r:dclaw} · {r:sunfire}
 :::
 
 ---page---
@@ -94,12 +95,14 @@
 - {r:jg}{br}**Does:** AP + crit; abilities can crit.{br}**Why:** his bomb and on-hit damage both crit.
 - {r:flail}{br}**Does:** crits give stacking Damage Amp.{br}**Why:** JG lets his bombs crit, so it stacks fast. **#3.**
 - {r:gunblade}{br}**Why:** backup: heals your lowest ally from damage dealt.
+- {r:nashor} · {r:rabadon}{br}**Why:** backups: Nashor if no Rod for Guinsoo, Rabadon if Rod-heavy.
 :::
 ::: box items
 ## {units:kobuko} Kobuko · tank
 - {r:gargoyle}{br}**Why:** Armor + MR per enemy targeting him.
 - {r:warmog}{br}**Why:** his passive gives Health from Hype, so stacking HP scales.
 - {r:visage}{br}**Why:** heals more the lower he gets.
+- {r:bramble} · {r:dclaw} · {r:sunfire}{br}**Why:** backups: Bramble vs AD, Dragon's Claw vs AP, Sunfire for anti-heal.
 :::
 |||
 ::: box items
@@ -108,6 +111,7 @@
 - {r:shojin}{br}**Does:** attacks give bonus Mana.{br}**Why:** casts come faster, and casting is their damage.
 - {r:morello}{br}**Does:** burn + wound.{br}**Why:** Seraphine's #3: her notes spread anti-heal.
 - {r:jg}{br}**Why:** Teemo's Viral ticks can crit; Seraphine's backup. Ziggs gets the first JG.
+- {r:bluebuff} · {r:archangel}{br}**Why:** backups with extra Tears: faster recasts / scaling AP in long fights.
 :::
 :::
 

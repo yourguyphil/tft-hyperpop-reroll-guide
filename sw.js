@@ -1,6 +1,6 @@
 // Auto-generated. Caches the whole site so it works offline once installed.
-const PREFIX = "hyperpop-reroll-guide-";
-const CACHE = PREFIX + "d567b0f43f";
+const PREFIX = "tft-hyperpop-reroll-guide-";
+const CACHE = PREFIX + "ba87a97cb8";
 const PRECACHE = [
 "./",
 "index.html",
